@@ -3,436 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Universal Marine Electronics: family-owned marine electronics installer in Davie, FL since 2004. Garmin and Simrad helms, radar, audio, lighting, thermal and wiring on center consoles from Stuart to Key West.">
-<meta name="theme-color" content="#071320">
+<title>Universal Marine Electronics · Boat electronics installer in Davie, FL</title>
+<meta name="description" content="Family-owned marine electronics installer in Davie, FL since 2004. Garmin and Simrad helms, blacked-out helm panels, radar, thermal, audio and wiring from Stuart to Key West. See 150+ photos of our work.">
+<meta name="theme-color" content="#040b14">
+<meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://universalmarinefl.com/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Universal Marine Electronics">
 <meta property="og:title" content="Universal Marine Electronics · Davie, FL">
-<meta property="og:description" content="150 photos of real helm builds, black panels and before-and-afters from a family shop with 20+ years on South Florida water.">
+<meta property="og:description" content="Helm builds, blacked-out panels and before-and-afters from a family shop with 20+ years on South Florida water.">
 <meta property="og:url" content="https://universalmarinefl.com/">
-<meta property="og:image" content="https://universalmarinefl.com/images/hero.webp">
+<meta property="og:image" content="https://universalmarinefl.com/images/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="images/favicon.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Universal Marine Electronics Inc.","alternateName":"UME",
-"description":"Marine electronics installation: Garmin and Simrad helms, radar, sonar, audio, lighting, thermal, security and wiring. Family-owned since 2004.",
-"telephone":"+1-786-325-5690","email":"umeinstall@gmail.com","url":"https://universalmarinefl.com",
-"image":"https://universalmarinefl.com/images/hero.webp",
-"address":{"@type":"PostalAddress","addressLocality":"Davie","addressRegion":"FL","addressCountry":"US"},
-"geo":{"@type":"GeoCoordinates","latitude":26.06,"longitude":-80.23},
-"areaServed":["Davie, FL","Fort Lauderdale, FL","Miami, FL","West Palm Beach, FL","Jupiter, FL","Stuart, FL","Florida Keys, FL"],
-"openingHours":"Mo-Fr 08:00-17:00","foundingDate":"2004",
-"sameAs":["https://www.instagram.com/universalmarineelectronics"]}
-</script>
-<title>Universal Marine Electronics</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=Saira+Condensed:wght@500;600;700&display=swap">
-<style>
-/* Layout: the page is a helm at night. A live, resizable center console opens the site;
-   everything below reads like a nautical chart — buff land, sounding blue, magenta route lines. */
-:root {
-  --bg: #071320;          /* night water */
-  --surface: #0c1c2e;
-  --surface-2: #11263d;
-  --line: rgba(143, 180, 220, 0.16);
-  --line-strong: rgba(143, 180, 220, 0.32);
-  --fg: #e7eef6;
-  --fg-dim: #93a8bf;
-  --brand: #5b9be0;       /* logo blue */
-  --brand-ink: #04121f;
-  --route: #e3529f;       /* chart magenta: routes, waypoints */
-  --sounding: #8fd0ef;    /* depth & data readouts */
-  --land: #2b2c22;
-  --water: #0b2034;
-  --shoal: #123552;
-  --ok: #5fcf9a;
-  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --font-body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --radius: 10px;
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #f3f6f9; --surface: #ffffff; --surface-2: #e8eff6;
-    --line: rgba(20, 52, 88, 0.13); --line-strong: rgba(20, 52, 88, 0.28);
-    --fg: #0b1e33; --fg-dim: #4c627a; --brand: #1d5fad; --brand-ink: #ffffff;
-    --route: #b2237d; --sounding: #1c6f9c; --land: #efe3b8; --water: #f7fbff; --shoal: #cfe4f2; --ok: #1d8a57;
-    color-scheme: light;
-  }
-}
-:root[data-theme="light"] {
-  --bg: #f3f6f9; --surface: #ffffff; --surface-2: #e8eff6;
-  --line: rgba(20, 52, 88, 0.13); --line-strong: rgba(20, 52, 88, 0.28);
-  --fg: #0b1e33; --fg-dim: #4c627a; --brand: #1d5fad; --brand-ink: #ffffff;
-  --route: #b2237d; --sounding: #1c6f9c; --land: #efe3b8; --water: #f7fbff; --shoal: #cfe4f2; --ok: #1d8a57;
-  color-scheme: light;
-}
-
-* { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-body {
-  margin: 0; background: var(--bg); color: var(--fg);
-  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
-  -webkit-font-smoothing: antialiased; overflow-x: hidden;
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; }
-button, input, select, textarea { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; border-radius: 4px; }
-
-.wrap { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: max(16px, 3vw); }
-.section { padding-block: clamp(64px, 9vw, 112px); }
-.section + .section { border-top: 1px solid var(--line); }
-
-h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 0.98; margin: 0; text-wrap: balance; letter-spacing: 0.005em; }
-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); text-transform: uppercase; }
-h3 { font-size: 1.45rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
-p { margin: 0; }
-.lead { font-size: 1.12rem; color: var(--fg-dim); max-width: 60ch; }
-.eyebrow {
-  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--sounding); display: inline-flex; align-items: center; gap: 10px;
-}
-.eyebrow::before { content: ""; width: 9px; height: 9px; border: 2px solid var(--route); transform: rotate(45deg); flex: none; }
-.section-head { display: grid; gap: 16px; margin-bottom: clamp(32px, 5vw, 56px); max-width: 760px; }
-
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 13px 22px; border-radius: 999px; border: 1px solid transparent;
-  font-weight: 600; font-size: 0.98rem; text-decoration: none; cursor: pointer;
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
-}
-.btn svg { width: 18px; height: 18px; flex: none; }
-.btn-primary { background: var(--brand); color: var(--brand-ink); }
-.btn-primary:hover { transform: translateY(-1px); filter: brightness(1.08); }
-.btn-ghost { border-color: var(--line-strong); background: transparent; color: var(--fg); }
-.btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
-.btn-sm { padding: 9px 16px; font-size: 0.9rem; }
-
-/* ---------- NAV ---------- */
-.nav {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner { display: flex; align-items: center; gap: 20px; min-height: 70px; }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
-.brand-badge { width: 52px; height: 52px; border-radius: 12px; background: #000; display: block; flex: none; overflow: hidden; box-shadow: 0 0 0 1px var(--line-strong); }
-.brand-badge img { width: 100%; height: 100%; display: block; object-fit: contain; }
-.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.22rem; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; }
-.brand-name small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.62rem; letter-spacing: 0.16em; color: var(--fg-dim); margin-top: 5px; }
-.nav-links { display: flex; gap: 20px; white-space: nowrap; list-style: none; margin: 0; padding: 0; }
-.nav-links a { text-decoration: none; color: var(--fg-dim); font-size: 0.94rem; font-weight: 500; }
-.nav-links a:hover { color: var(--fg); }
-.nav-actions { white-space: nowrap; display: flex; gap: 10px; align-items: center; }
-.menu-btn { display: none; background: none; border: 1px solid var(--line-strong); border-radius: 8px; width: 42px; height: 42px; cursor: pointer; }
-.menu-btn svg { width: 20px; height: 20px; }
-@media (max-width: 1180px) { .nav-call span { display: none; } .nav-call { padding: 10px; } .nav-links { gap: 16px; } }
-@media (max-width: 900px) {
-  .nav-links { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; background: var(--surface); border-bottom: 1px solid var(--line); padding: 8px max(16px, 3vw) 16px; }
-  .nav-links.open { display: flex; }
-  .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
-  .menu-btn { display: grid; place-items: center; }
-  .nav-pay { display: none; }
-}
-@media (max-width: 520px) { .brand-name small { display: none; } .nav-call span { display: none; } .nav-call { padding: 10px; } }
-
-select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--surface-2); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px;
-  border: 1px solid var(--line-strong); background: transparent; cursor: pointer; font-size: .9rem; font-weight: 500; color: var(--fg-dim);
-  transition: background .15s, color .15s, border-color .15s;
-}
-.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid currentColor; flex: none; }
-.chip[aria-pressed="true"] { background: color-mix(in srgb, var(--brand) 18%, transparent); border-color: var(--brand); color: var(--fg); }
-.chip[aria-pressed="true"]::before { background: var(--route); border-color: var(--route); }
-.fineprint { font-size: .78rem; color: var(--fg-dim); }
-
-.ribbon { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 20px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .06em; color: var(--fg-dim); text-transform: uppercase; }
-.ribbon span { display: inline-flex; align-items: center; gap: 10px; }
-.ribbon b { color: var(--fg); font-weight: 500; }
-.ribbon span + span::before { content: ""; width: 4px; height: 4px; background: var(--route); transform: rotate(45deg); }
-
-/* ---------- PROCESS ---------- */
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: step; position: relative; }
-.steps::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; border-top: 2px dashed var(--route); opacity: .6; }
-.step { position: relative; padding-right: 24px; display: grid; gap: 12px; align-content: start; }
-.step-mark { width: 40px; height: 40px; display: grid; place-items: center; background: var(--bg); border: 2px solid var(--route); transform: rotate(45deg); }
-.step-mark span { transform: rotate(-45deg); font-family: var(--font-mono); font-weight: 500; font-size: .85rem; }
-.step h3 { margin-top: 10px; }
-.step p { color: var(--fg-dim); font-size: .97rem; }
-@media (max-width: 860px) {
-  .steps { grid-template-columns: 1fr; gap: 28px; padding-left: 0; }
-  .steps::before { left: 19px; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 2px dashed var(--route); }
-  .step { grid-template-columns: 40px minmax(0, 1fr); column-gap: 20px; }
-  .step-mark { grid-row: span 2; }
-  .step h3 { margin-top: 8px; }
-}
-
-/* ---------- BOATS ---------- */
-.hulls { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 20px 48px; margin-top: 48px; align-items: start; }
-.hulls p { color: var(--fg-dim); margin-top: 8px; }
-@media (max-width: 860px) { .hulls { grid-template-columns: 1fr; } }
-.boats { display: flex; flex-wrap: wrap; gap: 8px; }
-.boat { background: transparent; color: var(--fg); cursor: pointer; transition: border-color .15s, background .15s; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 8px; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .04em; }
-.boat.spec { border-color: var(--route); position: relative; }
-.boat:hover { border-color: var(--brand); background: color-mix(in srgb, var(--brand) 12%, transparent); }
-.boat.spec small { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; color: var(--route); margin-left: 10px; vertical-align: middle; }
-
-/* ---------- AREA MAP ---------- */
-.area { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
-@media (max-width: 900px) { .area { grid-template-columns: 1fr; } }
-.chart { border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; background: var(--water); }
-.chart svg { display: block; width: 100%; height: auto; }
-.chart .land { fill: var(--land); stroke: var(--line-strong); stroke-width: 1; }
-.chart .shoal { fill: var(--shoal); }
-.chart .contour { fill: none; stroke: var(--sounding); stroke-width: 1; stroke-dasharray: 4 5; opacity: .55; }
-.chart .grid { stroke: var(--line); stroke-width: 1; }
-.chart .label { fill: var(--fg-dim); font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; }
-.chart .town { fill: var(--fg); font-family: var(--font-body); font-size: 12.5px; font-weight: 600; }
-.chart .pin { fill: var(--route); stroke: var(--water); stroke-width: 2; }
-.chart .shop { fill: var(--brand); stroke: var(--water); stroke-width: 2; }
-.chart .route { fill: none; stroke: var(--route); stroke-width: 2; stroke-dasharray: 7 5; }
-.chart .lake { fill: var(--shoal); stroke: var(--line-strong); }
-.areas { display: grid; gap: 0; border-top: 1px solid var(--line); }
-.areas div { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-.areas dt { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; text-transform: uppercase; }
-.areas dd { margin: 0; color: var(--fg-dim); }
-.areas .shopline dt { color: var(--brand); }
-@media (max-width: 480px) { .areas div { grid-template-columns: 1fr; gap: 2px; } }
-
-
-/* ---------- CERTS ---------- */
-.certs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.cert { padding: 24px; border: 1px solid var(--line-strong); border-radius: 12px; display: grid; gap: 10px; align-content: start; }
-.cert .seal { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--brand); display: grid; place-items: center; color: var(--brand); font-family: var(--font-mono); font-size: .7rem; font-weight: 500; }
-.cert p { color: var(--fg-dim); font-size: .95rem; }
-@media (max-width: 860px) { .certs { grid-template-columns: 1fr; } }
-
-/* ---------- CONTACT ---------- */
-.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
-@media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
-.contact-intro { display: grid; gap: 18px; align-content: start; }
-.reach { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 6px; }
-@media (max-width: 520px) { .reach { grid-template-columns: 1fr; } }
-.reach-card { border: 1px solid var(--line-strong); border-radius: 12px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; background: var(--surface); min-width: 0; }
-.reach-card.wide { grid-column: 1 / -1; }
-.reach-card .k { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-dim); }
-.reach-card .v { font-weight: 600; font-size: 1rem; overflow-wrap: anywhere; text-decoration: none; }
-.reach-card a.v:hover { color: var(--brand); }
-.reach-card .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-.copy { background: none; border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 14px; font-size: .85rem; font-weight: 600; cursor: pointer; color: var(--fg); }
-.copy:hover { border-color: var(--brand); color: var(--brand); }
-.hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: .95rem; margin: 0; }
-.hours dt { color: var(--fg-dim); } .hours dd { margin: 0; font-weight: 600; }
-form.quote { display: grid; gap: 14px; padding: clamp(20px, 3vw, 30px); border: 1px solid var(--line-strong); border-radius: 16px; background: var(--surface); }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 520px) { .row2 { grid-template-columns: 1fr; } }
-.field { display: grid; gap: 6px; min-width: 0; }
-.field label { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-dim); }
-.field input, .field textarea, .field select { width: 100%; padding: 12px 13px; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--bg); }
-.field textarea { min-height: 120px; resize: vertical; font-family: var(--font-mono); font-size: .85rem; line-height: 1.55; }
-.form-status { font-size: .92rem; min-height: 1.4em; }
-.form-status.ok { color: var(--ok); }
-.hidden-field { position: absolute; left: -9999px; }
-
-/* ---------- FOOTER ---------- */
-footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); color: var(--fg-dim); font-size: .9rem; }
-.foot { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; }
-.foot nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.foot a { text-decoration: none; }
-.foot a:hover { color: var(--fg); }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .js .h-rise .ln > *, .js .h-fade { animation: none; opacity: 1; transform: none; }
-}
-/* ---------- HERO: full-bleed photo, always dark ---------- */
-.hero { position: relative; overflow: hidden; isolation: isolate; color: #eef4fa;
-  min-height: calc(100svh - 71px); display: flex; align-items: flex-end; background: #050d17;
-  padding-block: clamp(96px, 14vw, 160px) clamp(28px, 4vw, 44px); }
-.hero > .wrap { width: 100%; position: relative; z-index: 2; }
-.hero-media { position: absolute; inset: 0; z-index: 0; margin: 0; }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; transform-origin: 60% 40%; }
-.js .hero-media img { animation: drift 24s ease-out both; }
-@keyframes drift { from { transform: scale(1.12); } to { transform: scale(1); } }
-.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(4,10,18,.92) 0%, rgba(4,10,18,.62) 42%, rgba(4,10,18,.15) 75%, rgba(4,10,18,.05) 100%),
-    linear-gradient(to top, #050d17 0%, rgba(5,13,23,.75) 22%, transparent 52%); }
-.sea3d { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 46%; z-index: 1; pointer-events: none; opacity: .75;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 45%); mask-image: linear-gradient(to bottom, transparent 0%, #000 45%); }
-.js .h-rise .ln { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; margin-bottom: -.06em; }
-.js .h-rise .ln > * { display: inline-block; transform: translateY(105%); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(.15s + var(--i) * .12s); }
-.js .h-fade { opacity: 0; animation: fadein .9s ease .65s forwards; }
-@keyframes rise { to { transform: none; } }
-@keyframes fadein { to { opacity: 1; } }
-.hero-copy { display: grid; gap: 22px; max-width: 760px; margin-bottom: clamp(36px, 6vw, 64px); }
-.hero h1 { font-size: clamp(2.9rem, 6.4vw, 5.4rem); text-transform: uppercase; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
-.hero h1 em { font-style: normal; color: #7db4ef; }
-.hero .lead { color: #c4d3e3; font-size: clamp(1.05rem, 1.6vw, 1.22rem); }
-.hero .eyebrow { color: #a9dcf5; }
-.hero .btn-ghost { color: #fff; border-color: rgba(255,255,255,.4); background: rgba(5,13,23,.35); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-.hero .btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.1); }
-.hero .btn-primary { background: #5b9be0; color: #04121f; }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-.ribbon { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .06em; color: #b9c8d8; text-transform: uppercase; }
-.ribbon span { display: inline-flex; align-items: center; gap: 10px; }
-.ribbon b { color: #fff; font-weight: 500; }
-.ribbon span + span::before { content: ""; width: 4px; height: 4px; background: #e3529f; transform: rotate(45deg); }
-.hero-tag { position: absolute; right: max(16px, 3vw); top: clamp(20px, 3vw, 32px); z-index: 2; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.75); background: rgba(5,13,23,.45); border: 1px solid rgba(255,255,255,.18); padding: 6px 10px; border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-@media (max-width: 700px) {
-  .hero::before { background: linear-gradient(to top, #050d17 0%, rgba(5,13,23,.86) 45%, rgba(5,13,23,.35) 75%, rgba(5,13,23,.15) 100%); }
-  .hero-media img { object-position: 38% 50%; }
-  .hero-tag { display: none; }
-}
-
-/* ---------- PHOTO REEL ---------- */
-.reel { background: #050d17; padding: 0 0 clamp(18px, 3vw, 28px); overflow: hidden; position: relative;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-.reel-track { display: flex; gap: 10px; width: max-content; animation: reel 90s linear infinite; }
-.reel:hover .reel-track { animation-play-state: paused; }
-.reel button { padding: 0; border: 0; background: #0c1c2e; border-radius: 10px; overflow: hidden; cursor: zoom-in; flex: none; height: clamp(110px, 14vw, 170px); }
-.reel img { height: 100%; width: auto; transition: transform .4s ease, filter .4s ease; filter: saturate(.92); }
-.reel button:hover img { transform: scale(1.05); filter: none; }
-@keyframes reel { to { transform: translateX(-50%); } }
-
-/* ---------- BEFORE / AFTER ---------- */
-.ba-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
-.ba { position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; background: #050d17; border: 1px solid var(--line-strong);
-  touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; --pos: 50%; }
-.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; -webkit-user-drag: none; }
-.ba .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-.ba-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,.5); pointer-events: none; }
-.ba-knob { position: absolute; top: 50%; left: var(--pos); width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: #fff; color: #04121f; display: grid; place-items: center; box-shadow: 0 4px 20px rgba(0,0,0,.45); pointer-events: none; }
-.ba-knob svg { width: 26px; height: 26px; }
-.ba-tag { position: absolute; top: 14px; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; pointer-events: none; }
-.ba-tag.b { left: 14px; background: rgba(5,13,23,.75); color: #fff; }
-.ba-tag.a { right: 14px; background: #5b9be0; color: #04121f; }
-.ba-range { position: absolute; inset: auto 0 0 0; width: 100%; opacity: 0; height: 1px; pointer-events: none; }
-.ba:focus-within { outline: 2px solid var(--route); outline-offset: 3px; }
-.ba-cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 12px; align-items: baseline; }
-.ba-cap b { font-family: var(--font-display); font-size: 1.35rem; text-transform: uppercase; font-weight: 600; letter-spacing: .02em; }
-.ba-cap span { color: var(--fg-dim); font-size: .95rem; }
-.ba-list { display: grid; gap: 10px; max-height: 640px; overflow: auto; padding-right: 4px; }
-.ba-pick { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; align-items: center; padding: 8px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; text-align: left; color: var(--fg); transition: border-color .15s, background .15s; }
-.ba-pick img { width: 92px; height: 69px; object-fit: cover; border-radius: 8px; }
-.ba-pick b { font-weight: 600; font-size: .92rem; line-height: 1.3; display: block; }
-.ba-pick small { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-dim); }
-.ba-pick[aria-pressed="true"] { border-color: var(--brand); background: color-mix(in srgb, var(--brand) 14%, var(--surface)); }
-.ba-pick:hover { border-color: var(--line-strong); }
-@media (max-width: 960px) {
-  .ba-layout { grid-template-columns: 1fr; }
-  .ba-list { grid-auto-flow: column; grid-auto-columns: 220px; max-height: none; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
-  .ba-pick { scroll-snap-align: start; }
-}
-.duo-head { margin: clamp(40px, 6vw, 64px) 0 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
-.duo-head h3 { font-size: 1.6rem; }
-.duos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.duo { margin: 0; display: grid; gap: 10px; }
-.duo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line-strong); }
-.duo-pair button { padding: 0; border: 0; position: relative; cursor: zoom-in; background: #050d17; aspect-ratio: 3 / 4; }
-.duo-pair img { width: 100%; height: 100%; object-fit: cover; }
-.duo-pair .ba-tag { top: 8px; left: 8px; right: auto; font-size: .6rem; padding: 4px 8px; }
-.duo figcaption { font-weight: 600; }
-.duo figcaption span { display: block; color: var(--fg-dim); font-weight: 400; font-size: .92rem; }
-@media (max-width: 900px) { .duos { grid-template-columns: 1fr; } .duo-pair button { aspect-ratio: 4 / 5; } }
-
-/* ---------- BLACKED OUT ---------- */
-.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
-@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
-.split-copy { display: grid; gap: 18px; }
-.split-copy p { color: var(--fg-dim); }
-.bp-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
-.bp-steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-.bp-steps b { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; color: var(--route); font-weight: 500; }
-.bp-steps span { color: var(--fg-dim); }
-.bp-steps strong { color: var(--fg); font-weight: 600; }
-.bp-hero { margin: 0; position: relative; }
-.bp-hero button { padding: 0; border: 0; display: block; width: 100%; cursor: zoom-in; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); }
-.bp-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.bp-hero figcaption { position: absolute; left: 14px; bottom: 14px; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: rgba(5,13,23,.7); padding: 6px 10px; border-radius: 999px; }
-.story { margin-top: clamp(40px, 6vw, 64px); }
-.story-head { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: end; margin-bottom: 18px; }
-.story-head h3 { font-size: 1.6rem; }
-.story-strip { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(220px, 26vw, 300px); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; counter-reset: st; scrollbar-width: thin; }
-.story-strip figure { margin: 0; scroll-snap-align: start; display: grid; gap: 10px; counter-increment: st; }
-.story-strip button { padding: 0; border: 0; border-radius: 12px; overflow: hidden; cursor: zoom-in; background: var(--surface-2); aspect-ratio: 3 / 4; position: relative; }
-.story-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-.story-strip button:hover img { transform: scale(1.04); }
-.story-strip button::after { content: counter(st, decimal-leading-zero); position: absolute; left: 10px; top: 10px; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: #fff; background: rgba(5,13,23,.72); padding: 4px 8px; border-radius: 999px; }
-.story-strip figure:last-child button::after { content: "Done"; background: var(--route); }
-.story-strip figcaption { font-size: .92rem; color: var(--fg-dim); }
-.story-strip figcaption b { color: var(--fg); font-weight: 600; display: block; }
-.story-nav { display: flex; gap: 8px; }
-.icon-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--fg); cursor: pointer; display: grid; place-items: center; }
-.icon-btn:hover { border-color: var(--brand); color: var(--brand); }
-.icon-btn svg { width: 18px; height: 18px; }
-
-/* ---------- SERVICES: photo cards ---------- */
-.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.svc { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); transition: border-color .2s, transform .2s; }
-.svc:hover { border-color: var(--line-strong); transform: translateY(-2px); }
-.svc-img { aspect-ratio: 16 / 10; overflow: hidden; position: relative; background: var(--surface-2); }
-.svc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
-.svc:hover .svc-img img { transform: scale(1.05); }
-.svc-code { position: absolute; left: 12px; top: 12px; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .14em; color: #fff; background: rgba(5,13,23,.72); padding: 4px 8px; border-radius: 999px; }
-.svc-body { padding: 18px 18px 20px; display: grid; gap: 8px; align-content: start; }
-.svc p { color: var(--fg-dim); font-size: .95rem; }
-.svc-go { justify-self: start; margin-top: 4px; background: none; border: 0; padding: 0; color: var(--brand); font-weight: 600; cursor: pointer; font-size: .92rem; }
-.svc-go:hover { text-decoration: underline; }
-@media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
-.hulls { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 20px 48px; margin-top: 48px; align-items: start; }
-
-/* ---------- GALLERY: masonry ---------- */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.chip .n { font-family: var(--font-mono); font-size: .72rem; color: var(--fg-dim); }
-.masonry { display: flex; gap: 12px; align-items: flex-start; }
-.mcol { flex: 1 1 0; min-width: 0; display: grid; gap: 12px; align-content: start; }
-.tile { margin: 0; position: relative; border-radius: 12px; overflow: hidden; background: var(--surface-2); display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; }
-.tile img { width: 100%; height: auto; display: block; transition: transform .6s ease, opacity .5s ease; opacity: 0; }
-.tile img.in { opacity: 1; }
-.tile:hover img { transform: scale(1.04); }
-.tile span { position: absolute; left: 10px; bottom: 10px; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: rgba(5,13,23,.72); padding: 4px 8px; border-radius: 999px; opacity: 0; transform: translateY(4px); transition: opacity .25s, transform .25s; }
-.tile:hover span, .tile:focus-visible span { opacity: 1; transform: none; }
-@media (hover: none) { .tile span { opacity: 1; transform: none; } }
-@media (max-width: 560px) { .masonry, .mcol { gap: 8px; } .tile { border-radius: 8px; } .tile span { display: none; } }
-@media (max-width: 600px) { .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 2px 16px 6px; scrollbar-width: none; } .filters .chip { flex: none; } }
-.gallery-foot { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; color: var(--fg-dim); }
-.more-wrap { display: flex; justify-content: center; margin-top: 18px; }
-
-/* ---------- LIGHTBOX ---------- */
-.lightbox { position: fixed; inset: 0; z-index: 100; background: #02060c; display: grid; grid-template-rows: auto 1fr auto; color: #fff; }
-.lb-top { display: flex; justify-content: space-between; align-items: center; padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 8px; font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #b9c8d8; }
-.lb-stage { position: relative; display: grid; place-items: center; min-height: 0; padding: 0 64px; touch-action: pan-y; }
-.lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
-.lightbox .icon-btn { color: #fff; border-color: rgba(255,255,255,.35); background: rgba(5,13,23,.6); }
-.lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); }
-.lb-prev { left: 12px; } .lb-next { right: 12px; }
-.lb-cap { padding: 10px 16px calc(16px + env(safe-area-inset-bottom, 0px)); text-align: center; color: #b9c8d8; font-size: .9rem; }
-@media (max-width: 600px) { .lb-stage { padding: 0 8px; } .lb-prev, .lb-next { position: fixed; top: auto; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); transform: none; width: 48px; height: 48px; } .lb-prev { left: calc(50% - 58px); } .lb-next { right: calc(50% - 58px); } .lb-cap { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); } }
-
-@media (prefers-reduced-motion: reduce) {
-  .js .hero-media img, .reel-track { animation: none; }
-  .reel { overflow-x: auto; }
-}
-</style>
+<link rel="apple-touch-icon" href="images/ume-logo.png">
+<link rel="preload" as="image" href="images/hero.webp" media="(min-width: 761px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero-phone.webp" media="(max-width: 760px)">
+<link rel="preload" as="image" href="images/ume-logo.webp">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/saira-condensed-latin-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/instrument-sans-latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=115ef27a">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Universal Marine Electronics Inc.","alternateName":"UME","description":"Marine electronics installation: Garmin and Simrad helms, blacked-out helm panels, radar, sonar, thermal, audio, lighting, security and wiring. Family-owned since 2004.","telephone":"+1-786-325-5690","email":"umeinstall@gmail.com","url":"https://universalmarinefl.com","image":"https://universalmarinefl.com/images/og.jpg","logo":"https://universalmarinefl.com/images/ume-seal.webp","address":{"@type":"PostalAddress","addressLocality":"Davie","addressRegion":"FL","addressCountry":"US"},"areaServed":["Davie, FL","Fort Lauderdale, FL","Miami, FL","West Palm Beach, FL","Jupiter, FL","Stuart, FL","Florida Keys, FL"],"openingHours":"Mo-Fr 08:00-17:00","foundingDate":"2004","sameAs":["https://www.instagram.com/universalmarineelectronics"]}</script>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-<script>document.documentElement.classList.add('js');</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
 
-<!-- ============ NAV ============ -->
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top" aria-label="Universal Marine Electronics, home">
-      <span class="brand-badge"><img src="data:image/webp;base64,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" alt="" width="52" height="52"></span>
-      <span class="brand-name">Universal Marine<small>Electronics · Since 2004</small></span>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Universal Marine Electronics, back to top">
+      <span class="logo-plate sm"><img class="brand-logo" src="images/ume-logo.webp" alt="" width="60" height="60"></span>
+      <span class="brand-name">Universal Marine<small>Electronics</small></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#before-after">Before &amp; after</a></li>
@@ -442,265 +52,267 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <a class="btn btn-ghost btn-sm nav-pay" href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay invoice</a>
-      <a class="btn btn-primary btn-sm nav-call" href="tel:+17863255690" aria-label="Call (786) 325-5690">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-        <span>(786) 325-5690</span>
-      </a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
+      <a class="btn btn-glass btn-sm nav-pay" href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay invoice</a>
+      <a class="btn btn-primary btn-sm nav-call" href="tel:+17863255690" aria-label="Call (786) 325-5690"><svg><use href="#i-phone"/></svg><span>(786) 325-5690</span></a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
 </header>
 
 <main id="top">
-<!-- ============ HERO ============ -->
+
+<!-- ============ HERO: full screen, slideshow on desktop, helm video on phones ============ -->
 <section class="hero" id="home">
-  <figure class="hero-media"><img src="images/hero.webp" srcset="images/hero-m.webp 1000w, images/hero.webp 2048w" sizes="100vw" alt="Finished glass helm with two Simrad displays lit up, rigged by UME" fetchpriority="high"></figure>
-  <canvas class="sea3d" id="sea3d" aria-hidden="true"></canvas>
-  <span class="hero-tag">Our work · Simrad glass helm</span>
-  <div class="wrap">
-    <div class="hero-copy">
-      <span class="eyebrow">Family-owned · Davie, FL · Since 2004</span>
-      <h1 class="h-rise"><span class="ln"><span style="--i:0">Marine</span></span> <span class="ln"><span style="--i:1">electronics,</span></span> <span class="ln"><em style="--i:2">rigged right.</em></span></h1>
-      <p class="lead h-fade">Twenty years of helm builds on South Florida boats: Garmin and Simrad displays, black panels, radar, thermal, audio, and the wiring behind all of it.</p>
-      <div class="hero-ctas h-fade">
-        <a class="btn btn-primary" href="#contact">Start a quote</a>
-        <a class="btn btn-ghost" href="#before-after">See before &amp; after</a>
-        <a class="btn btn-ghost" href="#work"><span>Browse <span data-total>150</span> photos</span></a>
-      </div>
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <div class="slide on" data-cap="Simrad glass helm"><img src="images/hero.webp" alt="" fetchpriority="high"></div>
+    <div class="slide" data-cap="Blacked-out twin display"><img data-src="images/g/blackout-08.webp" alt=""></div>
+    <div class="slide" data-cap="Dual-display center console"><img data-src="images/g/helm-26.webp" alt=""></div>
+    <div class="slide" data-cap="Radar and camera, live"><img data-src="images/g/blackout-15.webp" alt=""></div>
+    <div class="slide" data-cap="Delivered and running"><img data-src="images/g/boats-13.webp" alt=""></div>
+  </div>
+  <div class="hero-shade"></div>
+  <div class="hero-content">
+    <span class="logo-plate hero-logo"><img src="images/ume-logo.webp" srcset="images/ume-logo.webp 640w, images/ume-logo-1024.webp 1024w" sizes="260px" alt="Universal Marine Electronics logo" width="260" height="260"></span>
+    <h1 class="hero-title"><span class="ln"><span>Universal Marine</span></span><span class="ln sub"><span>Electronics</span></span></h1>
+    <p class="hero-tag">Marine electronics, rigged right. <span>Family-owned in Davie, FL since 2004.</span></p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-lg" href="#contact">Start a quote <svg><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-glass btn-lg" href="#before-after">See before &amp; after</a>
     </div>
-    <div class="ribbon" aria-label="Credentials">
-      <span><b data-count="20" data-suffix="+ yrs">20+ yrs</b> on South Florida water</span>
-      <span><b data-count="1000" data-suffix="+">1,000+</b> boats rigged</span>
-      <span><b>NMEA</b> certified installer (MEI)</span>
-      <span><b>Garmin</b> authorized installer</span>
+  </div>
+  <div class="hero-foot">
+    <span class="hero-cap" id="heroCap">Our work · Simrad glass helm</span>
+    <div class="hero-dots" id="heroDots"></div>
+    <a class="scroll-cue" href="#statement" aria-label="Scroll down"><span></span>Scroll</a>
+  </div>
+</section>
+
+<!-- ============ STATEMENT ============ -->
+<section class="statement" id="statement">
+  <div class="wrap">
+    <p class="big-words" id="bigWords">Twenty years on South Florida water. Over a thousand boats rigged. Every wire labeled, every screen flush, every job signed by the family that did it.</p>
+    <div class="stats">
+      <div class="stat"><b data-count="20" data-suffix="+">20+</b><span>Years on the water</span></div>
+      <div class="stat"><b data-count="1000" data-suffix="+">1,000+</b><span>Boats rigged</span></div>
+      <div class="stat"><b>MEI</b><span>NMEA certified installer</span></div>
+      <div class="stat"><b>Garmin</b><span>Authorized installer</span></div>
     </div>
   </div>
 </section>
-<div class="reel" id="reel" aria-label="Recent work"><div class="reel-track" id="reelTrack"></div></div>
 
-<!-- ============ BEFORE / AFTER ============ -->
-<section class="section" id="before-after">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Before &amp; after</span>
-      <h2>Same helm. Same angle. Night and day.</h2>
-      <p class="lead">Real jobs from our shop, shot from the same spot before and after. Drag the line to compare.</p>
+<!-- ============ BEFORE / AFTER: scroll to wipe ============ -->
+<section class="wipe" id="before-after" aria-label="Before and after">
+  <div class="wipe-pin">
+    <div class="wipe-stage" id="wipe">
+      <img class="wipe-after" src="images/ba/P4-after.webp" alt="After: finished helm with twin chartplotters" loading="lazy" decoding="async">
+      <img class="wipe-before" src="images/ba/P4-before.webp" alt="Before: the same helm with an empty dash" loading="lazy" decoding="async">
+      <span class="wipe-line"></span>
     </div>
-    <div class="ba-layout">
+    <div class="wipe-shade"></div>
+    <div class="wipe-copy">
+      <span class="eyebrow">Before &amp; after</span>
+      <h2>Same helm.<br>Same angle.<br><em>Night and day.</em></h2>
+      <p class="wipe-hint">Keep scrolling</p>
+    </div>
+    <span class="wipe-tag b">Before</span><span class="wipe-tag a">After</span>
+  </div>
+</section>
+
+<section class="section" id="jobs">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="head rv"><span class="eyebrow">Real jobs</span><h2>Drag to compare</h2></div>
+      <p class="lead rv" style="--d:1">Every pair is the same boat, shot from the same spot before and after we rigged it.</p>
+    </div>
+    <div class="ba-layout rv">
       <div>
-        <div class="ba" id="ba" tabindex="-1">
-          <img id="baAfter" alt="">
-          <img id="baBefore" class="ba-before" alt="">
+        <div class="ba" id="ba">
+          <img id="baAfter" alt="" decoding="async">
+          <img id="baBefore" class="ba-before" alt="" decoding="async">
           <span class="ba-tag b">Before</span><span class="ba-tag a">After</span>
           <span class="ba-line"></span>
-          <span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
-          <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+          <span class="ba-knob"><svg><use href="#i-drag"/></svg>Drag</span>
+          <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
         </div>
         <div class="ba-cap"><b id="baTitle"></b><span id="baSub"></span></div>
       </div>
-      <div class="ba-list" id="baList" role="toolbar" aria-label="Choose a job"></div>
+      <div class="ba-picks" id="baPicks" role="group" aria-label="Choose a job"></div>
     </div>
-
-    <div class="duo-head"><h3>More transformations</h3><span class="fineprint">Tap a photo to see it full size</span></div>
-    <div class="duos" id="duos"></div>
   </div>
 </section>
 
-<!-- ============ BLACKED OUT ============ -->
-<section class="section" id="blacked-out">
+<!-- ============ BLACKED OUT: full-bleed feature ============ -->
+<section class="feature" id="blacked-out">
+  <div class="feature-media par"><img src="images/g/blackout-05.webp" alt="Finished blacked-out helm: two displays flush behind one black face" loading="lazy" decoding="async"></div>
+  <div class="feature-shade"></div>
+  <div class="wrap feature-copy rv">
+    <span class="eyebrow">Signature build</span>
+    <h2><span class="nw">The blacked-out</span> helm</h2>
+    <p>We replace the screen area of your console with one black Starboard panel, cut to fit your dash exactly. The displays sit flush in a single clean black face, and the rest of the console stays factory.</p>
+    <div class="feature-ctas"><a class="btn btn-primary btn-lg" href="#contact">Ask about a black panel <svg><use href="#i-arrow"/></svg></a><a class="btn btn-glass btn-lg" href="#story">Watch one come together</a></div>
+  </div>
+</section>
+<section class="section steps-sec">
   <div class="wrap">
-  <div class="split">
-    <div class="split-copy">
-      <span class="eyebrow">Signature build</span>
-      <h2>The blacked-out helm</h2>
-      <p>We replace the screen area of your console with one black Starboard panel, cut to fit your dash exactly. The displays sit flush in a single clean black face, and the rest of the console stays factory.</p>
-      <ol class="bp-steps">
-        <li><b>01</b><span><strong>Measure.</strong> We template the console's screen area and lay out every display opening.</span></li>
-        <li><b>02</b><span><strong>Cut.</strong> The black Starboard panel is cut to the exact shape of your dash.</span></li>
-        <li><b>03</b><span><strong>Sand &amp; polish.</strong> Edges and face are finished by hand.</span></li>
-        <li><b>04</b><span><strong>Install.</strong> Bonded with marine adhesive and bolted in, then the displays go in flush.</span></li>
-      </ol>
-      <div><a class="btn btn-primary" href="#contact">Ask about a black panel</a></div>
-    </div>
-    <figure class="bp-hero"><button type="button" data-full="images/g/blackout-05.webp" aria-label="View full size"><img src="images/g/blackout-05.webp" alt="Finished blacked-out helm: two displays flush behind one black face" loading="lazy"></button><figcaption>Finished · one black face</figcaption></figure>
-  </div>
-
-  <div class="story">
-    <div class="story-head">
-      <div style="display:grid;gap:10px">
-        <span class="eyebrow">Start to finish</span>
-        <h3>Watch one come together</h3>
-        <div class="chips" id="storyTabs" role="toolbar" aria-label="Choose a build"></div>
-      </div>
-      <div class="story-nav">
-        <button class="icon-btn" id="stPrev" aria-label="Scroll back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <button class="icon-btn" id="stNext" aria-label="Scroll forward"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
-      </div>
-    </div>
-    <div class="story-strip" id="storyStrip"></div>
-  </div>
+    <ol class="steps4">
+      <li class="rv"><b>Measure</b><span>We template the console's screen area and lay out every display opening.</span></li>
+      <li class="rv" style="--d:1"><b>Cut</b><span>The black Starboard panel is cut to the exact shape of your dash.</span></li>
+      <li class="rv" style="--d:2"><b>Sand &amp; polish</b><span>Edges and face are finished by hand.</span></li>
+      <li class="rv" style="--d:3"><b>Install</b><span>Bonded with marine adhesive and bolted in, then the displays go in flush.</span></li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ SERVICES ============ -->
+<!-- ============ BUILD STORY: scroll sideways ============ -->
+<section class="story" id="story">
+  <div class="story-pin">
+    <div class="wrap story-head">
+      <div class="head"><span class="eyebrow">Start to finish</span><h2>Watch one come together</h2></div>
+      <div class="story-ctrl">
+        <div class="chips" id="storyTabs" role="group" aria-label="Choose a build"></div>
+        <div class="story-nav"><button class="icon-btn" id="stPrev" aria-label="Back"><svg><use href="#i-left"/></svg></button><button class="icon-btn" id="stNext" aria-label="Forward"><svg><use href="#i-right"/></svg></button></div>
+      </div>
+    </div>
+    <div class="story-track" id="storyTrack"><div class="story-strip" id="storyStrip"></div></div>
+    <div class="wrap"><div class="story-bar"><span id="storyBar"></span></div></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES: one big photo per row ============ -->
 <section class="section" id="services">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Services</span>
-      <h2>What we install</h2>
-      <p class="lead">From a single chartplotter swap to a ground-up electronics package on a new hull, done to manufacturer spec and the NMEA 0400 installation standard.</p>
+    <div class="head-row">
+      <div class="head rv"><span class="eyebrow">Services</span><h2>What we install</h2></div>
+      <p class="lead rv" style="--d:1">From a single chartplotter swap to a full electronics package on a new hull, installed to manufacturer spec and the NMEA 0400 standard.</p>
     </div>
-    <div class="svc-grid">
-      <article class="svc"><div class="svc-img"><img src="images/g/t/helm-30.webp" alt="Dual-display Simrad helm" loading="lazy"><span class="svc-code">NAV</span></div><div class="svc-body"><h3>Garmin &amp; Simrad helms</h3><p>Single, dual and triple display builds with VHF, autopilot and radar on a properly laid-out NMEA 2000 backbone.</p><button class="svc-go" data-go="helm">See helm builds →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/blackout-02.webp" alt="Black panel on the bench" loading="lazy"><span class="svc-code">BLK</span></div><div class="svc-body"><h3>Blacked-out panels</h3><p>One black Starboard face cut to your dash, displays flush, the rest of the console left factory.</p><button class="svc-go" data-go="blackout">See black panels →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-04.webp" alt="Garmin open-array radar on a hardtop" loading="lazy"><span class="svc-code">RAD · SON</span></div><div class="svc-body"><h3>Radar &amp; sonar</h3><p>Garmin and Simrad open-array and dome radars, CHIRP, side-scan, forward-facing and live sonar, installed and calibrated.</p><button class="svc-go" data-go="radar">See radar work →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-15.webp" alt="FLIR thermal camera on a hardtop" loading="lazy"><span class="svc-code">IR</span></div><div class="svc-body"><h3>Night vision &amp; thermal</h3><p>SIONYX Nightwave, FLIR M-Series and Raymarine thermal cameras, tuned for offshore and inlet runs after dark.</p><button class="svc-go" data-go="radar">See cameras →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-02.webp" alt="Flat satellite antenna on a hardtop" loading="lazy"><span class="svc-code">COM</span></div><div class="svc-body"><h3>Starlink, antennas &amp; comms</h3><p>Starlink marine, VHF, AIS, cellular Wi-Fi boosters, KVH and Intellian. Grounded and tuned properly.</p><button class="svc-go" data-go="radar">See hardtop installs →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/wiring-14.webp" alt="Labeled console wiring and fuse blocks" loading="lazy"><span class="svc-code">WIR</span></div><div class="svc-body"><h3>Wiring &amp; rebuilds</h3><p>Clean, labeled, loom-wrapped runs to ABYC and NMEA 0400. Fuse panels, breaker management and troubleshooting.</p><button class="svc-go" data-go="wiring">See wiring →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/av-01.webp" alt="Pop-up TV in a yacht salon" loading="lazy"><span class="svc-code">AUD · TV</span></div><div class="svc-body"><h3>Audio &amp; TVs</h3><p>JL Audio, Fusion and Wet Sounds systems, plus pop-up and wall-mount TVs for salons, cabins and hardtop lounges.</p><button class="svc-go" data-go="av">See audio &amp; TV →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-06.webp" alt="Radar and camera dome on a hardtop" loading="lazy"><span class="svc-code">SEC</span></div><div class="svc-body"><h3>Security &amp; cameras</h3><p>Yamaha and Garmin security systems, 360° docking cameras and GOST alarm packages.</p><button class="svc-go" data-go="radar">See camera installs →</button></div></article>
-      <article class="svc"><div class="svc-img"><img src="images/g/t/shop-03.webp" alt="Installing a spotlight on a hardtop" loading="lazy"><span class="svc-code">LGT · TRL</span></div><div class="svc-body"><h3>Lighting &amp; trolling motors</h3><p>Lumishore, Lumitec and OceanLED lighting, spotlights and light bars. Garmin Force, Minn Kota and Rhodan trolling motors.</p><button class="svc-go" data-go="shop">See the crew at work →</button></div></article>
-    </div>
-    <div class="hulls">
-      <div><h3>Hulls we rig</h3><p>Intrepid is our specialty, and we have rigged nearly every major South Florida build.</p></div>
-      <div class="boats">
-        <span class="boat spec">Intrepid<small>Specialty</small></span>
-        <span class="boat">Invincible</span><span class="boat">SeaVee</span><span class="boat">Contender</span>
-        <span class="boat">Yellowfin</span><span class="boat">Freeman</span><span class="boat">Midnight Express</span>
-        <span class="boat">Pursuit</span><span class="boat">Scout</span><span class="boat">Boston Whaler</span>
-        <span class="boat">Grady-White</span><span class="boat">Concept</span><span class="boat">Cobia</span>
-      </div>
+    <div class="rows">
+      <article class="row"><div class="row-img"><img src="images/g/helm-30.webp" alt="Dual-display Simrad helm" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">01</span><h3>Garmin &amp; Simrad helms</h3><p>Single, dual and triple display builds with VHF, autopilot and radar on one clean NMEA 2000 network.</p><button class="row-go" data-go="helm">See helm builds <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/blackout-02.webp" alt="Black helm panel on the bench" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">02</span><h3><span class="nw">Blacked-out</span> panels</h3><p>One black Starboard face cut to your dash, displays flush, the rest of the console left factory.</p><button class="row-go" data-go="blackout">See black panels <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/radar-04.webp" alt="Garmin open-array radar on a hardtop" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">03</span><h3>Radar &amp; sonar</h3><p>Garmin and Simrad open-array and dome radars, CHIRP, side-scan, forward-facing and live sonar, installed and calibrated.</p><button class="row-go" data-go="radar">See radar work <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/radar-14.webp" alt="FLIR thermal camera on a hardtop" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">04</span><h3>Night vision &amp; thermal</h3><p>SIONYX Nightwave, FLIR M-Series and Raymarine thermal cameras, tuned for offshore and inlet runs after dark.</p><button class="row-go" data-go="radar">See cameras <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/radar-02.webp" alt="Flat satellite antenna on a hardtop" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">05</span><h3>Starlink, antennas &amp; comms</h3><p>Starlink marine, VHF, AIS, cellular Wi-Fi boosters, KVH and Intellian. Grounded and tuned properly.</p><button class="row-go" data-go="radar">See hardtop installs <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/wiring-25.webp" alt="Clean, labeled wiring in an engine room" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">06</span><h3>Wiring &amp; rebuilds</h3><p>Clean, labeled, loom-wrapped runs to ABYC and NMEA 0400. Fuse panels, breaker management and troubleshooting.</p><button class="row-go" data-go="wiring">See wiring <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/av-01.webp" alt="Pop-up TV in a yacht salon" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">07</span><h3>Audio &amp; TVs</h3><p>JL Audio, Fusion and Wet Sounds systems, plus pop-up and wall-mount TVs for salons, cabins and hardtop lounges.</p><button class="row-go" data-go="av">See audio &amp; TV <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/radar-06.webp" alt="Radar and camera dome on a hardtop" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">08</span><h3>Security &amp; cameras</h3><p>Yamaha and Garmin security systems, 360° docking cameras and GOST alarm packages.</p><button class="row-go" data-go="radar">See camera installs <svg><use href="#i-arrow"/></svg></button></div></article>
+      <article class="row"><div class="row-img"><img src="images/g/shop-03.webp" alt="Installing a spotlight on a hardtop" loading="lazy" decoding="async"></div><div class="row-copy"><span class="row-n">09</span><h3>Lighting &amp; trolling motors</h3><p>Lumishore, Lumitec and OceanLED lighting, spotlights and light bars. Garmin Force, Minn Kota and Rhodan trolling motors.</p><button class="row-go" data-go="shop">See the crew at work <svg><use href="#i-arrow"/></svg></button></div></article>
     </div>
   </div>
 </section>
 
-<!-- ============ GALLERY ============ -->
-<section class="section" id="work">
+<!-- ============ HULLS: marquee ============ -->
+<section class="hulls" aria-label="Hulls we rig">
+  <p class="hulls-label">Hulls we rig · <b>Intrepid is our specialty</b></p>
+  <div class="marquee"><div class="marquee-track" id="hullTrack">
+    <span class="spec">Intrepid</span><span>Invincible</span><span>SeaVee</span><span>Contender</span><span>Yellowfin</span><span>Freeman</span><span>Midnight Express</span><span>Pursuit</span><span>Scout</span><span>Boston Whaler</span><span>Grady-White</span><span>Concept</span><span>Cobia</span>
+  </div></div>
+</section>
+
+<!-- ============ GALLERY: edge to edge ============ -->
+<section class="section gallery-sec" id="work">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Portfolio · <span data-total>150</span> photos</span>
-      <h2>Our work</h2>
-      <p class="lead">Finished helms, black panels, hardtop gear, and the wiring behind the glass you never see but always feel. All shot in our shop and at our customers' docks.</p>
+    <div class="head-row">
+      <div class="head rv"><span class="eyebrow">Portfolio · <span data-total>153</span> photos</span><h2>Our work</h2></div>
+      <p class="lead rv" style="--d:1">Finished helms, black panels, hardtop gear and the wiring behind the glass. All shot in our shop and at our customers' docks.</p>
     </div>
-    <div class="filters" id="gFilters" role="toolbar" aria-label="Filter work"></div>
-    <div class="masonry" id="gallery"></div>
-    <div class="more-wrap"><button class="btn btn-ghost" id="gMore" hidden>Show more</button></div>
-    <div class="gallery-foot">
-      <span>New installs go up on Instagram most weeks.</span>
-      <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">@universalmarineelectronics</a>
-    </div>
+    <div class="chips filters" id="gFilters" role="group" aria-label="Filter photos"></div>
+  </div>
+  <div class="wall" id="gallery"></div>
+  <div class="wrap">
+    <div class="g-more"><button class="btn btn-glass btn-lg" id="gMore" hidden>Show more</button><span class="small" id="gCount"></span></div>
+    <div class="g-foot"><span>New installs go up on Instagram most weeks.</span><a class="btn btn-glass btn-sm" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">Follow @universalmarineelectronics</a></div>
   </div>
 </section>
 
 <!-- ============ PROCESS ============ -->
-<section class="section" id="process">
+<section class="section band" id="process">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">How a build goes</span>
-      <h2>From bare console to sea trial</h2>
-    </div>
-    <ol class="steps" style="list-style:none;margin:0;padding:0">
-      <li class="step"><div class="step-mark"><span>1</span></div><h3>Walk the boat</h3><p>Call or text us a photo. We look at the hull, the console and how you fish or cruise, then spec the electronics around it.</p></li>
-      <li class="step"><div class="step-mark"><span>2</span></div><h3>Lay out the helm</h3><p>Display sizes, flush or pod mount, switch panel and where every piece sits. You approve the layout before anything gets cut.</p></li>
-      <li class="step"><div class="step-mark"><span>3</span></div><h3>Install &amp; wire</h3><p>In our indoor Davie shop or at your marina. Labeled, loom-wrapped runs on a clean NMEA 2000 backbone, tested on a scope.</p></li>
-      <li class="step"><div class="step-mark"><span>4</span></div><h3>Sea trial &amp; handoff</h3><p>We calibrate autopilot, compass and radar underway, then walk you through every screen before you run it on your own.</p></li>
+    <div class="head rv"><span class="eyebrow">How a build goes</span><h2>From bare console to sea trial</h2></div>
+    <ol class="proc">
+      <li class="rv"><img src="images/g/t/boats-02.webp" alt="Center console in the Davie shop" loading="lazy" decoding="async"><div><span>01</span><h3>Walk the boat</h3><p>Call or text us a photo. We look at the hull, the console and how you fish or cruise, then spec the electronics around it.</p></div></li>
+      <li class="rv" style="--d:1"><img src="images/g/t/shop-04.webp" alt="Paper template laid out on a helm" loading="lazy" decoding="async"><div><span>02</span><h3>Lay out the helm</h3><p>Display sizes, flush or pod mount, switch panel and where every piece sits. You approve it before anything gets cut.</p></div></li>
+      <li class="rv" style="--d:2"><img src="images/g/t/wiring-14.webp" alt="Clean, labeled console wiring" loading="lazy" decoding="async"><div><span>03</span><h3>Install &amp; wire</h3><p>In our indoor Davie shop or at your marina. Labeled, loom-wrapped runs on a clean NMEA 2000 backbone.</p></div></li>
+      <li class="rv" style="--d:3"><img src="images/g/t/boats-13.webp" alt="Finished boat at the dock" loading="lazy" decoding="async"><div><span>04</span><h3>Sea trial &amp; handoff</h3><p>We calibrate autopilot, compass and radar underway, then walk you through every screen.</p></div></li>
     </ol>
   </div>
+</section>
+
+<!-- ============ WHY UME: full bleed ============ -->
+<section class="feature why" id="why">
+  <div class="feature-media par"><img src="images/g/shop-07.webp" alt="" loading="lazy" decoding="async"></div>
+  <div class="feature-shade"></div>
+  <div class="wrap why-in">
+    <div class="rv">
+      <span class="eyebrow">Why UME</span>
+      <h2>A family shop that does it right</h2>
+      <p class="lead">Since 2004 we've rigged boats in salt, sun and humidity, so we know which installs hold up down here and which ones don't. You talk to the people who do the work.</p>
+    </div>
+    <div class="creds">
+      <div class="cred rv"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 5l14 5v10c0 9-6 15.5-14 19C14 35.5 8 29 8 20V10z"/><path d="M15.5 21.5l4.5 4.5 8.5-9"/></svg><b>Garmin authorized installer</b><span>Trained by Garmin on current marine lines</span></div>
+      <div class="cred rv" style="--d:1"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="17" r="10"/><path d="M16 25.5L13 39l9-4.5 9 4.5-3-13.5"/><path d="M18 17l3 3 5-6"/></svg><b>NMEA certified installer</b><span>Marine Electronics Installer, NMEA 0400</span></div>
+      <div class="cred rv" style="--d:2"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21L22 8l16 13"/><path d="M10 18v18h24V18"/><path d="M18 36V26h8v10"/></svg><b>Family-owned since 2004</b><span>Same family, same standards, twenty years</span></div>
+      <div class="cred rv" style="--d:3"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 28h34l-5 8H11z"/><path d="M14 28V16h12l6 12"/><path d="M19 16V9"/><path d="M4 39c3 0 3-1.5 6-1.5S13 39 16 39s3-1.5 6-1.5S25 39 28 39s3-1.5 6-1.5 3 1.5 6 1.5"/></svg><b>1,000+ boats rigged</b><span>Center consoles to yachts, Stuart to Key West</span></div>
+      <button type="button" class="certs-photo rv" data-full="images/certs.webp" data-cap="Our Garmin and NMEA (MEI) certificates"><img src="images/certs.webp" alt="Garmin certificate of completion and NMEA Marine Electronics Installer certificate" loading="lazy" decoding="async"><span>Our certificates, on the shop wall</span></button>
+    </div>
+  </div>
+  <div class="wrap"><div class="reviews" id="reviews" hidden></div></div>
 </section>
 
 <!-- ============ SERVICE AREA ============ -->
 <section class="section" id="area">
   <div class="wrap area">
-    <div style="display:grid;gap:22px">
-      <div class="section-head" style="margin:0">
-        <span class="eyebrow">Service area</span>
-        <h2>Come to us, or we come to you</h2>
-        <p class="lead">Trailer it to our indoor shop in Davie (address shared after your first call), or we work at your marina or dock anywhere from Stuart to Key West.</p>
-      </div>
-      <dl class="areas" style="margin:0">
-        <div class="shopline"><dt>Davie</dt><dd>Indoor shop bay. Bring the boat and trailer.</dd></div>
-        <div><dt>Fort Lauderdale</dt><dd>Las Olas, Pompano, Hillsboro</dd></div>
-        <div><dt>Miami</dt><dd>Miami Beach, Key Biscayne, Coconut Grove</dd></div>
-        <div><dt>Palm Beach</dt><dd>West Palm, Jupiter, Stuart</dd></div>
-        <div><dt>Florida Keys</dt><dd>Key Largo, Islamorada, Marathon, Key West</dd></div>
+    <div class="rv">
+      <div class="head" style="margin-bottom:0"><span class="eyebrow">Service area</span><h2>Come to us, or we come to you</h2>
+        <p class="lead">Trailer it to our indoor shop in Davie, or we work at your marina or dock anywhere from Stuart to Key West.</p></div>
+      <dl class="areas">
+        <div class="home"><dt>Davie</dt><dd>Indoor shop bay</dd></div>
+        <div><dt>Fort Lauderdale</dt><dd>Las Olas · Pompano · Hillsboro</dd></div>
+        <div><dt>Miami</dt><dd>Miami Beach · Key Biscayne · Coconut Grove</dd></div>
+        <div><dt>Palm Beach</dt><dd>West Palm · Jupiter · Stuart</dd></div>
+        <div><dt>Florida Keys</dt><dd>Key Largo · Islamorada · Marathon · Key West</dd></div>
       </dl>
-      <p class="fineprint">Service calls are a flat fee by location, quoted before we drive. Keys and Palm Beach runs include travel time.</p>
+      <p class="small" style="margin-top:16px">Shop address shared after your first call. Service calls are a flat fee by location, quoted before we drive.</p>
     </div>
-    <figure class="chart" style="margin:0" id="chart" aria-label="Chart of South Florida service area"></figure>
-  </div>
-</section>
-
-<!-- ============ CERTS ============ -->
-<section class="section" id="certified">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Certified</span>
-      <h2>Trained to the standard</h2>
-    </div>
-    <div class="certs">
-      <div class="cert"><span class="seal">GRMN</span><h3>Garmin authorized installer</h3><p>Certificate of completion, trained directly by Garmin on current marine product lines.</p></div>
-      <div class="cert"><span class="seal">MEI</span><h3>NMEA certified installer</h3><p>Marine Electronics Installer certification and the NMEA 0400 installation standard.</p></div>
-      <div class="cert"><span class="seal">2004</span><h3>20+ years in South Florida</h3><p>Salt, sun, sand and humidity. We know which installs hold up down here and which ones don't.</p></div>
-    </div>
+    <figure class="chart rv" style="--d:1" id="chart" aria-label="Chart of South Florida service area"></figure>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="section" id="contact">
+<section class="feature contact-sec" id="contact">
+  <div class="feature-media"><img src="images/g/helm-08.webp" alt="" loading="lazy" decoding="async"></div>
+  <div class="feature-shade"></div>
   <div class="wrap contact">
-    <div class="contact-intro">
+    <div class="contact-intro rv">
       <span class="eyebrow">Get in touch</span>
       <h2>Talk to the shop</h2>
       <p class="lead">You'll get a real person, usually the same day. Tell us the boat and what you want done, and we'll quote it straight with a realistic timeline.</p>
       <div class="reach">
-        <div class="reach-card">
-          <span class="k">Call or text</span>
-          <a class="v" href="tel:+17863255690">(786) 325-5690</a>
-          <div class="acts"><a class="btn btn-primary btn-sm" href="tel:+17863255690">Call</a><a class="btn btn-ghost btn-sm" href="sms:+17863255690">Text</a></div>
-        </div>
-        <div class="reach-card">
-          <span class="k">Email</span>
-          <a class="v" href="mailto:umeinstall@gmail.com">umeinstall@gmail.com</a>
-          <div class="acts"><button class="copy" data-copy="umeinstall@gmail.com">Copy email</button></div>
-        </div>
-        <div class="reach-card">
-          <span class="k">Hours</span>
-          <dl class="hours"><dt>Mon–Fri</dt><dd>8 am – 5 pm</dd><dt>Sat</dt><dd>By appointment</dd></dl>
-        </div>
-        <div class="reach-card">
-          <span class="k">Instagram</span>
-          <a class="v" style="font-size:.9rem" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">@universalmarineelectronics</a>
-        </div>
-        <div class="reach-card wide">
-          <span class="k">Already have an invoice?</span>
-          <div class="acts" style="margin-top:2px"><a class="btn btn-ghost btn-sm" href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay an invoice online</a></div>
-        </div>
+        <a class="reach-card" href="tel:+17863255690"><span class="k">Call or text</span><span class="v">(786) 325-5690</span></a>
+        <a class="reach-card" href="mailto:umeinstall@gmail.com"><span class="k">Email</span><span class="v">umeinstall@gmail.com</span></a>
+        <div class="reach-card"><span class="k">Hours</span><span class="v">Mon–Fri 8 am – 5 pm</span><span class="small">Saturday by appointment</span></div>
+        <a class="reach-card" href="https://umepayments.netlify.app/" target="_blank" rel="noopener"><span class="k">Already have an invoice?</span><span class="v">Pay it online →</span></a>
       </div>
+      <div class="acts"><a class="btn btn-glass btn-sm" href="sms:+17863255690">Text us</a><button class="btn btn-glass btn-sm copy" data-copy="umeinstall@gmail.com">Copy email</button><a class="btn btn-glass btn-sm" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">Instagram</a></div>
     </div>
-
-    <form class="quote" id="quote" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="quote rv" style="--d:1" id="quote" name="quote" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="quote">
-      <p class="hidden-field"><label>Leave empty <input name="bot-field"></label></p>
+      <p class="hp"><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <h3>Request a quote</h3>
       <div class="row2">
         <div class="field"><label for="qName">Name</label><input id="qName" name="name" autocomplete="name" required></div>
         <div class="field"><label for="qPhone">Phone</label><input id="qPhone" name="phone" type="tel" autocomplete="tel" required></div>
       </div>
       <div class="row2">
+        <div class="field"><label for="qBoat">Boat make &amp; model</label><input id="qBoat" name="boat" placeholder="e.g. Intrepid 375"></div>
+        <div class="field"><label for="qLen">Length</label><input id="qLen" name="length" placeholder="e.g. 37 ft"></div>
+      </div>
+      <div class="row2">
         <div class="field"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email"></div>
         <div class="field"><label for="qWhere">Where is the boat?</label>
-          <select id="qWhere" name="location"><option>Bringing it to Davie</option><option>Fort Lauderdale area</option><option>Miami area</option><option>Palm Beach area</option><option>Florida Keys</option><option>Other</option></select>
-        </div>
+          <select id="qWhere" name="location"><option>Bringing it to Davie</option><option>Fort Lauderdale area</option><option>Miami area</option><option>Palm Beach area</option><option>Florida Keys</option><option>Other</option></select></div>
       </div>
-      <div class="field"><label for="qBuild">Your boat &amp; what you want</label>
-        <textarea id="qBuild" name="details" placeholder="Boat make, length, year, and what you're looking to install or fix."></textarea>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-        <button class="btn btn-primary" type="submit">Send request</button>
-      </div>
+      <div class="field"><label for="qBuild">What do you want done?</label><textarea id="qBuild" name="details" placeholder="New displays, a black panel, radar, audio, wiring…"></textarea></div>
+      <label class="file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg><span id="fileLabel">Add a photo of your helm (optional)</span><input type="file" name="photo" id="qPhoto" accept="image/*"></label>
+      <button class="btn btn-primary btn-lg" type="submit" style="justify-self:start">Send request <svg><use href="#i-arrow"/></svg></button>
       <p class="form-status" id="formStatus" role="status"></p>
     </form>
   </div>
@@ -708,385 +320,37 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
 </main>
 
 <footer>
-  <div class="wrap foot">
-    <span>© <span id="yr">2026</span> Universal Marine Electronics Inc. · Davie, FL · NMEA MEI certified · Garmin authorized installer</span>
-    <nav aria-label="Footer">
-      <a href="#before-after">Before &amp; after</a><a href="#work">Gallery</a><a href="#area">Service area</a><a href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay invoice</a><a href="#contact">Contact</a>
-    </nav>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo-plate foot-logo"><img src="images/ume-logo.webp" alt="Universal Marine Electronics logo" width="160" height="160" loading="lazy"></span>
+      <div class="foot-cols">
+        <div><h4>Contact</h4><ul><li><a href="tel:+17863255690">(786) 325-5690</a></li><li><a href="mailto:umeinstall@gmail.com">umeinstall@gmail.com</a></li><li>Mon–Fri 8 am – 5 pm</li><li>Sat by appointment</li></ul></div>
+        <div><h4>Explore</h4><ul><li><a href="#before-after">Before &amp; after</a></li><li><a href="#blacked-out">Blacked-out helms</a></li><li><a href="#services">Services</a></li><li><a href="#work">Gallery</a></li><li><a href="#area">Service area</a></li></ul></div>
+        <div><h4>More</h4><ul><li><a href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay an invoice</a></li><li><a href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">Instagram</a></li><li>Davie, FL</li><li>Stuart to Key West</li></ul></div>
+      </div>
+      <a class="btn btn-primary btn-lg" href="#contact">Start a quote <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <p class="foot-word" aria-hidden="true">Universal Marine</p>
+    <div class="foot-bottom"><span>© <span id="yr">2026</span> Universal Marine Electronics Inc. · Davie, FL</span><span>NMEA MEI certified · Garmin authorized installer</span></div>
   </div>
 </footer>
+
+<nav class="mbar" id="mbar" aria-label="Quick contact">
+  <a class="btn btn-glass" href="tel:+17863255690"><svg><use href="#i-phone"/></svg>Call</a>
+  <a class="btn btn-glass" href="sms:+17863255690">Text</a>
+  <a class="btn btn-primary" href="#contact">Get a quote</a>
+</nav>
+
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <div class="lb-top"><span id="lbCount"></span><button class="icon-btn" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="lb-top"><span id="lbCount"></span><button class="icon-btn" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="lb-stage" id="lbStage"><img id="lbImg" alt="">
-    <button class="icon-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
-    <button class="icon-btn lb-next" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button class="icon-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg><use href="#i-left"/></svg></button>
+    <button class="icon-btn lb-next" id="lbNext" aria-label="Next photo"><svg><use href="#i-right"/></svg></button>
   </div>
   <div class="lb-cap" id="lbCap"></div>
 </div>
 
-<script>
-(function () {
-'use strict';
-var $ = function (s, r) { return (r || document).querySelector(s); };
-var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-var MONO = "IBM Plex Mono, ui-monospace, monospace";
-
-function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-function f(n) { return Math.round(n * 10) / 10; }
-
-/* ---------------- copy helpers ---------------- */
-function copyText(text, btn) {
-  var done = function () { var t = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = t; }, 1600); };
-  var fallback = function () {
-    var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Select & copy'; }
-    document.body.removeChild(ta);
-  };
-  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
-}
-$$('.copy').forEach(function (b) { b.addEventListener('click', function () { copyText(b.getAttribute('data-copy'), b); }); });
-
-/* ---------------- quote form ---------------- */
-$('#quote').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var form = e.target, status = $('#formStatus');
-  var live = /universalmarinefl\.com$|netlify\.app$/.test(location.hostname);
-  if (!live) { status.className = 'form-status'; status.textContent = 'This preview can’t send messages. On the live site this goes straight to UME. For now, call or text (786) 325-5690.'; return; }
-  var body = new URLSearchParams(new FormData(form)).toString();
-  status.className = 'form-status'; status.textContent = 'Sending…';
-  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
-    .then(function (r) { if (!r.ok) throw 0; status.className = 'form-status ok'; status.textContent = 'Got it. We’ll call you back, usually the same day.'; form.reset(); })
-    .catch(function () { status.className = 'form-status'; status.textContent = 'That didn’t go through. Call or text (786) 325-5690 and we’ll take it from there.'; });
-});
-
-/* ---------------- photo data (filled at build) ---------------- */
-var IMG = 'images/';
-var DATA = [{"f":"images/g/helm-30.webp","t":"images/g/t/helm-30.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-05.webp","t":"images/g/t/blackout-05.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/helm-08.webp","t":"images/g/t/helm-08.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/radar-14.webp","t":"images/g/t/radar-14.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-25.webp","t":"images/g/t/wiring-25.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-13.webp","t":"images/g/t/boats-13.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/blackout-08.webp","t":"images/g/t/blackout-08.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/helm-26.webp","t":"images/g/t/helm-26.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/av-01.webp","t":"images/g/t/av-01.webp","c":"av","w":1600,"h":1200},{"f":"images/g/helm-22.webp","t":"images/g/t/helm-22.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/wiring-20.webp","t":"images/g/t/wiring-20.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-08.webp","t":"images/g/t/boats-08.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/blackout-15.webp","t":"images/g/t/blackout-15.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/helm-21.webp","t":"images/g/t/helm-21.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/radar-12.webp","t":"images/g/t/radar-12.webp","c":"radar","w":1600,"h":1200},{"f":"images/g/wiring-09.webp","t":"images/g/t/wiring-09.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/blackout-04.webp","t":"images/g/t/blackout-04.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/helm-13.webp","t":"images/g/t/helm-13.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/av-04.webp","t":"images/g/t/av-04.webp","c":"av","w":1200,"h":1600},{"f":"images/g/helm-18.webp","t":"images/g/t/helm-18.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/radar-07.webp","t":"images/g/t/radar-07.webp","c":"radar","w":1600,"h":1200},{"f":"images/g/wiring-24.webp","t":"images/g/t/wiring-24.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-11.webp","t":"images/g/t/boats-11.webp","c":"boats","w":1200,"h":1600},{"f":"images/g/helm-33.webp","t":"images/g/t/helm-33.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/helm-01.webp","t":"images/g/t/helm-01.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/radar-01.webp","t":"images/g/t/radar-01.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-01.webp","t":"images/g/t/wiring-01.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-01.webp","t":"images/g/t/boats-01.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-01.webp","t":"images/g/t/fab-01.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/shop-01.webp","t":"images/g/t/shop-01.webp","c":"shop","w":1200,"h":1600},{"f":"images/g/helm-02.webp","t":"images/g/t/helm-02.webp","c":"helm","w":1200,"h":1600},{"f":"images/blackpanel-intrepid.jpg","t":"images/blackpanel-intrepid.jpg","c":"blackout","w":1200,"h":900},{"f":"images/g/radar-02.webp","t":"images/g/t/radar-02.webp","c":"radar","w":1600,"h":1200},{"f":"images/g/wiring-02.webp","t":"images/g/t/wiring-02.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-02.webp","t":"images/g/t/boats-02.webp","c":"boats","w":1200,"h":1600},{"f":"images/g/fab-02.webp","t":"images/g/t/fab-02.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/av-02.webp","t":"images/g/t/av-02.webp","c":"av","w":1200,"h":1600},{"f":"images/g/shop-02.webp","t":"images/g/t/shop-02.webp","c":"shop","w":1200,"h":1600},{"f":"images/g/helm-03.webp","t":"images/g/t/helm-03.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-01.webp","t":"images/g/t/blackout-01.webp","c":"blackout","w":1200,"h":1600},{"f":"images/g/radar-03.webp","t":"images/g/t/radar-03.webp","c":"radar","w":1600,"h":1200},{"f":"images/g/wiring-03.webp","t":"images/g/t/wiring-03.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-03.webp","t":"images/g/t/boats-03.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-03.webp","t":"images/g/t/fab-03.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/av-03.webp","t":"images/g/t/av-03.webp","c":"av","w":1600,"h":1200},{"f":"images/g/shop-03.webp","t":"images/g/t/shop-03.webp","c":"shop","w":1200,"h":1600},{"f":"images/g/helm-04.webp","t":"images/g/t/helm-04.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-02.webp","t":"images/g/t/blackout-02.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/radar-04.webp","t":"images/g/t/radar-04.webp","c":"radar","w":1600,"h":1200},{"f":"images/g/wiring-04.webp","t":"images/g/t/wiring-04.webp","c":"wiring","w":1600,"h":1200},{"f":"images/g/boats-04.webp","t":"images/g/t/boats-04.webp","c":"boats","w":1200,"h":1600},{"f":"images/g/fab-04.webp","t":"images/g/t/fab-04.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/shop-04.webp","t":"images/g/t/shop-04.webp","c":"shop","w":1200,"h":1600},{"f":"images/g/helm-05.webp","t":"images/g/t/helm-05.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/blackout-03.webp","t":"images/g/t/blackout-03.webp","c":"blackout","w":1200,"h":1600},{"f":"images/g/radar-05.webp","t":"images/g/t/radar-05.webp","c":"radar","w":1600,"h":1200},{"f":"images/g/wiring-05.webp","t":"images/g/t/wiring-05.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-05.webp","t":"images/g/t/boats-05.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-05.webp","t":"images/g/t/fab-05.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/av-05.webp","t":"images/g/t/av-05.webp","c":"av","w":1200,"h":1600},{"f":"images/g/shop-05.webp","t":"images/g/t/shop-05.webp","c":"shop","w":1200,"h":1600},{"f":"images/g/helm-06.webp","t":"images/g/t/helm-06.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/radar-06.webp","t":"images/g/t/radar-06.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-06.webp","t":"images/g/t/wiring-06.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-06.webp","t":"images/g/t/boats-06.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-06.webp","t":"images/g/t/fab-06.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/shop-06.webp","t":"images/g/t/shop-06.webp","c":"shop","w":1200,"h":1600},{"f":"images/g/helm-07.webp","t":"images/g/t/helm-07.webp","c":"helm","w":1200,"h":1600},{"f":"images/blackpanel-cobia.jpg","t":"images/blackpanel-cobia.jpg","c":"blackout","w":1200,"h":900},{"f":"images/g/wiring-07.webp","t":"images/g/t/wiring-07.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-07.webp","t":"images/g/t/boats-07.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-07.webp","t":"images/g/t/fab-07.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/shop-07.webp","t":"images/g/t/shop-07.webp","c":"shop","w":1600,"h":1200},{"f":"images/blackpanel-cut.jpg","t":"images/blackpanel-cut.jpg","c":"blackout","w":1200,"h":900},{"f":"images/g/radar-08.webp","t":"images/g/t/radar-08.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-08.webp","t":"images/g/t/wiring-08.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-08.webp","t":"images/g/t/fab-08.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/shop-08.webp","t":"images/g/t/shop-08.webp","c":"shop","w":1200,"h":1600},{"f":"images/g/helm-09.webp","t":"images/g/t/helm-09.webp","c":"helm","w":1200,"h":1600},{"f":"images/blackpanel-intrepid-angle.jpg","t":"images/blackpanel-intrepid-angle.jpg","c":"blackout","w":1200,"h":900},{"f":"images/g/radar-09.webp","t":"images/g/t/radar-09.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/boats-09.webp","t":"images/g/t/boats-09.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-09.webp","t":"images/g/t/fab-09.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-10.webp","t":"images/g/t/helm-10.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-06.webp","t":"images/g/t/blackout-06.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/radar-10.webp","t":"images/g/t/radar-10.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-10.webp","t":"images/g/t/wiring-10.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-10.webp","t":"images/g/t/boats-10.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-10.webp","t":"images/g/t/fab-10.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-11.webp","t":"images/g/t/helm-11.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-07.webp","t":"images/g/t/blackout-07.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/radar-11.webp","t":"images/g/t/radar-11.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-11.webp","t":"images/g/t/wiring-11.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-11.webp","t":"images/g/t/fab-11.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-12.webp","t":"images/g/t/helm-12.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/wiring-12.webp","t":"images/g/t/wiring-12.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-12.webp","t":"images/g/t/boats-12.webp","c":"boats","w":1200,"h":1600},{"f":"images/g/fab-12.webp","t":"images/g/t/fab-12.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/blackout-09.webp","t":"images/g/t/blackout-09.webp","c":"blackout","w":1600,"h":1200},{"f":"images/g/radar-13.webp","t":"images/g/t/radar-13.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-13.webp","t":"images/g/t/wiring-13.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-13.webp","t":"images/g/t/fab-13.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-14.webp","t":"images/g/t/helm-14.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-10.webp","t":"images/g/t/blackout-10.webp","c":"blackout","w":1200,"h":1600},{"f":"images/g/wiring-14.webp","t":"images/g/t/wiring-14.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/boats-14.webp","t":"images/g/t/boats-14.webp","c":"boats","w":1600,"h":1200},{"f":"images/g/fab-14.webp","t":"images/g/t/fab-14.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-15.webp","t":"images/g/t/helm-15.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-11.webp","t":"images/g/t/blackout-11.webp","c":"blackout","w":1200,"h":1600},{"f":"images/g/radar-15.webp","t":"images/g/t/radar-15.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-15.webp","t":"images/g/t/wiring-15.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-15.webp","t":"images/g/t/fab-15.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-16.webp","t":"images/g/t/helm-16.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/blackout-12.webp","t":"images/g/t/blackout-12.webp","c":"blackout","w":1200,"h":1600},{"f":"images/g/radar-16.webp","t":"images/g/t/radar-16.webp","c":"radar","w":1600,"h":1200},{"f":"images/g/wiring-16.webp","t":"images/g/t/wiring-16.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-16.webp","t":"images/g/t/fab-16.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/helm-17.webp","t":"images/g/t/helm-17.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/blackout-13.webp","t":"images/g/t/blackout-13.webp","c":"blackout","w":1200,"h":1600},{"f":"images/g/radar-17.webp","t":"images/g/t/radar-17.webp","c":"radar","w":1200,"h":1600},{"f":"images/g/wiring-17.webp","t":"images/g/t/wiring-17.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-17.webp","t":"images/g/t/fab-17.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/blackout-14.webp","t":"images/g/t/blackout-14.webp","c":"blackout","w":1200,"h":1600},{"f":"images/g/wiring-18.webp","t":"images/g/t/wiring-18.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-18.webp","t":"images/g/t/fab-18.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-19.webp","t":"images/g/t/helm-19.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/wiring-19.webp","t":"images/g/t/wiring-19.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/fab-19.webp","t":"images/g/t/fab-19.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/helm-20.webp","t":"images/g/t/helm-20.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/fab-20.webp","t":"images/g/t/fab-20.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/wiring-21.webp","t":"images/g/t/wiring-21.webp","c":"wiring","w":1600,"h":1200},{"f":"images/g/fab-21.webp","t":"images/g/t/fab-21.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/wiring-22.webp","t":"images/g/t/wiring-22.webp","c":"wiring","w":1600,"h":1200},{"f":"images/g/fab-22.webp","t":"images/g/t/fab-22.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/helm-23.webp","t":"images/g/t/helm-23.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/wiring-23.webp","t":"images/g/t/wiring-23.webp","c":"wiring","w":1600,"h":1200},{"f":"images/g/fab-23.webp","t":"images/g/t/fab-23.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-24.webp","t":"images/g/t/helm-24.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/fab-24.webp","t":"images/g/t/fab-24.webp","c":"fab","w":1600,"h":1200},{"f":"images/g/helm-25.webp","t":"images/g/t/helm-25.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/fab-25.webp","t":"images/g/t/fab-25.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/wiring-26.webp","t":"images/g/t/wiring-26.webp","c":"wiring","w":1600,"h":1200},{"f":"images/g/fab-26.webp","t":"images/g/t/fab-26.webp","c":"fab","w":1200,"h":1600},{"f":"images/g/helm-27.webp","t":"images/g/t/helm-27.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/wiring-27.webp","t":"images/g/t/wiring-27.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/helm-28.webp","t":"images/g/t/helm-28.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/wiring-28.webp","t":"images/g/t/wiring-28.webp","c":"wiring","w":1200,"h":1600},{"f":"images/g/helm-29.webp","t":"images/g/t/helm-29.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/wiring-29.webp","t":"images/g/t/wiring-29.webp","c":"wiring","w":1600,"h":1200},{"f":"images/g/helm-31.webp","t":"images/g/t/helm-31.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/helm-32.webp","t":"images/g/t/helm-32.webp","c":"helm","w":1200,"h":1600},{"f":"images/g/helm-34.webp","t":"images/g/t/helm-34.webp","c":"helm","w":1600,"h":1200},{"f":"images/g/helm-35.webp","t":"images/g/t/helm-35.webp","c":"helm","w":1200,"h":1600}];   // [{f: full path, t: thumb path, c: category, w, h}]
-var CATS = { helm: 'Helms & displays', blackout: 'Black panels', fab: 'Fabrication', wiring: 'Wiring', radar: 'Radar, cameras & comms', av: 'Audio & TV', boats: 'Boats', shop: 'In the shop' };
-var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-$$('[data-total]').forEach(function (el) { el.textContent = DATA.length; });
-function byId(id) { return IMG + 'g/' + id + '.webp'; }
-
-/* ---------------- lightbox (shared) ---------------- */
-var lb = $('#lightbox'), lbImg = $('#lbImg'), lbList = [], lbI = 0, lastFocus = null;
-function lbShow() {
-  var it = lbList[lbI]; lbImg.src = it.f; lbImg.alt = it.cap || '';
-  $('#lbCap').textContent = it.cap || '';
-  $('#lbCount').textContent = lbList.length > 1 ? (lbI + 1) + ' / ' + lbList.length : '';
-  $('#lbPrev').hidden = $('#lbNext').hidden = lbList.length < 2;
-  [lbI - 1, lbI + 1].forEach(function (k) { var n = lbList[(k + lbList.length) % lbList.length]; if (n) (new Image()).src = n.f; });
-}
-function openLb(list, i) { lbList = list; lbI = i || 0; lastFocus = document.activeElement; lb.hidden = false; document.body.style.overflow = 'hidden'; lbShow(); $('#lbClose').focus(); }
-function closeLb() { lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
-function step(d) { lbI = (lbI + d + lbList.length) % lbList.length; lbShow(); }
-$('#lbClose').addEventListener('click', closeLb);
-$('#lbPrev').addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
-$('#lbNext').addEventListener('click', function (e) { e.stopPropagation(); step(1); });
-$('#lbStage').addEventListener('click', function (e) { if (e.target.id === 'lbStage') closeLb(); });
-document.addEventListener('keydown', function (e) {
-  if (lb.hidden) return;
-  if (e.key === 'Escape') closeLb(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
-});
-(function () { var x0 = null; var st = $('#lbStage');
-  st.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  st.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1); x0 = null; });
-})();
-function capOf(d) { return CATS[d.c] || ''; }
-
-/* ---------------- photo reel under the hero ---------------- */
-(function () {
-  var pick = DATA.filter(function (d, i) { return d.c !== 'wiring' && d.c !== 'fab' && i % 3 === 0; }).slice(0, 22);
-  var list = pick.map(function (d) { return { f: d.f, cap: capOf(d) }; });
-  var html = pick.map(function (d, i) { return '<button type="button" data-i="' + i + '" aria-label="View photo: ' + capOf(d) + '"><img src="' + d.t + '" alt="" width="' + d.w + '" height="' + d.h + '" loading="lazy"></button>'; }).join('');
-  var tr = $('#reelTrack'); tr.innerHTML = html + html.replace(/<button /g, '<button tabindex="-1" aria-hidden="true" ');
-  tr.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) openLb(list, +b.getAttribute('data-i')); });
-})();
-
-/* ---------------- before / after ---------------- */
-var BA = [
-  ['P4', 'Empty dash to twin chartplotters', 'Console cut, wired and finished with two flush displays'],
-  ['P1', 'Open frame to blacked-out glass', 'One black face, two displays behind it'],
-  ['P7', 'Raw housing to radar & camera helm', 'Fiberglass shell finished in black, systems live'],
-  ['P2', 'Bare panel to twin engine displays', 'Flush-mounted above the switch bank'],
-  ['P8', 'Taped cutouts to a full helm', 'Openings laid out, cut and filled'],
-  ['P6', 'Template to finished switch panel', 'Displays and switches fitted to the layout']
-];
-(function () {
-  var box = $('#ba'), rng = $('#baRange'), cur = -1, drag = false;
-  function setPos(p) { p = Math.max(0, Math.min(100, p)); box.style.setProperty('--pos', p + '%'); rng.value = p; }
-  function show(i) {
-    if (i === cur) return; cur = i; var k = BA[i][0];
-    $('#baBefore').src = IMG + 'ba/' + k + '-before.webp'; $('#baAfter').src = IMG + 'ba/' + k + '-after.webp';
-    $('#baBefore').alt = 'Before: ' + BA[i][1]; $('#baAfter').alt = 'After: ' + BA[i][1];
-    $('#baTitle').textContent = BA[i][1]; $('#baSub').textContent = BA[i][2];
-    $$('#baList .ba-pick').forEach(function (b, j) { b.setAttribute('aria-pressed', j === i); });
-    setPos(50);
-  }
-  $('#baList').innerHTML = BA.map(function (b, i) {
-    return '<button type="button" class="ba-pick" aria-pressed="false" data-i="' + i + '"><img src="' + IMG + 'ba/' + b[0] + '-after.webp" alt="" loading="lazy"><span><small>Job 0' + (i + 1) + '</small><b>' + b[1] + '</b></span></button>';
-  }).join('');
-  $('#baList').addEventListener('click', function (e) { var b = e.target.closest('.ba-pick'); if (b) show(+b.getAttribute('data-i')); });
-  function fromX(x) { var r = box.getBoundingClientRect(); setPos((x - r.left) / r.width * 100); }
-  box.addEventListener('pointerdown', function (e) { drag = true; box.setPointerCapture(e.pointerId); fromX(e.clientX); });
-  box.addEventListener('pointermove', function (e) { if (drag) fromX(e.clientX); });
-  box.addEventListener('pointerup', function () { drag = false; });
-  box.addEventListener('pointercancel', function () { drag = false; });
-  rng.addEventListener('input', function () { setPos(+rng.value); });
-  show(0);
-  // one gentle sweep the first time it scrolls into view, so people see it moves
-  if (!still && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      if (!es[0].isIntersecting) return; io.disconnect();
-      var t0 = null; requestAnimationFrame(function a(now) {
-        if (drag) return; if (!t0) t0 = now; var k = (now - t0) / 1800; if (k > 1) { setPos(50); return; }
-        setPos(50 + Math.sin(k * Math.PI * 2) * 22); requestAnimationFrame(a);
-      });
-    }, { threshold: 0.6 });
-    io.observe(box);
-  }
-  var DUOS = [['S1', 'Taped and cut, then twin displays', 'Same boat, same day'], ['S2', 'Open dash to glowing charts', 'Old face out, black panel in'], ['S3', 'Behind the dash to a finished helm', 'Rewired, then closed up clean']];
-  $('#duos').innerHTML = DUOS.map(function (d, i) {
-    return '<figure class="duo"><div class="duo-pair"><button type="button" data-i="' + i + '" data-k="0"><img src="' + IMG + 'ba/' + d[0] + '-before.webp" alt="Before: ' + d[1] + '" loading="lazy"><span class="ba-tag b">Before</span></button>' +
-      '<button type="button" data-i="' + i + '" data-k="1"><img src="' + IMG + 'ba/' + d[0] + '-after.webp" alt="After: ' + d[1] + '" loading="lazy"><span class="ba-tag a">After</span></button></div><figcaption>' + d[1] + '<span>' + d[2] + '</span></figcaption></figure>';
-  }).join('');
-  $('#duos').addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return; var d = DUOS[+b.getAttribute('data-i')];
-    openLb([{ f: IMG + 'ba/' + d[0] + '-before.webp', cap: 'Before · ' + d[1] }, { f: IMG + 'ba/' + d[0] + '-after.webp', cap: 'After · ' + d[1] }], +b.getAttribute('data-k'));
-  });
-})();
-
-/* ---------------- build stories ---------------- */
-var STORIES = [
-  ['Glass helm', [['fab-03', 'Old face stripped', 'Down to bare fiberglass'], ['fab-04', 'Prep', 'Ground and cleaned for new glass'], ['fab-05', 'Shaping', 'Frame built up and faired'], ['fab-06', 'Taped & faired', 'Edges masked for the finish'], ['blackout-01', 'Black face fitted', 'Panel set into the frame'], ['blackout-02', 'Bench check', 'Fit and finish before it goes back'], ['blackout-03', 'Ready', 'Finished panel off the bench'], ['fab-07', 'On the boat', 'Frame mounted at the helm'], ['blackout-04', 'Displays in', 'Glass bonded and wired'], ['blackout-05', 'Finished', 'One black face, factory everywhere else']]],
-  ['Black housing', [['fab-19', 'Template', 'Layout drawn from the dash'], ['fab-21', 'Housing built', 'Glassed and shaped'], ['fab-22', 'Fitting', 'Trimmed to the console'], ['blackout-11', 'Black face', 'Panel bonded to the housing'], ['blackout-13', 'Polished', 'Edges and face finished by hand'], ['fab-23', 'Mounted', 'Housing set on the helm'], ['blackout-15', 'Finished', 'Displays live: camera and radar']]],
-  ['Twin display', [['blackout-07', 'New glass', 'Displays prepped for the panel'], ['fab-12', 'Old face out', 'Opening cleared'], ['fab-13', 'Opening trued', 'Squared up for the new panel'], ['fab-15', 'Dry fit', 'Panel test-fitted from behind'], ['blackout-08', 'Finished', 'Charts up, flush and clean']]]
-];
-(function () {
-  var strip = $('#storyStrip'), cur = 0;
-  function render(i) {
-    cur = i; var steps = STORIES[i][1];
-    strip.innerHTML = steps.map(function (s, k) { return '<figure><button type="button" data-k="' + k + '" aria-label="View step ' + (k + 1) + ' full size"><img src="' + IMG + 'g/t/' + s[0] + '.webp" alt="' + s[1] + ': ' + s[2] + '" loading="lazy"></button><figcaption><b>' + s[1] + '</b>' + s[2] + '</figcaption></figure>'; }).join('');
-    strip.scrollLeft = 0;
-    $$('#storyTabs .chip').forEach(function (c, j) { c.setAttribute('aria-pressed', j === i); });
-  }
-  $('#storyTabs').innerHTML = STORIES.map(function (s, i) { return '<button class="chip" aria-pressed="false" data-i="' + i + '">Build 0' + (i + 1) + ' · ' + s[0] + '</button>'; }).join('');
-  $('#storyTabs').addEventListener('click', function (e) { var c = e.target.closest('.chip'); if (c) render(+c.getAttribute('data-i')); });
-  strip.addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    openLb(STORIES[cur][1].map(function (s, k) { return { f: byId(s[0]), cap: 'Step ' + (k + 1) + ' · ' + s[1] + ': ' + s[2] }; }), +b.getAttribute('data-k'));
-  });
-  $('#stPrev').addEventListener('click', function () { strip.scrollBy({ left: -strip.clientWidth * 0.8, behavior: still ? 'auto' : 'smooth' }); });
-  $('#stNext').addEventListener('click', function () { strip.scrollBy({ left: strip.clientWidth * 0.8, behavior: still ? 'auto' : 'smooth' }); });
-  render(0);
-})();
-$$('.bp-hero button').forEach(function (b) { b.addEventListener('click', function () { openLb([{ f: b.getAttribute('data-full'), cap: 'Finished blacked-out helm' }], 0); }); });
-
-/* ---------------- gallery ---------------- */
-var gFilter = 'all', gShown = 0, gList = [], PAGE = 24, gCols = [], gH = [], gN = 0;
-function nCols() { var w = $('#gallery').clientWidth; return w < 560 ? 2 : w < 900 ? 3 : 4; }
-function gPlace(from, to) {   // drop each photo into the shortest column, so new rows add below without reshuffling
-  for (var i = from; i < to; i++) {
-    var d = gList[i], c = 0; for (var k = 1; k < gN; k++) if (gH[k] < gH[c] - 0.01) c = k;
-    gCols[c].insertAdjacentHTML('beforeend', '<button type="button" class="tile" data-i="' + i + '"><img src="' + d.t + '" width="' + d.w + '" height="' + d.h + '" alt="' + capOf(d) + ' photo by Universal Marine Electronics" loading="lazy" decoding="async"><span>' + capOf(d) + '</span></button>');
-    gH[c] += d.h / d.w;
-  }
-}
-function gLayout() {
-  var g = $('#gallery'); gN = nCols(); g.innerHTML = ''; gCols = []; gH = [];
-  for (var k = 0; k < gN; k++) { var col = document.createElement('div'); col.className = 'mcol'; g.appendChild(col); gCols.push(col); gH.push(0); }
-  gPlace(0, gShown);
-}
-addEventListener('resize', function () { if (gN && nCols() !== gN) { gLayout(); gHook(); } });
-function gRender(more) {
-  if (!more) { gList = DATA.filter(function (d) { return gFilter === 'all' || d.c === gFilter; }); gShown = Math.min(PAGE, gList.length); gLayout(); }
-  else { var to = Math.min(gList.length, gShown + PAGE); gPlace(gShown, to); gShown = to; }
-  gHook();
-}
-function gHook() {
-  $$('#gallery img:not(.in)').forEach(function (img) { if (img.complete) img.classList.add('in'); else img.addEventListener('load', function () { img.classList.add('in'); }); img.addEventListener('error', function () { img.closest('.tile').remove(); }); });
-  var left = gList.length - gShown, mb = $('#gMore');
-  mb.hidden = left <= 0; mb.textContent = 'Show more · ' + left + ' left';
-}
-(function () {
-  var counts = {}; DATA.forEach(function (d) { counts[d.c] = (counts[d.c] || 0) + 1; });
-  $('#gFilters').innerHTML = '<button class="chip" data-f="all" aria-pressed="true">All work <span class="n">' + DATA.length + '</span></button>' +
-    Object.keys(CATS).filter(function (c) { return counts[c]; }).map(function (c) { return '<button class="chip" data-f="' + c + '" aria-pressed="false">' + CATS[c] + ' <span class="n">' + counts[c] + '</span></button>'; }).join('');
-})();
-function setFilter(f) { gFilter = f; $$('#gFilters .chip').forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-f') === f); }); gRender(false); }
-$('#gFilters').addEventListener('click', function (e) { var b = e.target.closest('.chip'); if (b) setFilter(b.getAttribute('data-f')); });
-$('#gMore').addEventListener('click', function () { gRender(true); });
-$('#gallery').addEventListener('click', function (e) {
-  var t = e.target.closest('.tile'); if (!t) return;
-  openLb(gList.map(function (d) { return { f: d.f, cap: capOf(d) }; }), +t.getAttribute('data-i'));
-});
-$$('.svc-go').forEach(function (b) { b.addEventListener('click', function () { setFilter(b.getAttribute('data-go')); $('#work').scrollIntoView({ behavior: still ? 'auto' : 'smooth' }); }); });
-gRender(false);
-
-/* ---------------- service-area chart ---------------- */
-(function () {
-  var K = 240, LON0 = -82.1, LAT0 = 27.3;
-  function X(lon) { return (lon - LON0) * K * 0.9; }
-  function Y(lat) { return (LAT0 - lat) * K; }
-  function pts(a) { return a.map(function (p) { return f(X(p[1])) + ',' + f(Y(p[0])); }).join(' '); }
-  var main = [[27.35, -82.5], [27.35, -80.21], [27.2, -80.17], [26.95, -80.07], [26.7, -80.03], [26.45, -80.06], [26.25, -80.08], [26.1, -80.1], [25.95, -80.12], [25.77, -80.13], [25.73, -80.21], [25.6, -80.3], [25.45, -80.33], [25.3, -80.4], [25.2, -80.52], [25.15, -80.75], [25.13, -80.95], [25.17, -81.12], [25.35, -81.15], [25.55, -81.25], [25.85, -81.68], [26.1, -81.8], [26.45, -81.95], [26.7, -82.1], [27.0, -82.25], [27.35, -82.5]];
-  var keys = [[25.29, -80.3], [25.1, -80.44], [24.95, -80.6], [24.85, -80.8], [24.73, -81.02], [24.66, -81.25], [24.62, -81.45], [24.56, -81.78]];
-  var shoal = [[25.16, -80.7], [25.27, -80.38], [25.1, -80.44], [24.85, -80.8], [24.7, -81.12], [24.9, -81.2], [25.16, -81.1]];
-  var c1 = [[27.35, -79.99], [26.7, -79.97], [26.2, -80.03], [25.8, -80.06], [25.4, -80.12], [25.05, -80.3], [24.8, -80.6], [24.55, -81.05], [24.45, -81.8]];
-  var c2 = c1.map(function (p) { return [p[0] - 0.08, p[1] + 0.13]; });
-  var route = [[27.18, -80.08], [26.7, -79.95], [26.1, -80.03], [25.75, -80.06], [25.3, -80.2], [25.0, -80.42], [24.75, -80.85], [24.6, -81.3], [24.52, -81.78]];
-  var o = '';
-  for (var la = 24.5; la <= 27; la += 0.5) o += '<line class="grid" x1="0" x2="540" y1="' + f(Y(la)) + '" y2="' + f(Y(la)) + '"/><text class="label" x="6" y="' + f(Y(la) - 4) + '">' + Math.floor(la) + '°' + (la % 1 ? '30′' : '00′') + 'N</text>';
-  for (var lo = -81.5; lo <= -80; lo += 0.5) o += '<line class="grid" y1="0" y2="710" x1="' + f(X(lo)) + '" x2="' + f(X(lo)) + '"/><text class="label" x="' + f(X(lo) + 4) + '" y="702">' + Math.abs(Math.ceil(lo)) + '°' + (lo % 1 ? '30′' : '00′') + 'W</text>';
-  o += '<polygon class="shoal" points="' + pts(shoal) + '"/>';
-  o += '<polyline class="contour" points="' + pts(c1) + '"/><polyline class="contour" points="' + pts(c2) + '"/>';
-  o += '<polygon class="land" points="' + pts(main) + '"/>';
-  o += '<polyline points="' + pts(keys) + '" fill="none" style="stroke:var(--land)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>';
-  o += '<ellipse class="lake" cx="' + f(X(-80.83)) + '" cy="' + f(Y(26.95)) + '" rx="' + f(0.24 * K * 0.9) + '" ry="' + f(0.2 * K) + '"/>';
-  o += '<text class="label" x="' + f(X(-80.83)) + '" y="' + f(Y(26.95) + 3) + '" text-anchor="middle">L. OKEECHOBEE</text>';
-  o += '<text class="label" transform="translate(' + f(X(-79.8)) + ',' + f(Y(26.4)) + ') rotate(-84)" text-anchor="middle">GULF STREAM</text>';
-  o += '<text class="label" x="' + f(X(-81.1)) + '" y="' + f(Y(25.0)) + '" text-anchor="middle">FLORIDA BAY</text>';
-  o += '<polyline class="route" points="' + pts(route) + '"/>';
-  var towns = [
-    ['Stuart', 27.2, -80.25, 'w'], ['Jupiter', 26.93, -80.09, 'w'], ['West Palm', 26.71, -80.05, 'w'],
-    ['Fort Lauderdale', 26.12, -80.14, 'n'], ['Miami', 25.77, -80.19, 'w'],
-    ['Key Largo', 25.09, -80.44, 'e'], ['Islamorada', 24.92, -80.63, 's'], ['Marathon', 24.71, -81.09, 's'], ['Key West', 24.56, -81.78, 'n2']
-  ];
-  towns.forEach(function (t) {
-    var x = X(t[2]), y = Y(t[1]), tx = x - 9, ty = y + 4, an = 'end';
-    if (t[3] === 'e') { tx = x + 9; an = 'start'; }
-    if (t[3] === 's') { tx = x; ty = y + 18; an = 'middle'; }
-    if (t[3] === 'n') { ty = y - 4; }
-    if (t[3] === 'n2') { tx = x; ty = y - 10; an = 'middle'; }
-    o += '<circle class="pin" cx="' + f(x) + '" cy="' + f(y) + '" r="5"/><text class="town" x="' + f(tx) + '" y="' + f(ty) + '" text-anchor="' + an + '">' + t[0] + '</text>';
-  });
-  var dx = X(-80.23), dy = Y(26.06);
-  o += '<path class="shop" d="M' + f(dx) + ',' + f(dy - 10) + ' l9,10 l-9,10 l-9,-10z"/><text class="town" x="' + f(dx - 14) + '" y="' + f(dy + 16) + '" text-anchor="end" style="fill:var(--brand)">Davie shop</text>';
-  // compass rose + scale
-  var rx = 470, ry = 600;
-  o += '<circle cx="' + rx + '" cy="' + ry + '" r="30" fill="none" style="stroke:var(--line-strong)"/><circle cx="' + rx + '" cy="' + ry + '" r="22" fill="none" style="stroke:var(--line)"/>';
-  o += '<path d="M' + rx + ',' + (ry - 30) + ' l6,30 l-6,30 l-6,-30z" style="fill:var(--route)"/><text class="label" x="' + rx + '" y="' + (ry - 36) + '" text-anchor="middle">N</text>';
-  var nm = K / 60 * 20;
-  o += '<path d="M360,672 h' + f(nm) + ' M360,667 v10 M' + f(360 + nm) + ',667 v10" style="stroke:var(--fg-dim)"/><text class="label" x="' + f(360 + nm / 2) + '" y="664" text-anchor="middle">20 NM</text>';
-  $('#chart').innerHTML = '<svg viewBox="0 0 540 710" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chart of South Florida from Stuart to Key West, showing the Davie shop and mobile service area">' + o + '</svg>';
-})();
-
-
-/* ---------------- hero: 3D chart sea ---------------- */
-(function () {
-  var cv = $('#sea3d'); if (!cv || !cv.getContext) return;
-  var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = 1, t0 = performance.now(), running = false, visible = true, raf = 0;
-  var still = matchMedia('(prefers-reduced-motion: reduce)');
-  var mx = 0, my = 0, cx = 0, cy = 0;          // pointer target / eased camera offset
-  var COLS = 64, ROWS = 34, X0 = -70, X1 = 70, Z0 = 6, Z1 = 120;
-  var col = {};
-  function readColors() {
-    var cs = getComputedStyle(document.documentElement);
-    col.line = '#8fd0ef'; col.route = '#e3529f'; col.light = false;
-  }
-  function size() {
-    var r = cv.getBoundingClientRect(); dpr = Math.min(1.6, window.devicePixelRatio || 1);
-    W = Math.max(1, r.width); H = Math.max(1, r.height);
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  function wave(x, z, t) {
-    return 1.6 * Math.sin(x * 0.11 + t * 0.7) + 0.9 * Math.sin(z * 0.16 - t * 1.05) + 0.6 * Math.sin((x + z) * 0.06 + t * 0.45) + 0.35 * Math.sin(x * 0.31 - z * 0.12 + t * 1.6);
-  }
-  function proj(x, y, z) {
-    var f = W * 0.6, camY = 12.5 + cy * 1.6, horizon = H * 0.2 + cy * 10;
-    var xx = x - cx * 6;
-    return [W * 0.56 + xx * f / z, horizon + (camY - y) * f / z];
-  }
-  function frame(now) {
-    var t = (now - t0) / 1000;
-    cx += (mx - cx) * 0.04; cy += (my - cy) * 0.04;
-    ctx.clearRect(0, 0, W, H);
-    var i, j, x, z, p, a, narrow = W < 700, base = (col.light ? 0.42 : 0.6) * (narrow ? 0.55 : 1);
-    ctx.lineWidth = 1;
-    // rows (constant depth), far to near
-    for (j = ROWS - 1; j >= 0; j--) {
-      z = Z0 + (Z1 - Z0) * Math.pow(j / (ROWS - 1), 1.6);
-      a = base * Math.pow(1 - z / Z1, 1.3) + 0.03;
-      ctx.strokeStyle = col.line; ctx.globalAlpha = a; ctx.beginPath();
-      for (i = 0; i <= COLS; i++) { x = X0 + (X1 - X0) * i / COLS; p = proj(x, wave(x, z, t), z); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
-      ctx.stroke();
-    }
-    // columns, fainter
-    for (i = 0; i <= COLS; i += 2) {
-      x = X0 + (X1 - X0) * i / COLS; ctx.globalAlpha = base * 0.32; ctx.beginPath();
-      for (j = 0; j < ROWS; j++) { z = Z0 + (Z1 - Z0) * Math.pow(j / (ROWS - 1), 1.6); p = proj(x, wave(x, z, t), z); j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
-      ctx.stroke();
-    }
-    if (narrow) { ctx.globalAlpha = 1; if (running) raf = requestAnimationFrame(frame); return; }
-    // the route: a dashed magenta course line riding the swell toward the horizon, with waypoints
-    ctx.globalAlpha = col.light ? 0.75 : 0.9; ctx.strokeStyle = col.route; ctx.lineWidth = 2;
-    ctx.setLineDash([8, 7]); ctx.lineDashOffset = -t * 22; ctx.beginPath();
-    var wps = [];
-    for (j = 0; j <= 60; j++) {
-      z = 8 + j * 1.8; x = -3.2 + 3 * Math.sin(z * 0.05 + 0.4) + z * 0.05;
-      p = proj(x, wave(x, z, t) + 0.25, z); j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]);
-      if (j % 15 === 7) wps.push([p, z]);
-    }
-    ctx.stroke(); ctx.setLineDash([]);
-    wps.forEach(function (w) {
-      var r = Math.max(2.5, 70 / w[1]);
-      ctx.globalAlpha = col.light ? 0.85 : 1; ctx.beginPath();
-      ctx.moveTo(w[0][0], w[0][1] - r); ctx.lineTo(w[0][0] + r, w[0][1]); ctx.lineTo(w[0][0], w[0][1] + r); ctx.lineTo(w[0][0] - r, w[0][1]); ctx.closePath(); ctx.stroke();
-    });
-    // sonar ping: rings spreading across the surface
-    var px = 9, pz = 16;
-    for (var k = 0; k < 3; k++) {
-      var ph = ((t * 0.32) + k / 3) % 1, rr = 2 + ph * 26, seg = 48;
-      ctx.globalAlpha = (1 - ph) * (col.light ? 0.5 : 0.7); ctx.strokeStyle = col.line; ctx.lineWidth = 1.4; ctx.beginPath();
-      for (i = 0; i <= seg; i++) {
-        var ang = i / seg * Math.PI * 2, rx = px + Math.cos(ang) * rr, rz = pz + Math.sin(ang) * rr * 0.9;
-        if (rz < Z0 + 1) rz = Z0 + 1;
-        p = proj(rx, wave(rx, rz, t) + 0.15, rz); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]);
-      }
-      ctx.stroke();
-    }
-    p = proj(px, wave(px, pz, t) + 0.15, pz);
-    ctx.globalAlpha = 1; ctx.fillStyle = col.line; ctx.beginPath(); ctx.arc(p[0], p[1], 2.6, 0, Math.PI * 2); ctx.fill();
-    ctx.globalAlpha = 1;
-    if (running) raf = requestAnimationFrame(frame);
-  }
-  function start() { if (running || still.matches || !visible || document.hidden) return; running = true; raf = requestAnimationFrame(frame); }
-  function stop() { running = false; cancelAnimationFrame(raf); }
-  readColors(); size(); frame(performance.now());
-  start();
-  addEventListener('resize', function () { size(); if (!running) frame(performance.now()); });
-  matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () { readColors(); if (!running) frame(performance.now()); });
-  still.addEventListener('change', function () { still.matches ? stop() : start(); });
-  document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible ? start() : stop(); }).observe(cv);
-  $('.hero').addEventListener('pointermove', function (e) {
-    var r = cv.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width * 2 - 1; my = (e.clientY - r.top) / r.height * 2 - 1;
-  });
-})();
-
-/* ---------------- hero: counting stats ---------------- */
-(function () {
-  var els = $$('[data-count]'); if (!els.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  els.forEach(function (el) {
-    var end = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '', t0 = null;
-    el.textContent = '0' + suf;
-    setTimeout(function () {
-      requestAnimationFrame(function step(now) {
-        if (!t0) t0 = now; var k = Math.min(1, (now - t0) / 1400), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
-        el.textContent = v.toLocaleString() + suf; if (k < 1) requestAnimationFrame(step);
-      });
-    }, 1300);
-  });
-})();
-
-/* ---------------- nav ---------------- */
-var menuBtn = $('#menuBtn'), links = $('#navLinks');
-menuBtn.addEventListener('click', function () { var o = links.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
-links.addEventListener('click', function (e) { if (e.target.tagName === 'A') { links.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); } });
-$('#yr').textContent = new Date().getFullYear();
-
-})();
-
-</script>
-
+<script id="gdata" type="application/json">{"items":[{"i":"helm-30","c":"helm","w":1600,"h":1200,"k":"#31312d","feat":1},{"i":"blackout-05","c":"blackout","w":1600,"h":1200,"k":"#46494b","feat":1},{"i":"helm-08","c":"helm","w":1600,"h":1200,"k":"#3a434b","feat":1},{"i":"radar-14","c":"radar","w":1200,"h":1600,"k":"#394654","feat":1},{"i":"wiring-25","c":"wiring","w":1200,"h":1600,"k":"#383e3f","feat":1},{"i":"boats-13","c":"boats","w":1600,"h":1200,"k":"#292e2e","feat":1},{"i":"helm-43","c":"helm","w":1600,"h":1200,"k":"#424a4c","feat":1},{"i":"helm-40","c":"helm","w":1600,"h":1200,"k":"#353c43","feat":1},{"i":"boats-17","c":"boats","w":1600,"h":1200,"k":"#2a4154","feat":1},{"i":"blackout-08","c":"blackout","w":1600,"h":1200,"k":"#37372f","feat":1},{"i":"helm-26","c":"helm","w":1600,"h":1200,"k":"#474846","feat":1},{"i":"av-01","c":"av","w":1600,"h":1200,"k":"#404141","feat":1},{"i":"helm-22","c":"helm","w":1600,"h":1200,"k":"#3b3a37","feat":1},{"i":"wiring-20","c":"wiring","w":1200,"h":1600,"k":"#3d3936","feat":1},{"i":"boats-08","c":"boats","w":1600,"h":1200,"k":"#374048","feat":1},{"i":"blackout-15","c":"blackout","w":1600,"h":1200,"k":"#3d3d3e","feat":1},{"i":"helm-21","c":"helm","w":1600,"h":1200,"k":"#3f403f","feat":1},{"i":"radar-12","c":"radar","w":1600,"h":1200,"k":"#354455","feat":1},{"i":"wiring-09","c":"wiring","w":1200,"h":1600,"k":"#46413c","feat":1},{"i":"blackout-04","c":"blackout","w":1600,"h":1200,"k":"#353c42","feat":1},{"i":"helm-13","c":"helm","w":1600,"h":1200,"k":"#474845","feat":1},{"i":"av-04","c":"av","w":1200,"h":1600,"k":"#413b36","feat":1},{"i":"helm-18","c":"helm","w":1600,"h":1200,"k":"#3b4243","feat":1},{"i":"radar-07","c":"radar","w":1600,"h":1200,"k":"#37424d","feat":1},{"i":"wiring-24","c":"wiring","w":1200,"h":1600,"k":"#423f3b","feat":1},{"i":"boats-11","c":"boats","w":1200,"h":1600,"k":"#2d3e4a","feat":1},{"i":"helm-33","c":"helm","w":1600,"h":1200,"k":"#323f39","feat":1},{"i":"helm-36","c":"helm","w":1600,"h":1257,"k":"#3d3f42"},{"i":"blackout-01","c":"blackout","w":1200,"h":1600,"k":"#3d3839"},{"i":"radar-18","c":"radar","w":1200,"h":1600,"k":"#3b3530"},{"i":"wiring-30","c":"wiring","w":1200,"h":1600,"k":"#3f3836"},{"i":"boats-15","c":"boats","w":1600,"h":1200,"k":"#3f464b"},{"i":"fab-27","c":"fab","w":1600,"h":1200,"k":"#464848"},{"i":"av-06","c":"av","w":1600,"h":1200,"k":"#4c4642"},{"i":"shop-09","c":"shop","w":1600,"h":1200,"k":"#3e3b3a"},{"i":"helm-37","c":"helm","w":1600,"h":1200,"k":"#302f28"},{"i":"blackout-02","c":"blackout","w":1600,"h":1200,"k":"#49423d"},{"i":"radar-19","c":"radar","w":1600,"h":1200,"k":"#3d434b"},{"i":"wiring-31","c":"wiring","w":1200,"h":1600,"k":"#4b4d4d"},{"i":"boats-16","c":"boats","w":1200,"h":1600,"k":"#2d333b"},{"i":"fab-28","c":"fab","w":1600,"h":1200,"k":"#3b3f40"},{"i":"av-07","c":"av","w":1200,"h":1600,"k":"#414647"},{"i":"shop-10","c":"shop","w":1600,"h":1200,"k":"#41403f"},{"i":"helm-38","c":"helm","w":1200,"h":1600,"k":"#383b3d"},{"i":"blackout-03","c":"blackout","w":1200,"h":1600,"k":"#344348"},{"i":"radar-01","c":"radar","w":1200,"h":1600,"k":"#444a4f"},{"i":"wiring-32","c":"wiring","w":1200,"h":1600,"k":"#3b3328"},{"i":"boats-01","c":"boats","w":1600,"h":1200,"k":"#393731"},{"i":"fab-29","c":"fab","w":1600,"h":1200,"k":"#4c5050"},{"i":"av-08","c":"av","w":1200,"h":1600,"k":"#3a3f3f"},{"i":"shop-11","c":"shop","w":1600,"h":1200,"k":"#464847"},{"i":"helm-39","c":"helm","w":1600,"h":1200,"k":"#393e40"},{"i":"blackout-06","c":"blackout","w":1600,"h":1200,"k":"#383f46"},{"i":"radar-02","c":"radar","w":1600,"h":1200,"k":"#4d4d4c"},{"i":"wiring-33","c":"wiring","w":1200,"h":1600,"k":"#383433"},{"i":"boats-02","c":"boats","w":1200,"h":1600,"k":"#393734"},{"i":"fab-01","c":"fab","w":1600,"h":1200,"k":"#424648"},{"i":"av-09","c":"av","w":1600,"h":1200,"k":"#474748"},{"i":"shop-12","c":"shop","w":1600,"h":1200,"k":"#4b5d64"},{"i":"helm-41","c":"helm","w":1600,"h":1200,"k":"#414546"},{"i":"blackout-07","c":"blackout","w":1600,"h":1200,"k":"#3f3c3a"},{"i":"radar-03","c":"radar","w":1600,"h":1200,"k":"#4c4c4c"},{"i":"wiring-34","c":"wiring","w":1200,"h":1600,"k":"#443c33"},{"i":"boats-03","c":"boats","w":1600,"h":1200,"k":"#3a3d3a"},{"i":"fab-02","c":"fab","w":1200,"h":1600,"k":"#474a48"},{"i":"av-10","c":"av","w":1600,"h":1200,"k":"#4a4844"},{"i":"shop-01","c":"shop","w":1200,"h":1600,"k":"#464849"},{"i":"helm-42","c":"helm","w":1600,"h":1200,"k":"#474a48"},{"i":"blackout-09","c":"blackout","w":1600,"h":1200,"k":"#24292a"},{"i":"radar-04","c":"radar","w":1600,"h":1200,"k":"#464644"},{"i":"wiring-35","c":"wiring","w":1200,"h":1600,"k":"#443c33"},{"i":"boats-04","c":"boats","w":1200,"h":1600,"k":"#3e3f3c"},{"i":"fab-03","c":"fab","w":1600,"h":1200,"k":"#474038"},{"i":"av-11","c":"av","w":1200,"h":1600,"k":"#454342"},{"i":"shop-02","c":"shop","w":1200,"h":1600,"k":"#514c46"},{"i":"helm-01","c":"helm","w":1200,"h":1600,"k":"#383a3b"},{"i":"blackout-10","c":"blackout","w":1200,"h":1600,"k":"#43474a"},{"i":"radar-05","c":"radar","w":1600,"h":1200,"k":"#434445"},{"i":"wiring-36","c":"wiring","w":1200,"h":1600,"k":"#322e2f"},{"i":"boats-05","c":"boats","w":1600,"h":1200,"k":"#3b3733"},{"i":"fab-04","c":"fab","w":1600,"h":1200,"k":"#4a443f"},{"i":"av-02","c":"av","w":1200,"h":1600,"k":"#444544"},{"i":"shop-03","c":"shop","w":1200,"h":1600,"k":"#3e3f3c"},{"i":"helm-02","c":"helm","w":1200,"h":1600,"k":"#404140"},{"i":"blackout-11","c":"blackout","w":1200,"h":1600,"k":"#42403e"},{"i":"radar-06","c":"radar","w":1200,"h":1600,"k":"#4b4e50"},{"i":"wiring-37","c":"wiring","w":1200,"h":1600,"k":"#3b322f"},{"i":"boats-06","c":"boats","w":1600,"h":1200,"k":"#363533"},{"i":"fab-05","c":"fab","w":1600,"h":1200,"k":"#484137"},{"i":"av-03","c":"av","w":1600,"h":1200,"k":"#4a4034"},{"i":"shop-04","c":"shop","w":1200,"h":1600,"k":"#494c49"},{"i":"helm-03","c":"helm","w":1600,"h":1200,"k":"#363e49"},{"i":"blackout-12","c":"blackout","w":1200,"h":1600,"k":"#48423d"},{"i":"radar-08","c":"radar","w":1200,"h":1600,"k":"#343b41"},{"i":"wiring-38","c":"wiring","w":1200,"h":1600,"k":"#3b322f"},{"i":"boats-07","c":"boats","w":1600,"h":1200,"k":"#373d44"},{"i":"fab-06","c":"fab","w":1600,"h":1200,"k":"#424241"},{"i":"av-05","c":"av","w":1200,"h":1600,"k":"#3d4041"},{"i":"shop-05","c":"shop","w":1200,"h":1600,"k":"#464745"},{"i":"helm-04","c":"helm","w":1600,"h":1200,"k":"#43433e"},{"i":"blackout-13","c":"blackout","w":1200,"h":1600,"k":"#453e35"},{"i":"radar-09","c":"radar","w":1200,"h":1600,"k":"#2f3435"},{"i":"wiring-39","c":"wiring","w":1600,"h":1200,"k":"#413c38"},{"i":"boats-09","c":"boats","w":1600,"h":1200,"k":"#373c41"},{"i":"fab-07","c":"fab","w":1600,"h":1200,"k":"#32383b"},{"i":"shop-06","c":"shop","w":1200,"h":1600,"k":"#3f4040"},{"i":"helm-05","c":"helm","w":1200,"h":1600,"k":"#474744"},{"i":"blackout-14","c":"blackout","w":1200,"h":1600,"k":"#493e31"},{"i":"radar-10","c":"radar","w":1200,"h":1600,"k":"#2c3942"},{"i":"wiring-01","c":"wiring","w":1200,"h":1600,"k":"#3b3a37"},{"i":"boats-10","c":"boats","w":1600,"h":1200,"k":"#373939"},{"i":"fab-08","c":"fab","w":1600,"h":1200,"k":"#32383b"},{"i":"shop-07","c":"shop","w":1600,"h":1200,"k":"#4d4d4e"},{"i":"helm-06","c":"helm","w":1200,"h":1600,"k":"#3f4045"},{"i":"blackout-16","c":"blackout","w":1200,"h":900,"k":"#393e42"},{"i":"radar-11","c":"radar","w":1200,"h":1600,"k":"#4d4e4d"},{"i":"wiring-02","c":"wiring","w":1200,"h":1600,"k":"#3b3a3b"},{"i":"boats-12","c":"boats","w":1200,"h":1600,"k":"#303e49"},{"i":"fab-09","c":"fab","w":1600,"h":1200,"k":"#434642"},{"i":"shop-08","c":"shop","w":1200,"h":1600,"k":"#2f3c3f"},{"i":"helm-07","c":"helm","w":1200,"h":1600,"k":"#363b4c"},{"i":"blackout-17","c":"blackout","w":1200,"h":900,"k":"#363c43"},{"i":"radar-13","c":"radar","w":1200,"h":1600,"k":"#37475a"},{"i":"wiring-03","c":"wiring","w":1200,"h":1600,"k":"#4c4944"},{"i":"boats-14","c":"boats","w":1600,"h":1200,"k":"#2d3336"},{"i":"fab-10","c":"fab","w":1600,"h":1200,"k":"#34414a"},{"i":"helm-09","c":"helm","w":1200,"h":1600,"k":"#3b3e3f"},{"i":"blackout-18","c":"blackout","w":1200,"h":900,"k":"#3b3f41"},{"i":"radar-15","c":"radar","w":1200,"h":1600,"k":"#3b4a5b"},{"i":"wiring-04","c":"wiring","w":1600,"h":1200,"k":"#49443e"},{"i":"fab-11","c":"fab","w":1600,"h":1200,"k":"#404f56"},{"i":"helm-10","c":"helm","w":1600,"h":1200,"k":"#404951"},{"i":"blackout-19","c":"blackout","w":1200,"h":900,"k":"#3c4144"},{"i":"radar-16","c":"radar","w":1600,"h":1200,"k":"#3c454b"},{"i":"wiring-05","c":"wiring","w":1200,"h":1600,"k":"#191934"},{"i":"fab-12","c":"fab","w":1600,"h":1200,"k":"#454440"},{"i":"helm-11","c":"helm","w":1600,"h":1200,"k":"#363839"},{"i":"radar-17","c":"radar","w":1200,"h":1600,"k":"#373b40"},{"i":"wiring-06","c":"wiring","w":1200,"h":1600,"k":"#413a31"},{"i":"fab-13","c":"fab","w":1600,"h":1200,"k":"#414440"},{"i":"helm-12","c":"helm","w":1200,"h":1600,"k":"#3c423f"},{"i":"wiring-07","c":"wiring","w":1200,"h":1600,"k":"#43403b"},{"i":"fab-14","c":"fab","w":1600,"h":1200,"k":"#434641"},{"i":"helm-14","c":"helm","w":1600,"h":1200,"k":"#464947"},{"i":"wiring-08","c":"wiring","w":1200,"h":1600,"k":"#373333"},{"i":"fab-15","c":"fab","w":1600,"h":1200,"k":"#48463d"},{"i":"helm-15","c":"helm","w":1600,"h":1200,"k":"#484a4b"},{"i":"wiring-10","c":"wiring","w":1200,"h":1600,"k":"#413f3b"},{"i":"fab-16","c":"fab","w":1200,"h":1600,"k":"#354345"},{"i":"helm-16","c":"helm","w":1200,"h":1600,"k":"#434740"},{"i":"wiring-11","c":"wiring","w":1200,"h":1600,"k":"#45413f"},{"i":"fab-17","c":"fab","w":1600,"h":1200,"k":"#3f4240"},{"i":"helm-17","c":"helm","w":1600,"h":1200,"k":"#364046"},{"i":"wiring-12","c":"wiring","w":1200,"h":1600,"k":"#3d3a38"},{"i":"fab-18","c":"fab","w":1600,"h":1200,"k":"#394248"},{"i":"helm-19","c":"helm","w":1600,"h":1200,"k":"#363233"},{"i":"wiring-13","c":"wiring","w":1200,"h":1600,"k":"#504f4c"},{"i":"fab-19","c":"fab","w":1200,"h":1600,"k":"#494845"},{"i":"helm-20","c":"helm","w":1600,"h":1200,"k":"#464541"},{"i":"wiring-14","c":"wiring","w":1200,"h":1600,"k":"#3c3832"},{"i":"fab-20","c":"fab","w":1200,"h":1600,"k":"#504942"},{"i":"helm-23","c":"helm","w":1200,"h":1600,"k":"#393f3f"},{"i":"wiring-15","c":"wiring","w":1200,"h":1600,"k":"#39322c"},{"i":"fab-21","c":"fab","w":1200,"h":1600,"k":"#42372e"},{"i":"helm-24","c":"helm","w":1600,"h":1200,"k":"#3b403d"},{"i":"wiring-16","c":"wiring","w":1200,"h":1600,"k":"#393530"},{"i":"fab-22","c":"fab","w":1200,"h":1600,"k":"#50443e"},{"i":"helm-25","c":"helm","w":1600,"h":1200,"k":"#494948"},{"i":"wiring-17","c":"wiring","w":1200,"h":1600,"k":"#48423a"},{"i":"fab-23","c":"fab","w":1600,"h":1200,"k":"#3d4347"},{"i":"helm-27","c":"helm","w":1200,"h":1600,"k":"#4b4d49"},{"i":"wiring-18","c":"wiring","w":1200,"h":1600,"k":"#564f48"},{"i":"fab-24","c":"fab","w":1600,"h":1200,"k":"#404040"},{"i":"helm-28","c":"helm","w":1600,"h":1200,"k":"#424549"},{"i":"wiring-19","c":"wiring","w":1200,"h":1600,"k":"#3b3837"},{"i":"fab-25","c":"fab","w":1200,"h":1600,"k":"#2a3f3d"},{"i":"helm-29","c":"helm","w":1600,"h":1200,"k":"#3b3d41"},{"i":"wiring-21","c":"wiring","w":1600,"h":1200,"k":"#393939"},{"i":"fab-26","c":"fab","w":1200,"h":1600,"k":"#3b4346"},{"i":"helm-31","c":"helm","w":1200,"h":1600,"k":"#333f43"},{"i":"wiring-22","c":"wiring","w":1600,"h":1200,"k":"#374447"},{"i":"helm-32","c":"helm","w":1200,"h":1600,"k":"#404345"},{"i":"wiring-23","c":"wiring","w":1600,"h":1200,"k":"#3b3b3b"},{"i":"helm-34","c":"helm","w":1600,"h":1200,"k":"#4a4946"},{"i":"wiring-26","c":"wiring","w":1600,"h":1200,"k":"#334347"},{"i":"helm-35","c":"helm","w":1200,"h":1600,"k":"#413e3c"},{"i":"wiring-27","c":"wiring","w":1200,"h":1600,"k":"#3f3e3b"},{"i":"wiring-28","c":"wiring","w":1200,"h":1600,"k":"#484848"},{"i":"wiring-29","c":"wiring","w":1600,"h":1200,"k":"#51514e"}],"reviews":[]}</script>
+<script src="assets/app.js?v=c39fae2e" defer></script>
 </body>
 </html>

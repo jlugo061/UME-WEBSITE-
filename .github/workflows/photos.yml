@@ -1,0 +1,37 @@
+name: Add gallery photos
+on:
+  push:
+    paths: ['photos-inbox/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pillow pillow-heif
+      - name: Resize, strip location data, add to gallery
+        id: add
+        run: |
+          python tools/add_photos.py | tee out.txt
+          echo "summary=$(cat out.txt)" >> "$GITHUB_OUTPUT"
+          echo "count=$(awk '{print $2}' out.txt)" >> "$GITHUB_OUTPUT"
+      - name: Rebuild the page
+        if: steps.add.outputs.count != '0'
+        run: python source/build.py
+      - uses: peter-evans/create-pull-request@v7
+        if: steps.add.outputs.count != '0'
+        with:
+          branch: photos/auto
+          delete-branch: true
+          commit-message: "Add gallery photos from the inbox"
+          title: "New gallery photos"
+          body: |
+            ${{ steps.add.outputs.summary }}
+
+            Photos were resized (1600 / 720 / 480 px WebP) and stripped of all location data.
+            Check them on the Netlify Deploy Preview below, then merge to publish.

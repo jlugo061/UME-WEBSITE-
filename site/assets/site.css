@@ -100,7 +100,9 @@ p { margin: 0; }
 .nav-inner { display: flex; align-items: center; gap: 24px; height: var(--nav-h); transition: height .3s var(--ease); }
 .nav.scrolled .nav-inner { height: 60px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; min-width: 0; }
-.brand-mark { width: 40px; height: 40px; flex: none; }
+.brand-mark { width: 52px; height: 52px; flex: none; border-radius: 50%; box-shadow: 0 0 0 2px rgba(91, 155, 224, .55), 0 4px 18px rgba(0, 0, 0, .5); }
+.nav.scrolled .brand-mark { width: 44px; height: 44px; }
+.hero-seal { width: clamp(84px, 9vw, 112px); height: auto; border-radius: 50%; box-shadow: 0 0 0 3px rgba(91, 155, 224, .6), 0 10px 40px rgba(0, 0, 0, .6); }
 .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.24rem; line-height: 1; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
 .brand-name small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: .6rem; letter-spacing: .2em; color: var(--fg-dim); margin-top: 5px; }
 .nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }

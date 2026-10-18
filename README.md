@@ -8,7 +8,8 @@ The website for Universal Marine Electronics (Davie, FL): **universalmarinefl.co
 | --- | --- |
 | `site/` | The published website. Netlify serves this folder as-is (`netlify.toml`). |
 | `site/images/g/` | Gallery photos: full size (1600 px), `t/` (720 px) and `s/` (480 px), all WebP with location data removed. |
-| `site/images/ba/` | Before/after pairs, aligned so the slider lines up. |
+| `site/images/ba/` | Before/after pairs: same boat, same spot, aligned and cropped 4:3 so the slider lines up. |
+| `site/media/` | The phone hero video (8 s loop, no sound). |
 | `source/src/` | The page template (`index.html`), styles (`site.css`) and script (`app.js`). Edit these, not `site/`. |
 | `source/gallery/manifest.json` | Every gallery photo, its category and optional caption. |
 | `source/gallery/reviews.json` | Optional. Real customer reviews, e.g. `[{"name": "Mike R.", "text": "…", "stars": 5, "source": "Google"}]`. The reviews row stays hidden until this file has entries. |
@@ -29,7 +30,8 @@ Upload them into the right `photos-inbox/<category>/` folder on github.com. With
 
 ## Versions
 
-- **V7**: branch `v7`. Dark-only redesign, self-hosted fonts, photo-led process, trust section, quote form with photo upload, photo automation.
+- **V8 (cinematic)**: branch `v7`, pull request #1. Full-screen hero (photo slideshow on desktop, helm video on phones), scroll-driven before/after wipe, sideways build story, one big photo per service, edge-to-edge gallery wall, full-bleed sections, logo centered and large.
+- **V7**: dark-only redesign, self-hosted fonts, photo-led process, trust section, quote form with photo upload, photo automation.
 - **V6**: commit `66caefb` on `main`. First photo-led version with the 153-photo gallery.
 - **V5**: commit `0a5b0f9`.
 

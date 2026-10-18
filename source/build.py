@@ -28,7 +28,9 @@ if changed:
 # ---- order: strongest shots first, then categories interleaved so "All work" reads varied; newest first inside a category
 FEAT = [214, 80, 49, 167, 238, 269, 161, 193, 258, 150, 204, 54, 244, 145, 163, 101, 77, 110, 262, 128, 83, 237, 240, 274]
 by_n = {m.get('n'): m for m in man if m.get('n')}
-feat = [by_n[n] for n in FEAT if n in by_n]
+FEAT_IDS = ['helm-43', 'helm-40', 'boats-17']   # strongest of the newer photos
+by_id = {m['id']: m for m in man}
+feat = [by_n[n] for n in FEAT[:6] if n in by_n] + [by_id[i] for i in FEAT_IDS if i in by_id] + [by_n[n] for n in FEAT[6:] if n in by_n]
 rest = [m for m in man if m not in feat]
 order = ['helm', 'blackout', 'radar', 'wiring', 'boats', 'fab', 'av', 'shop']
 cats = {c: sorted([m for m in rest if m['c'] == c], key=lambda m: m.get('added', ''), reverse=True) for c in order}

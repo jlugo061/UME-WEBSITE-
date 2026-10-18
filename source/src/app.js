@@ -101,6 +101,7 @@ $('#lbClose').addEventListener('click', closeLb);
 $('#lbPrev').addEventListener('click', function () { step(-1); });
 $('#lbNext').addEventListener('click', function () { step(1); });
 $('#lbStage').addEventListener('click', function (e) { if (e.target.id === 'lbStage') closeLb(); });
+$$('.certs-photo').forEach(function (b) { b.addEventListener('click', function () { openLb([{ f: b.getAttribute('data-full'), cap: b.getAttribute('data-cap') }], 0); }); });
 document.addEventListener('keydown', function (e) {
   if (lb.hidden) return;
   if (e.key === 'Escape') closeLb(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
@@ -115,6 +116,7 @@ document.addEventListener('keydown', function (e) {
 var BA = [
   ['P4', 'Empty dash to twin chartplotters', 'Cut, wired and finished with two flush displays'],
   ['P1', 'Open frame to blacked-out glass', 'One black face, two displays behind it'],
+  ['P9', 'Open panel to twin Garmin displays', 'Cut, wired and finished behind one black glass face'],
   ['P7', 'Raw housing to radar & camera helm', 'Fiberglass shell finished in black, systems live'],
   ['P2', 'Bare panel to twin engine displays', 'Flush-mounted above the switch bank'],
   ['P8', 'Taped cutouts to a full helm', 'Openings laid out, cut and filled'],

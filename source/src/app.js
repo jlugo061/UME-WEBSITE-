@@ -32,55 +32,168 @@ $('#quote').addEventListener('submit', function (e) {
     .catch(function () { status.className = 'form-status'; status.textContent = 'That didn’t go through. Call or text (786) 325-5690 and we’ll take it from there.'; });
 });
 
-/* ---------------- gallery ---------------- */
-var IMGBASE = '{{IMGBASE}}';
-var G = [
-  ['hero-garmin-triple.jpg', 'Invincible · triple Garmin', 'Helm build', 'helm', 'w8'],
-  ['invincible-triple-mercury.jpg', 'Invincible on the trailer', 'Pickup', 'boat', ''],
-  ['blacked-01.jpg', 'Running the inlet', 'Blacked out', 'blacked', ''],
-  ['{{IMG:blackpanel-intrepid}}', 'Intrepid · black panel, dual Garmin', 'Blacked out', 'blacked helm', 'w6'],
-  ['{{IMG:blackpanel-cobia}}', 'Cobia · switches in the black', 'Blacked out', 'blacked helm', 'w6'],
-  ['{{IMG:blackpanel-cut}}', 'Panel cut, wiring ready', 'In progress', 'blacked wiring', 'w6'],
-  ['{{IMG:blackpanel-intrepid-angle}}', 'Intrepid · flush panel', 'Blacked out', 'blacked', 'w6'],
-  ['blacked-02.jpg', 'Cobia · dual Garmin', 'Blacked out', 'blacked helm', ''],
-  ['blacked-03.jpg', 'Intrepid · Fusion dash', 'Audio', 'blacked audio', ''],
-  ['blacked-05.jpg', 'Dual plotters + Fusion', 'Blacked out', 'blacked', ''],
-  ['blacked-04.jpg', 'Intrepid · clean pod', 'Blacked out', 'blacked helm', 'w6'],
-  ['hero-intrepid-helm.jpg', 'Intrepid · full Garmin', 'Helm build', 'blacked helm', 'w6'],
-  ['blacked-06.jpg', 'Garmin + FLIR build', 'Night vision', 'blacked', ''],
-  ['blacked-07.jpg', 'Helm + radar overlay', 'Blacked out', 'blacked helm', ''],
-  ['install-console-wiring.jpg', 'Clean rewire', 'Wiring', 'wiring', ''],
-  ['jl-audio-hardtop.jpg', 'JL Audio · hardtop', 'Audio', 'audio', 'w6'],
-  ['dashboard-fusion-garmin.jpg', 'Fusion + Garmin dash', 'Audio', 'audio helm', 'w6'],
-  ['install-garmin-progress.jpg', 'Triple screen install', 'Install', 'wiring helm', 'w6'],
-  ['finished-dual-garmin.jpg', 'Dual Garmin + Fusion', 'Finished', 'helm', 'w6'],
-  ['radar-lightbar.jpg', 'Radar + light bar', 'Radar', 'helm', 'w6'],
-  ['shop-garmin-radar.jpg', 'Our Davie shop', 'Shop', 'boat', 'w6']
+/* ---------------- photo data (filled at build) ---------------- */
+var IMG = 'images/';
+var DATA = {{GALLERY}};   // [{f: full path, t: thumb path, c: category, w, h}]
+var CATS = { helm: 'Helms & displays', blackout: 'Black panels', fab: 'Fabrication', wiring: 'Wiring', radar: 'Radar, cameras & comms', av: 'Audio & TV', boats: 'Boats', shop: 'In the shop' };
+var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+$$('[data-total]').forEach(function (el) { el.textContent = DATA.length; });
+function byId(id) { return IMG + 'g/' + id + '.webp'; }
+
+/* ---------------- lightbox (shared) ---------------- */
+var lb = $('#lightbox'), lbImg = $('#lbImg'), lbList = [], lbI = 0, lastFocus = null;
+function lbShow() {
+  var it = lbList[lbI]; lbImg.src = it.f; lbImg.alt = it.cap || '';
+  $('#lbCap').textContent = it.cap || '';
+  $('#lbCount').textContent = lbList.length > 1 ? (lbI + 1) + ' / ' + lbList.length : '';
+  $('#lbPrev').hidden = $('#lbNext').hidden = lbList.length < 2;
+  [lbI - 1, lbI + 1].forEach(function (k) { var n = lbList[(k + lbList.length) % lbList.length]; if (n) (new Image()).src = n.f; });
+}
+function openLb(list, i) { lbList = list; lbI = i || 0; lastFocus = document.activeElement; lb.hidden = false; document.body.style.overflow = 'hidden'; lbShow(); $('#lbClose').focus(); }
+function closeLb() { lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+function step(d) { lbI = (lbI + d + lbList.length) % lbList.length; lbShow(); }
+$('#lbClose').addEventListener('click', closeLb);
+$('#lbPrev').addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
+$('#lbNext').addEventListener('click', function (e) { e.stopPropagation(); step(1); });
+$('#lbStage').addEventListener('click', function (e) { if (e.target.id === 'lbStage') closeLb(); });
+document.addEventListener('keydown', function (e) {
+  if (lb.hidden) return;
+  if (e.key === 'Escape') closeLb(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
+});
+(function () { var x0 = null; var st = $('#lbStage');
+  st.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  st.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1); x0 = null; });
+})();
+function capOf(d) { return CATS[d.c] || ''; }
+
+/* ---------------- photo reel under the hero ---------------- */
+(function () {
+  var pick = DATA.filter(function (d, i) { return d.c !== 'wiring' && d.c !== 'fab' && i % 3 === 0; }).slice(0, 22);
+  var list = pick.map(function (d) { return { f: d.f, cap: capOf(d) }; });
+  var html = pick.map(function (d, i) { return '<button type="button" data-i="' + i + '" aria-label="View photo: ' + capOf(d) + '"><img src="' + d.t + '" alt="" width="' + d.w + '" height="' + d.h + '" loading="lazy"></button>'; }).join('');
+  var tr = $('#reelTrack'); tr.innerHTML = html + html.replace(/<button /g, '<button tabindex="-1" aria-hidden="true" ');
+  tr.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) openLb(list, +b.getAttribute('data-i')); });
+})();
+
+/* ---------------- before / after ---------------- */
+var BA = [
+  ['P4', 'Empty dash to twin chartplotters', 'Console cut, wired and finished with two flush displays'],
+  ['P1', 'Open frame to blacked-out glass', 'One black face, two displays behind it'],
+  ['P7', 'Raw housing to radar & camera helm', 'Fiberglass shell finished in black, systems live'],
+  ['P2', 'Bare panel to twin engine displays', 'Flush-mounted above the switch bank'],
+  ['P8', 'Taped cutouts to a full helm', 'Openings laid out, cut and filled'],
+  ['P6', 'Template to finished switch panel', 'Displays and switches fitted to the layout']
 ];
-$('#gallery').innerHTML = G.map(function (g) {
-  return '<figure class="g ' + g[4] + '" data-cats="' + g[3] + '" tabindex="0" style="margin:0">' +
-    '<img src="' + (/[/:]/.test(g[0]) ? g[0] : IMGBASE + g[0]) + '" alt="' + g[1] + '" loading="lazy">' +
-    '<figcaption><span>' + g[2] + '</span><b>' + g[1] + '</b></figcaption></figure>';
-}).join('');
-$$('#gallery img').forEach(function (img) {
-  var mark = function () { img.closest('.g').classList.add('noimg'); };
-  if (img.complete && img.naturalWidth === 0) mark(); else img.addEventListener('error', mark);
-});
-$$('#gFilters .chip').forEach(function (b) {
-  b.addEventListener('click', function () {
-    var v = b.getAttribute('data-f');
-    $$('#gFilters .chip').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-    $$('#gallery .g').forEach(function (g) { g.hidden = !(v === 'all' || g.getAttribute('data-cats').split(' ').indexOf(v) > -1); });
+(function () {
+  var box = $('#ba'), rng = $('#baRange'), cur = -1, drag = false;
+  function setPos(p) { p = Math.max(0, Math.min(100, p)); box.style.setProperty('--pos', p + '%'); rng.value = p; }
+  function show(i) {
+    if (i === cur) return; cur = i; var k = BA[i][0];
+    $('#baBefore').src = IMG + 'ba/' + k + '-before.webp'; $('#baAfter').src = IMG + 'ba/' + k + '-after.webp';
+    $('#baBefore').alt = 'Before: ' + BA[i][1]; $('#baAfter').alt = 'After: ' + BA[i][1];
+    $('#baTitle').textContent = BA[i][1]; $('#baSub').textContent = BA[i][2];
+    $$('#baList .ba-pick').forEach(function (b, j) { b.setAttribute('aria-pressed', j === i); });
+    setPos(50);
+  }
+  $('#baList').innerHTML = BA.map(function (b, i) {
+    return '<button type="button" class="ba-pick" aria-pressed="false" data-i="' + i + '"><img src="' + IMG + 'ba/' + b[0] + '-after.webp" alt="" loading="lazy"><span><small>Job 0' + (i + 1) + '</small><b>' + b[1] + '</b></span></button>';
+  }).join('');
+  $('#baList').addEventListener('click', function (e) { var b = e.target.closest('.ba-pick'); if (b) show(+b.getAttribute('data-i')); });
+  function fromX(x) { var r = box.getBoundingClientRect(); setPos((x - r.left) / r.width * 100); }
+  box.addEventListener('pointerdown', function (e) { drag = true; box.setPointerCapture(e.pointerId); fromX(e.clientX); });
+  box.addEventListener('pointermove', function (e) { if (drag) fromX(e.clientX); });
+  box.addEventListener('pointerup', function () { drag = false; });
+  box.addEventListener('pointercancel', function () { drag = false; });
+  rng.addEventListener('input', function () { setPos(+rng.value); });
+  show(0);
+  // one gentle sweep the first time it scrolls into view, so people see it moves
+  if (!still && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return; io.disconnect();
+      var t0 = null; requestAnimationFrame(function a(now) {
+        if (drag) return; if (!t0) t0 = now; var k = (now - t0) / 1800; if (k > 1) { setPos(50); return; }
+        setPos(50 + Math.sin(k * Math.PI * 2) * 22); requestAnimationFrame(a);
+      });
+    }, { threshold: 0.6 });
+    io.observe(box);
+  }
+  var DUOS = [['S1', 'Taped and cut, then twin displays', 'Same boat, same day'], ['S2', 'Open dash to glowing charts', 'Old face out, black panel in'], ['S3', 'Behind the dash to a finished helm', 'Rewired, then closed up clean']];
+  $('#duos').innerHTML = DUOS.map(function (d, i) {
+    return '<figure class="duo"><div class="duo-pair"><button type="button" data-i="' + i + '" data-k="0"><img src="' + IMG + 'ba/' + d[0] + '-before.webp" alt="Before: ' + d[1] + '" loading="lazy"><span class="ba-tag b">Before</span></button>' +
+      '<button type="button" data-i="' + i + '" data-k="1"><img src="' + IMG + 'ba/' + d[0] + '-after.webp" alt="After: ' + d[1] + '" loading="lazy"><span class="ba-tag a">After</span></button></div><figcaption>' + d[1] + '<span>' + d[2] + '</span></figcaption></figure>';
+  }).join('');
+  $('#duos').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return; var d = DUOS[+b.getAttribute('data-i')];
+    openLb([{ f: IMG + 'ba/' + d[0] + '-before.webp', cap: 'Before · ' + d[1] }, { f: IMG + 'ba/' + d[0] + '-after.webp', cap: 'After · ' + d[1] }], +b.getAttribute('data-k'));
   });
+})();
+
+/* ---------------- build stories ---------------- */
+var STORIES = [
+  ['Glass helm', [['fab-03', 'Old face stripped', 'Down to bare fiberglass'], ['fab-04', 'Prep', 'Ground and cleaned for new glass'], ['fab-05', 'Shaping', 'Frame built up and faired'], ['fab-06', 'Taped & faired', 'Edges masked for the finish'], ['blackout-01', 'Black face fitted', 'Panel set into the frame'], ['blackout-02', 'Bench check', 'Fit and finish before it goes back'], ['blackout-03', 'Ready', 'Finished panel off the bench'], ['fab-07', 'On the boat', 'Frame mounted at the helm'], ['blackout-04', 'Displays in', 'Glass bonded and wired'], ['blackout-05', 'Finished', 'One black face, factory everywhere else']]],
+  ['Black housing', [['fab-19', 'Template', 'Layout drawn from the dash'], ['fab-21', 'Housing built', 'Glassed and shaped'], ['fab-22', 'Fitting', 'Trimmed to the console'], ['blackout-11', 'Black face', 'Panel bonded to the housing'], ['blackout-13', 'Polished', 'Edges and face finished by hand'], ['fab-23', 'Mounted', 'Housing set on the helm'], ['blackout-15', 'Finished', 'Displays live: camera and radar']]],
+  ['Twin display', [['blackout-07', 'New glass', 'Displays prepped for the panel'], ['fab-12', 'Old face out', 'Opening cleared'], ['fab-13', 'Opening trued', 'Squared up for the new panel'], ['fab-15', 'Dry fit', 'Panel test-fitted from behind'], ['blackout-08', 'Finished', 'Charts up, flush and clean']]]
+];
+(function () {
+  var strip = $('#storyStrip'), cur = 0;
+  function render(i) {
+    cur = i; var steps = STORIES[i][1];
+    strip.innerHTML = steps.map(function (s, k) { return '<figure><button type="button" data-k="' + k + '" aria-label="View step ' + (k + 1) + ' full size"><img src="' + IMG + 'g/t/' + s[0] + '.webp" alt="' + s[1] + ': ' + s[2] + '" loading="lazy"></button><figcaption><b>' + s[1] + '</b>' + s[2] + '</figcaption></figure>'; }).join('');
+    strip.scrollLeft = 0;
+    $$('#storyTabs .chip').forEach(function (c, j) { c.setAttribute('aria-pressed', j === i); });
+  }
+  $('#storyTabs').innerHTML = STORIES.map(function (s, i) { return '<button class="chip" aria-pressed="false" data-i="' + i + '">Build 0' + (i + 1) + ' · ' + s[0] + '</button>'; }).join('');
+  $('#storyTabs').addEventListener('click', function (e) { var c = e.target.closest('.chip'); if (c) render(+c.getAttribute('data-i')); });
+  strip.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    openLb(STORIES[cur][1].map(function (s, k) { return { f: byId(s[0]), cap: 'Step ' + (k + 1) + ' · ' + s[1] + ': ' + s[2] }; }), +b.getAttribute('data-k'));
+  });
+  $('#stPrev').addEventListener('click', function () { strip.scrollBy({ left: -strip.clientWidth * 0.8, behavior: still ? 'auto' : 'smooth' }); });
+  $('#stNext').addEventListener('click', function () { strip.scrollBy({ left: strip.clientWidth * 0.8, behavior: still ? 'auto' : 'smooth' }); });
+  render(0);
+})();
+$$('.bp-hero button').forEach(function (b) { b.addEventListener('click', function () { openLb([{ f: b.getAttribute('data-full'), cap: 'Finished blacked-out helm' }], 0); }); });
+
+/* ---------------- gallery ---------------- */
+var gFilter = 'all', gShown = 0, gList = [], PAGE = 24, gCols = [], gH = [], gN = 0;
+function nCols() { var w = $('#gallery').clientWidth; return w < 560 ? 2 : w < 900 ? 3 : 4; }
+function gPlace(from, to) {   // drop each photo into the shortest column, so new rows add below without reshuffling
+  for (var i = from; i < to; i++) {
+    var d = gList[i], c = 0; for (var k = 1; k < gN; k++) if (gH[k] < gH[c] - 0.01) c = k;
+    gCols[c].insertAdjacentHTML('beforeend', '<button type="button" class="tile" data-i="' + i + '"><img src="' + d.t + '" width="' + d.w + '" height="' + d.h + '" alt="' + capOf(d) + ' photo by Universal Marine Electronics" loading="lazy" decoding="async"><span>' + capOf(d) + '</span></button>');
+    gH[c] += d.h / d.w;
+  }
+}
+function gLayout() {
+  var g = $('#gallery'); gN = nCols(); g.innerHTML = ''; gCols = []; gH = [];
+  for (var k = 0; k < gN; k++) { var col = document.createElement('div'); col.className = 'mcol'; g.appendChild(col); gCols.push(col); gH.push(0); }
+  gPlace(0, gShown);
+}
+addEventListener('resize', function () { if (gN && nCols() !== gN) { gLayout(); gHook(); } });
+function gRender(more) {
+  if (!more) { gList = DATA.filter(function (d) { return gFilter === 'all' || d.c === gFilter; }); gShown = Math.min(PAGE, gList.length); gLayout(); }
+  else { var to = Math.min(gList.length, gShown + PAGE); gPlace(gShown, to); gShown = to; }
+  gHook();
+}
+function gHook() {
+  $$('#gallery img:not(.in)').forEach(function (img) { if (img.complete) img.classList.add('in'); else img.addEventListener('load', function () { img.classList.add('in'); }); img.addEventListener('error', function () { img.closest('.tile').remove(); }); });
+  var left = gList.length - gShown, mb = $('#gMore');
+  mb.hidden = left <= 0; mb.textContent = 'Show more · ' + left + ' left';
+}
+(function () {
+  var counts = {}; DATA.forEach(function (d) { counts[d.c] = (counts[d.c] || 0) + 1; });
+  $('#gFilters').innerHTML = '<button class="chip" data-f="all" aria-pressed="true">All work <span class="n">' + DATA.length + '</span></button>' +
+    Object.keys(CATS).filter(function (c) { return counts[c]; }).map(function (c) { return '<button class="chip" data-f="' + c + '" aria-pressed="false">' + CATS[c] + ' <span class="n">' + counts[c] + '</span></button>'; }).join('');
+})();
+function setFilter(f) { gFilter = f; $$('#gFilters .chip').forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-f') === f); }); gRender(false); }
+$('#gFilters').addEventListener('click', function (e) { var b = e.target.closest('.chip'); if (b) setFilter(b.getAttribute('data-f')); });
+$('#gMore').addEventListener('click', function () { gRender(true); });
+$('#gallery').addEventListener('click', function (e) {
+  var t = e.target.closest('.tile'); if (!t) return;
+  openLb(gList.map(function (d) { return { f: d.f, cap: capOf(d) }; }), +t.getAttribute('data-i'));
 });
-var lb = $('#lightbox');
-function openLb(fig) { if (fig.classList.contains('noimg')) return; var img = fig.querySelector('img'); lb.querySelector('img').src = img.src; lb.querySelector('img').alt = img.alt; lb.hidden = false; }
-function closeLb() { lb.hidden = true; }
-document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
-$('#gallery').addEventListener('click', function (e) { var fig = e.target.closest('.g'); if (fig) openLb(fig); });
-$$('.bp-photos figure, .bp-hero').forEach(function (fig) { fig.addEventListener('click', function () { openLb(fig); }); });
-$('#gallery').addEventListener('keydown', function (e) { if (e.key === 'Enter') { var fig = e.target.closest('.g'); if (fig) openLb(fig); } });
-lb.addEventListener('click', closeLb);
+$$('.svc-go').forEach(function (b) { b.addEventListener('click', function () { setFilter(b.getAttribute('data-go')); $('#work').scrollIntoView({ behavior: still ? 'auto' : 'smooth' }); }); });
+gRender(false);
 
 /* ---------------- service-area chart ---------------- */
 (function () {
@@ -141,9 +254,7 @@ lb.addEventListener('click', closeLb);
   var col = {};
   function readColors() {
     var cs = getComputedStyle(document.documentElement);
-    col.line = cs.getPropertyValue('--sounding').trim() || '#8fd0ef';
-    col.route = cs.getPropertyValue('--route').trim() || '#e3529f';
-    col.light = cs.getPropertyValue('color-scheme').trim() === 'light';
+    col.line = '#8fd0ef'; col.route = '#e3529f'; col.light = false;
   }
   function size() {
     var r = cv.getBoundingClientRect(); dpr = Math.min(1.6, window.devicePixelRatio || 1);

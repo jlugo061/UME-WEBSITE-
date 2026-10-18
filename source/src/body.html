@@ -115,29 +115,6 @@ p { margin: 0; }
 }
 @media (max-width: 520px) { .brand-name small { display: none; } .nav-call span { display: none; } .nav-call { padding: 10px; } }
 
-/* ---------- HERO ---------- */
-.hero { padding-block: clamp(48px, 8vw, 96px) clamp(40px, 6vw, 64px); position: relative; overflow: hidden; isolation: isolate;
-  min-height: calc(100svh - 71px); display: flex; align-items: flex-end; }
-.hero > .wrap { width: 100%; }
-.hero-wrap { position: relative; z-index: 1; }
-/* the 3D chart sea: a live wireframe swell with the route and a sonar ping, behind the headline */
-.sea3d { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%); }
-.hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: linear-gradient(to top, var(--bg) 0%, color-mix(in srgb, var(--bg) 70%, transparent) 38%, transparent 70%); }
-.js .h-rise .ln { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; margin-bottom: -.06em; }
-.js .h-rise .ln > * { display: inline-block; transform: translateY(105%); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(.15s + var(--i) * .12s); }
-.js .h-fade { opacity: 0; animation: fadein .9s ease .65s forwards; }
-@keyframes rise { to { transform: none; } }
-@keyframes fadein { to { opacity: 1; } }
-.hero-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: end; margin-bottom: clamp(36px, 6vw, 72px); }
-.hero h1 { font-size: clamp(3rem, 7.4vw, 5.8rem); text-transform: uppercase; }
-.hero h1 em { font-style: normal; color: var(--brand); }
-.hero-side { display: grid; gap: 22px; }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-@media (max-width: 860px) { .hero-top { grid-template-columns: 1fr; } }
-
 select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--surface-2); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
@@ -155,36 +132,6 @@ select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid 
 .ribbon b { color: var(--fg); font-weight: 500; }
 .ribbon span + span::before { content: ""; width: 4px; height: 4px; background: var(--route); transform: rotate(45deg); }
 
-/* ---------- SERVICES ---------- */
-.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-.svc { padding: 26px 24px 28px 0; border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start; }
-.svc:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--line); }
-.svc-code { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .14em; color: var(--route); }
-.svc p { color: var(--fg-dim); font-size: .97rem; }
-@media (max-width: 900px) {
-  .svc-grid { grid-template-columns: 1fr 1fr; }
-  .svc:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
-  .svc:nth-child(2n) { padding-left: 20px; border-left: 1px solid var(--line); }
-}
-@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } .svc:nth-child(2n) { padding-left: 0; border-left: 0; } }
-
-/* ---------- BLACKED OUT ---------- */
-.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
-@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
-.split-copy { display: grid; gap: 18px; }
-.split-copy p { color: var(--fg-dim); }
-.bp-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
-.bp-steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-.bp-steps b { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; color: var(--route); font-weight: 500; }
-.bp-steps span { color: var(--fg-dim); }
-.bp-steps strong { color: var(--fg); font-weight: 600; }
-.bp-photos { margin-top: clamp(28px, 4vw, 44px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.bp-photos figure { margin: 0; display: grid; gap: 8px; }
-.bp-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; border: 1px solid var(--line-strong); display: block; background: var(--surface-2); cursor: zoom-in; }
-.bp-photos figcaption { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-dim); }
-.bp-photos figcaption b { color: var(--fg); font-weight: 500; }
-@media (max-width: 900px) { .bp-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-
 /* ---------- PROCESS ---------- */
 .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: step; position: relative; }
 .steps::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; border-top: 2px dashed var(--route); opacity: .6; }
@@ -200,26 +147,6 @@ select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid 
   .step-mark { grid-row: span 2; }
   .step h3 { margin-top: 8px; }
 }
-
-/* ---------- GALLERY ---------- */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: clamp(180px, 19vw, 250px); grid-auto-flow: dense; gap: 12px; }
-.g { position: relative; grid-column: span 4; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; background:
-  repeating-linear-gradient(0deg, transparent 0 23px, var(--line) 23px 24px),
-  repeating-linear-gradient(90deg, transparent 0 23px, var(--line) 23px 24px), var(--surface-2); padding: 0; text-align: left; max-width: 100%; }
-.g.w8 { grid-column: span 8; grid-row: span 2; } .g.w6 { grid-column: span 6; }
-.g img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-.g:hover img { transform: scale(1.04); }
-.g figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 14px 12px; background: linear-gradient(transparent, rgba(2,8,16,.88)); color: #fff; display: grid; gap: 2px; }
-.g figcaption b { font-family: var(--font-display); font-size: 1.12rem; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
-.g figcaption span { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: #ff9fd2; }
-.g.noimg { display: none !important; }  /* photo missing: leave it out rather than show an empty tile */
-@media (max-width: 900px) { .g, .g.w8, .g.w6 { grid-column: span 6; grid-row: span 1; } }
-@media (max-width: 560px) { .g, .g.w8, .g.w6 { grid-column: span 12; } }
-.gallery-foot { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; color: var(--fg-dim); }
-.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(2,6,12,.94); display: grid; place-items: center; padding: 24px; }
-.lightbox img { max-height: 86vh; border-radius: 8px; }
-.lightbox button { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; }
 
 /* ---------- BOATS ---------- */
 .hulls { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 20px 48px; margin-top: 48px; align-items: start; }
@@ -299,12 +226,176 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
   html { scroll-behavior: auto; }
   .js .h-rise .ln > *, .js .h-fade { animation: none; opacity: 1; transform: none; }
 }
-.bp-hero { margin: 0; display: grid; gap: 10px; }
-.bp-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; border: 1px solid var(--line-strong); cursor: zoom-in; }
-.bp-hero figcaption { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-dim); }
-.bp-hero figcaption b { color: var(--fg); font-weight: 500; }
-.bp-photos { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
-@media (max-width: 600px) { .bp-photos { grid-template-columns: 1fr !important; } }
+/* ---------- HERO: full-bleed photo, always dark ---------- */
+.hero { position: relative; overflow: hidden; isolation: isolate; color: #eef4fa;
+  min-height: calc(100svh - 71px); display: flex; align-items: flex-end; background: #050d17;
+  padding-block: clamp(96px, 14vw, 160px) clamp(28px, 4vw, 44px); }
+.hero > .wrap { width: 100%; position: relative; z-index: 2; }
+.hero-media { position: absolute; inset: 0; z-index: 0; margin: 0; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; transform-origin: 60% 40%; }
+.js .hero-media img { animation: drift 24s ease-out both; }
+@keyframes drift { from { transform: scale(1.12); } to { transform: scale(1); } }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(4,10,18,.92) 0%, rgba(4,10,18,.62) 42%, rgba(4,10,18,.15) 75%, rgba(4,10,18,.05) 100%),
+    linear-gradient(to top, #050d17 0%, rgba(5,13,23,.75) 22%, transparent 52%); }
+.sea3d { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 46%; z-index: 1; pointer-events: none; opacity: .75;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 45%); mask-image: linear-gradient(to bottom, transparent 0%, #000 45%); }
+.js .h-rise .ln { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; margin-bottom: -.06em; }
+.js .h-rise .ln > * { display: inline-block; transform: translateY(105%); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(.15s + var(--i) * .12s); }
+.js .h-fade { opacity: 0; animation: fadein .9s ease .65s forwards; }
+@keyframes rise { to { transform: none; } }
+@keyframes fadein { to { opacity: 1; } }
+.hero-copy { display: grid; gap: 22px; max-width: 760px; margin-bottom: clamp(36px, 6vw, 64px); }
+.hero h1 { font-size: clamp(2.9rem, 6.4vw, 5.4rem); text-transform: uppercase; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+.hero h1 em { font-style: normal; color: #7db4ef; }
+.hero .lead { color: #c4d3e3; font-size: clamp(1.05rem, 1.6vw, 1.22rem); }
+.hero .eyebrow { color: #a9dcf5; }
+.hero .btn-ghost { color: #fff; border-color: rgba(255,255,255,.4); background: rgba(5,13,23,.35); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.hero .btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.1); }
+.hero .btn-primary { background: #5b9be0; color: #04121f; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.ribbon { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .06em; color: #b9c8d8; text-transform: uppercase; }
+.ribbon span { display: inline-flex; align-items: center; gap: 10px; }
+.ribbon b { color: #fff; font-weight: 500; }
+.ribbon span + span::before { content: ""; width: 4px; height: 4px; background: #e3529f; transform: rotate(45deg); }
+.hero-tag { position: absolute; right: max(16px, 3vw); top: clamp(20px, 3vw, 32px); z-index: 2; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.75); background: rgba(5,13,23,.45); border: 1px solid rgba(255,255,255,.18); padding: 6px 10px; border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+@media (max-width: 700px) {
+  .hero::before { background: linear-gradient(to top, #050d17 0%, rgba(5,13,23,.86) 45%, rgba(5,13,23,.35) 75%, rgba(5,13,23,.15) 100%); }
+  .hero-media img { object-position: 38% 50%; }
+  .hero-tag { display: none; }
+}
+
+/* ---------- PHOTO REEL ---------- */
+.reel { background: #050d17; padding: 0 0 clamp(18px, 3vw, 28px); overflow: hidden; position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.reel-track { display: flex; gap: 10px; width: max-content; animation: reel 90s linear infinite; }
+.reel:hover .reel-track { animation-play-state: paused; }
+.reel button { padding: 0; border: 0; background: #0c1c2e; border-radius: 10px; overflow: hidden; cursor: zoom-in; flex: none; height: clamp(110px, 14vw, 170px); }
+.reel img { height: 100%; width: auto; transition: transform .4s ease, filter .4s ease; filter: saturate(.92); }
+.reel button:hover img { transform: scale(1.05); filter: none; }
+@keyframes reel { to { transform: translateX(-50%); } }
+
+/* ---------- BEFORE / AFTER ---------- */
+.ba-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
+.ba { position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; background: #050d17; border: 1px solid var(--line-strong);
+  touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; --pos: 50%; }
+.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; -webkit-user-drag: none; }
+.ba .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,.5); pointer-events: none; }
+.ba-knob { position: absolute; top: 50%; left: var(--pos); width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: #fff; color: #04121f; display: grid; place-items: center; box-shadow: 0 4px 20px rgba(0,0,0,.45); pointer-events: none; }
+.ba-knob svg { width: 26px; height: 26px; }
+.ba-tag { position: absolute; top: 14px; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; pointer-events: none; }
+.ba-tag.b { left: 14px; background: rgba(5,13,23,.75); color: #fff; }
+.ba-tag.a { right: 14px; background: #5b9be0; color: #04121f; }
+.ba-range { position: absolute; inset: auto 0 0 0; width: 100%; opacity: 0; height: 1px; pointer-events: none; }
+.ba:focus-within { outline: 2px solid var(--route); outline-offset: 3px; }
+.ba-cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 12px; align-items: baseline; }
+.ba-cap b { font-family: var(--font-display); font-size: 1.35rem; text-transform: uppercase; font-weight: 600; letter-spacing: .02em; }
+.ba-cap span { color: var(--fg-dim); font-size: .95rem; }
+.ba-list { display: grid; gap: 10px; max-height: 640px; overflow: auto; padding-right: 4px; }
+.ba-pick { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; align-items: center; padding: 8px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; text-align: left; color: var(--fg); transition: border-color .15s, background .15s; }
+.ba-pick img { width: 92px; height: 69px; object-fit: cover; border-radius: 8px; }
+.ba-pick b { font-weight: 600; font-size: .92rem; line-height: 1.3; display: block; }
+.ba-pick small { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-dim); }
+.ba-pick[aria-pressed="true"] { border-color: var(--brand); background: color-mix(in srgb, var(--brand) 14%, var(--surface)); }
+.ba-pick:hover { border-color: var(--line-strong); }
+@media (max-width: 960px) {
+  .ba-layout { grid-template-columns: 1fr; }
+  .ba-list { grid-auto-flow: column; grid-auto-columns: 220px; max-height: none; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+  .ba-pick { scroll-snap-align: start; }
+}
+.duo-head { margin: clamp(40px, 6vw, 64px) 0 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
+.duo-head h3 { font-size: 1.6rem; }
+.duos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.duo { margin: 0; display: grid; gap: 10px; }
+.duo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line-strong); }
+.duo-pair button { padding: 0; border: 0; position: relative; cursor: zoom-in; background: #050d17; aspect-ratio: 3 / 4; }
+.duo-pair img { width: 100%; height: 100%; object-fit: cover; }
+.duo-pair .ba-tag { top: 8px; left: 8px; right: auto; font-size: .6rem; padding: 4px 8px; }
+.duo figcaption { font-weight: 600; }
+.duo figcaption span { display: block; color: var(--fg-dim); font-weight: 400; font-size: .92rem; }
+@media (max-width: 900px) { .duos { grid-template-columns: 1fr; } .duo-pair button { aspect-ratio: 4 / 5; } }
+
+/* ---------- BLACKED OUT ---------- */
+.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+.split-copy { display: grid; gap: 18px; }
+.split-copy p { color: var(--fg-dim); }
+.bp-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.bp-steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.bp-steps b { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; color: var(--route); font-weight: 500; }
+.bp-steps span { color: var(--fg-dim); }
+.bp-steps strong { color: var(--fg); font-weight: 600; }
+.bp-hero { margin: 0; position: relative; }
+.bp-hero button { padding: 0; border: 0; display: block; width: 100%; cursor: zoom-in; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); }
+.bp-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.bp-hero figcaption { position: absolute; left: 14px; bottom: 14px; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: rgba(5,13,23,.7); padding: 6px 10px; border-radius: 999px; }
+.story { margin-top: clamp(40px, 6vw, 64px); }
+.story-head { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: end; margin-bottom: 18px; }
+.story-head h3 { font-size: 1.6rem; }
+.story-strip { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(220px, 26vw, 300px); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; counter-reset: st; scrollbar-width: thin; }
+.story-strip figure { margin: 0; scroll-snap-align: start; display: grid; gap: 10px; counter-increment: st; }
+.story-strip button { padding: 0; border: 0; border-radius: 12px; overflow: hidden; cursor: zoom-in; background: var(--surface-2); aspect-ratio: 3 / 4; position: relative; }
+.story-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.story-strip button:hover img { transform: scale(1.04); }
+.story-strip button::after { content: counter(st, decimal-leading-zero); position: absolute; left: 10px; top: 10px; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: #fff; background: rgba(5,13,23,.72); padding: 4px 8px; border-radius: 999px; }
+.story-strip figure:last-child button::after { content: "Done"; background: var(--route); }
+.story-strip figcaption { font-size: .92rem; color: var(--fg-dim); }
+.story-strip figcaption b { color: var(--fg); font-weight: 600; display: block; }
+.story-nav { display: flex; gap: 8px; }
+.icon-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--fg); cursor: pointer; display: grid; place-items: center; }
+.icon-btn:hover { border-color: var(--brand); color: var(--brand); }
+.icon-btn svg { width: 18px; height: 18px; }
+
+/* ---------- SERVICES: photo cards ---------- */
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.svc { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); transition: border-color .2s, transform .2s; }
+.svc:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.svc-img { aspect-ratio: 16 / 10; overflow: hidden; position: relative; background: var(--surface-2); }
+.svc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.svc:hover .svc-img img { transform: scale(1.05); }
+.svc-code { position: absolute; left: 12px; top: 12px; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .14em; color: #fff; background: rgba(5,13,23,.72); padding: 4px 8px; border-radius: 999px; }
+.svc-body { padding: 18px 18px 20px; display: grid; gap: 8px; align-content: start; }
+.svc p { color: var(--fg-dim); font-size: .95rem; }
+.svc-go { justify-self: start; margin-top: 4px; background: none; border: 0; padding: 0; color: var(--brand); font-weight: 600; cursor: pointer; font-size: .92rem; }
+.svc-go:hover { text-decoration: underline; }
+@media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
+.hulls { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 20px 48px; margin-top: 48px; align-items: start; }
+
+/* ---------- GALLERY: masonry ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.chip .n { font-family: var(--font-mono); font-size: .72rem; color: var(--fg-dim); }
+.masonry { display: flex; gap: 12px; align-items: flex-start; }
+.mcol { flex: 1 1 0; min-width: 0; display: grid; gap: 12px; align-content: start; }
+.tile { margin: 0; position: relative; border-radius: 12px; overflow: hidden; background: var(--surface-2); display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; }
+.tile img { width: 100%; height: auto; display: block; transition: transform .6s ease, opacity .5s ease; opacity: 0; }
+.tile img.in { opacity: 1; }
+.tile:hover img { transform: scale(1.04); }
+.tile span { position: absolute; left: 10px; bottom: 10px; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: rgba(5,13,23,.72); padding: 4px 8px; border-radius: 999px; opacity: 0; transform: translateY(4px); transition: opacity .25s, transform .25s; }
+.tile:hover span, .tile:focus-visible span { opacity: 1; transform: none; }
+@media (hover: none) { .tile span { opacity: 1; transform: none; } }
+@media (max-width: 560px) { .masonry, .mcol { gap: 8px; } .tile { border-radius: 8px; } .tile span { display: none; } }
+@media (max-width: 600px) { .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 2px 16px 6px; scrollbar-width: none; } .filters .chip { flex: none; } }
+.gallery-foot { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; color: var(--fg-dim); }
+.more-wrap { display: flex; justify-content: center; margin-top: 18px; }
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 100; background: #02060c; display: grid; grid-template-rows: auto 1fr auto; color: #fff; }
+.lb-top { display: flex; justify-content: space-between; align-items: center; padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 8px; font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #b9c8d8; }
+.lb-stage { position: relative; display: grid; place-items: center; min-height: 0; padding: 0 64px; touch-action: pan-y; }
+.lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
+.lightbox .icon-btn { color: #fff; border-color: rgba(255,255,255,.35); background: rgba(5,13,23,.6); }
+.lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); }
+.lb-prev { left: 12px; } .lb-next { right: 12px; }
+.lb-cap { padding: 10px 16px calc(16px + env(safe-area-inset-bottom, 0px)); text-align: center; color: #b9c8d8; font-size: .9rem; }
+@media (max-width: 600px) { .lb-stage { padding: 0 8px; } .lb-prev, .lb-next { position: fixed; top: auto; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); transform: none; width: 48px; height: 48px; } .lb-prev { left: calc(50% - 58px); } .lb-next { right: calc(50% - 58px); } .lb-cap { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero-media img, .reel-track { animation: none; }
+  .reel { overflow-x: auto; }
+}
 </style>
 <script>document.documentElement.classList.add('js');</script>
 
@@ -316,10 +407,10 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
       <span class="brand-name">Universal Marine<small>Electronics · Since 2004</small></span>
     </a>
     <ul class="nav-links" id="navLinks">
+      <li><a href="#before-after">Before &amp; after</a></li>
       <li><a href="#blacked-out">Blacked out</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#area">Area</a></li>
+      <li><a href="#work">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -338,23 +429,20 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
 <main id="top">
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
+  <figure class="hero-media"><img src="images/hero.webp" srcset="images/hero-m.webp 1000w, images/hero.webp 2048w" sizes="100vw" alt="Finished glass helm with two Simrad displays lit up, rigged by UME" fetchpriority="high"></figure>
   <canvas class="sea3d" id="sea3d" aria-hidden="true"></canvas>
-  <div class="wrap hero-wrap">
-    <div class="hero-top">
-      <div style="display:grid;gap:18px">
-        <span class="eyebrow">Family-owned · Davie, FL · Since 2004</span>
-        <h1 class="h-rise"><span class="ln"><span style="--i:0">Marine</span></span> <span class="ln"><span style="--i:1">electronics,</span></span> <span class="ln"><em style="--i:2">rigged right.</em></span></h1>
-      </div>
-      <div class="hero-side h-fade">
-        <p class="lead">Twenty years of helm builds on South Florida center consoles: Garmin and Simrad displays, radar, audio, lighting, thermal, and the wiring behind all of it.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contact">Start a quote</a>
-          <a class="btn btn-ghost" href="#work">See our work</a>
-          <a class="btn btn-ghost" href="tel:+17863255690">(786) 325-5690</a>
-        </div>
+  <span class="hero-tag">Our work · Simrad glass helm</span>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Family-owned · Davie, FL · Since 2004</span>
+      <h1 class="h-rise"><span class="ln"><span style="--i:0">Marine</span></span> <span class="ln"><span style="--i:1">electronics,</span></span> <span class="ln"><em style="--i:2">rigged right.</em></span></h1>
+      <p class="lead h-fade">Twenty years of helm builds on South Florida boats: Garmin and Simrad displays, black panels, radar, thermal, audio, and the wiring behind all of it.</p>
+      <div class="hero-ctas h-fade">
+        <a class="btn btn-primary" href="#contact">Start a quote</a>
+        <a class="btn btn-ghost" href="#before-after">See before &amp; after</a>
+        <a class="btn btn-ghost" href="#work"><span>Browse <span data-total>150</span> photos</span></a>
       </div>
     </div>
-
     <div class="ribbon" aria-label="Credentials">
       <span><b data-count="20" data-suffix="+ yrs">20+ yrs</b> on South Florida water</span>
       <span><b data-count="1000" data-suffix="+">1,000+</b> boats rigged</span>
@@ -363,36 +451,33 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
     </div>
   </div>
 </section>
+<div class="reel" id="reel" aria-label="Recent work"><div class="reel-track" id="reelTrack"></div></div>
 
-<!-- ============ SERVICES ============ -->
-<section class="section" id="services">
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="section" id="before-after">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Services · 9 systems</span>
-      <h2>What we install</h2>
-      <p class="lead">From a single chartplotter swap to a ground-up electronics package on a new hull, done to manufacturer spec and the NMEA 0400 installation standard.</p>
+      <span class="eyebrow">Before &amp; after</span>
+      <h2>Same helm. Same angle. Night and day.</h2>
+      <p class="lead">Real jobs from our shop, shot from the same spot before and after. Drag the line to compare.</p>
     </div>
-    <div class="svc-grid">
-      <div class="svc"><span class="svc-code">NAV</span><h3>Garmin &amp; Simrad helms</h3><p>Single, dual and triple display builds with VHF, autopilot and radar integration on a properly laid-out NMEA 2000 backbone.</p></div>
-      <div class="svc"><span class="svc-code">RAD · SON</span><h3>Radar &amp; sonar</h3><p>Garmin xHD2, Simrad HALO, open array and dome radars. CHIRP, side-scan, forward-facing and live sonar, installed and calibrated.</p></div>
-      <div class="svc"><span class="svc-code">AUD</span><h3>Audio systems</h3><p>JL Audio, Fusion and Wet Sounds. Hardtop and tower speakers, subwoofers and multi-zone amplifiers built for salt air.</p></div>
-      <div class="svc"><span class="svc-code">LGT</span><h3>Underwater &amp; deck lighting</h3><p>Lumishore, Lumitec and OceanLED underwater lights. LED light bars, spreaders, hardtop and courtesy lighting.</p></div>
-      <div class="svc"><span class="svc-code">IR</span><h3>Night vision &amp; thermal</h3><p>SIONYX Nightwave, FLIR M-Series and Raymarine thermal cameras, tuned for offshore and inlet runs after dark.</p></div>
-      <div class="svc"><span class="svc-code">SEC</span><h3>Security &amp; cameras</h3><p>Yamaha and Garmin security systems, 360° docking cameras, GOST alarm packages and Starlink marine installs.</p></div>
-      <div class="svc"><span class="svc-code">WIR</span><h3>Console wiring &amp; rebuilds</h3><p>Clean, labeled, loom-wrapped runs to ABYC and NMEA 0400. Fuse panels, breaker management and electrical troubleshooting.</p></div>
-      <div class="svc"><span class="svc-code">COM</span><h3>Antennas &amp; comms</h3><p>VHF, AIS, cellular Wi-Fi boosters, Starlink, KVH and Intellian. Grounded and tuned properly.</p></div>
-      <div class="svc"><span class="svc-code">TRL</span><h3>Trolling motors &amp; TVs</h3><p>Garmin Force, Minn Kota and Rhodan, plus weatherproof TVs for hardtop lounges and cabins.</p></div>
-    </div>
-    <div class="hulls">
-      <div><h3>Hulls we rig</h3><p>Intrepid is our specialty, and we have rigged nearly every major South Florida build.</p></div>
-      <div class="boats">
-        <span class="boat spec">Intrepid<small>Specialty</small></span>
-        <span class="boat">Invincible</span><span class="boat">SeaVee</span><span class="boat">Contender</span>
-        <span class="boat">Yellowfin</span><span class="boat">Freeman</span><span class="boat">Midnight Express</span>
-        <span class="boat">Pursuit</span><span class="boat">Scout</span><span class="boat">Boston Whaler</span>
-        <span class="boat">Grady-White</span><span class="boat">Concept</span><span class="boat">Cobia</span>
+    <div class="ba-layout">
+      <div>
+        <div class="ba" id="ba" tabindex="-1">
+          <img id="baAfter" alt="">
+          <img id="baBefore" class="ba-before" alt="">
+          <span class="ba-tag b">Before</span><span class="ba-tag a">After</span>
+          <span class="ba-line"></span>
+          <span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+          <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+        </div>
+        <div class="ba-cap"><b id="baTitle"></b><span id="baSub"></span></div>
       </div>
+      <div class="ba-list" id="baList" role="toolbar" aria-label="Choose a job"></div>
     </div>
+
+    <div class="duo-head"><h3>More transformations</h3><span class="fineprint">Tap a photo to see it full size</span></div>
+    <div class="duos" id="duos"></div>
   </div>
 </section>
 
@@ -412,13 +497,73 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
       </ol>
       <div><a class="btn btn-primary" href="#contact">Ask about a black panel</a></div>
     </div>
-    <figure class="bp-hero"><img src="{{IMG:blackpanel-intrepid}}" alt="Finished Intrepid helm with two Garmin displays flush in a black Starboard panel" loading="lazy"><figcaption><b>Intrepid</b> · dual Garmin, flush in black Starboard</figcaption></figure>
+    <figure class="bp-hero"><button type="button" data-full="images/g/blackout-05.webp" aria-label="View full size"><img src="images/g/blackout-05.webp" alt="Finished blacked-out helm: two displays flush behind one black face" loading="lazy"></button><figcaption>Finished · one black face</figcaption></figure>
   </div>
-  <div class="bp-photos">
-    <figure><img src="{{IMG:blackpanel-cut}}" alt="Black Starboard panel installed on an Intrepid console with display openings cut and wiring ready" loading="lazy"><figcaption><b>In progress</b> · openings cut, wiring ready</figcaption></figure>
-    <figure><img src="{{IMG:blackpanel-intrepid-angle}}" alt="Side angle of the finished black panel on an Intrepid" loading="lazy"><figcaption><b>Intrepid</b> · flush from every angle</figcaption></figure>
-    <figure><img src="{{IMG:blackpanel-cobia}}" alt="Cobia console with Garmin displays, switch panel and Yamaha gauge set in a black panel" loading="lazy"><figcaption><b>Cobia</b> · switches in the black too</figcaption></figure>
+
+  <div class="story">
+    <div class="story-head">
+      <div style="display:grid;gap:10px">
+        <span class="eyebrow">Start to finish</span>
+        <h3>Watch one come together</h3>
+        <div class="chips" id="storyTabs" role="toolbar" aria-label="Choose a build"></div>
+      </div>
+      <div class="story-nav">
+        <button class="icon-btn" id="stPrev" aria-label="Scroll back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="icon-btn" id="stNext" aria-label="Scroll forward"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="story-strip" id="storyStrip"></div>
   </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Services</span>
+      <h2>What we install</h2>
+      <p class="lead">From a single chartplotter swap to a ground-up electronics package on a new hull, done to manufacturer spec and the NMEA 0400 installation standard.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc"><div class="svc-img"><img src="images/g/t/helm-30.webp" alt="Dual-display Simrad helm" loading="lazy"><span class="svc-code">NAV</span></div><div class="svc-body"><h3>Garmin &amp; Simrad helms</h3><p>Single, dual and triple display builds with VHF, autopilot and radar on a properly laid-out NMEA 2000 backbone.</p><button class="svc-go" data-go="helm">See helm builds →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/blackout-02.webp" alt="Black panel on the bench" loading="lazy"><span class="svc-code">BLK</span></div><div class="svc-body"><h3>Blacked-out panels</h3><p>One black Starboard face cut to your dash, displays flush, the rest of the console left factory.</p><button class="svc-go" data-go="blackout">See black panels →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-04.webp" alt="Garmin open-array radar on a hardtop" loading="lazy"><span class="svc-code">RAD · SON</span></div><div class="svc-body"><h3>Radar &amp; sonar</h3><p>Garmin and Simrad open-array and dome radars, CHIRP, side-scan, forward-facing and live sonar, installed and calibrated.</p><button class="svc-go" data-go="radar">See radar work →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-15.webp" alt="FLIR thermal camera on a hardtop" loading="lazy"><span class="svc-code">IR</span></div><div class="svc-body"><h3>Night vision &amp; thermal</h3><p>SIONYX Nightwave, FLIR M-Series and Raymarine thermal cameras, tuned for offshore and inlet runs after dark.</p><button class="svc-go" data-go="radar">See cameras →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-02.webp" alt="Flat satellite antenna on a hardtop" loading="lazy"><span class="svc-code">COM</span></div><div class="svc-body"><h3>Starlink, antennas &amp; comms</h3><p>Starlink marine, VHF, AIS, cellular Wi-Fi boosters, KVH and Intellian. Grounded and tuned properly.</p><button class="svc-go" data-go="radar">See hardtop installs →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/wiring-14.webp" alt="Labeled console wiring and fuse blocks" loading="lazy"><span class="svc-code">WIR</span></div><div class="svc-body"><h3>Wiring &amp; rebuilds</h3><p>Clean, labeled, loom-wrapped runs to ABYC and NMEA 0400. Fuse panels, breaker management and troubleshooting.</p><button class="svc-go" data-go="wiring">See wiring →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/av-01.webp" alt="Pop-up TV in a yacht salon" loading="lazy"><span class="svc-code">AUD · TV</span></div><div class="svc-body"><h3>Audio &amp; TVs</h3><p>JL Audio, Fusion and Wet Sounds systems, plus pop-up and wall-mount TVs for salons, cabins and hardtop lounges.</p><button class="svc-go" data-go="av">See audio &amp; TV →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/radar-06.webp" alt="Radar and camera dome on a hardtop" loading="lazy"><span class="svc-code">SEC</span></div><div class="svc-body"><h3>Security &amp; cameras</h3><p>Yamaha and Garmin security systems, 360° docking cameras and GOST alarm packages.</p><button class="svc-go" data-go="radar">See camera installs →</button></div></article>
+      <article class="svc"><div class="svc-img"><img src="images/g/t/shop-03.webp" alt="Installing a spotlight on a hardtop" loading="lazy"><span class="svc-code">LGT · TRL</span></div><div class="svc-body"><h3>Lighting &amp; trolling motors</h3><p>Lumishore, Lumitec and OceanLED lighting, spotlights and light bars. Garmin Force, Minn Kota and Rhodan trolling motors.</p><button class="svc-go" data-go="shop">See the crew at work →</button></div></article>
+    </div>
+    <div class="hulls">
+      <div><h3>Hulls we rig</h3><p>Intrepid is our specialty, and we have rigged nearly every major South Florida build.</p></div>
+      <div class="boats">
+        <span class="boat spec">Intrepid<small>Specialty</small></span>
+        <span class="boat">Invincible</span><span class="boat">SeaVee</span><span class="boat">Contender</span>
+        <span class="boat">Yellowfin</span><span class="boat">Freeman</span><span class="boat">Midnight Express</span>
+        <span class="boat">Pursuit</span><span class="boat">Scout</span><span class="boat">Boston Whaler</span>
+        <span class="boat">Grady-White</span><span class="boat">Concept</span><span class="boat">Cobia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Portfolio · <span data-total>150</span> photos</span>
+      <h2>Our work</h2>
+      <p class="lead">Finished helms, black panels, hardtop gear, and the wiring behind the glass you never see but always feel. All shot in our shop and at our customers' docks.</p>
+    </div>
+    <div class="filters" id="gFilters" role="toolbar" aria-label="Filter work"></div>
+    <div class="masonry" id="gallery"></div>
+    <div class="more-wrap"><button class="btn btn-ghost" id="gMore" hidden>Show more</button></div>
+    <div class="gallery-foot">
+      <span>New installs go up on Instagram most weeks.</span>
+      <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">@universalmarineelectronics</a>
+    </div>
   </div>
 </section>
 
@@ -437,31 +582,6 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
     </ol>
   </div>
 </section>
-
-<!-- ============ GALLERY ============ -->
-<section class="section" id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Portfolio</span>
-      <h2>Recent work</h2>
-      <p class="lead">Finished helms, hardtop audio, and the wiring behind the glass you never see but always feel.</p>
-    </div>
-    <div class="filters" id="gFilters" role="toolbar" aria-label="Filter work">
-      <button class="chip" data-f="all" aria-pressed="true">All work</button>
-      <button class="chip" data-f="helm" aria-pressed="false">Helm builds</button>
-      <button class="chip" data-f="blacked" aria-pressed="false">Blacked out</button>
-      <button class="chip" data-f="audio" aria-pressed="false">Audio</button>
-      <button class="chip" data-f="wiring" aria-pressed="false">Wiring</button>
-      <button class="chip" data-f="boat" aria-pressed="false">Boats &amp; shop</button>
-    </div>
-    <div class="gallery" id="gallery"></div>
-    <div class="gallery-foot">
-      <span>New installs go up on Instagram most weeks.</span>
-      <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">@universalmarineelectronics</a>
-    </div>
-  </div>
-</section>
-
 
 <!-- ============ SERVICE AREA ============ -->
 <section class="section" id="area">
@@ -563,11 +683,18 @@ footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(
   <div class="wrap foot">
     <span>© <span id="yr">2026</span> Universal Marine Electronics Inc. · Davie, FL · NMEA MEI certified · Garmin authorized installer</span>
     <nav aria-label="Footer">
-      <a href="#blacked-out">Blacked out</a><a href="#services">Services</a><a href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay invoice</a><a href="#contact">Contact</a>
+      <a href="#before-after">Before &amp; after</a><a href="#work">Gallery</a><a href="#area">Service area</a><a href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay invoice</a><a href="#contact">Contact</a>
     </nav>
   </div>
 </footer>
-<div class="lightbox" id="lightbox" hidden><img alt=""><button class="btn btn-ghost btn-sm" id="lbClose">Close</button></div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="lb-top"><span id="lbCount"></span><button class="icon-btn" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" alt="">
+    <button class="icon-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="icon-btn lb-next" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
 
 <script>
 {{SCRIPT}}

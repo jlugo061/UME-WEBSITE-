@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Universal Marine Electronics: family-owned marine electronics installer in Davie, FL since 2004. Garmin and Simrad helms, radar, audio, lighting, thermal and wiring on center consoles from Stuart to Key West.">
+<meta name="theme-color" content="#071320">
+<link rel="canonical" href="https://universalmarinefl.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Universal Marine Electronics · Davie, FL">
+<meta property="og:description" content="Build your helm online, then let a family shop with 20+ years on South Florida water rig it right.">
+<meta property="og:url" content="https://universalmarinefl.com/">
+<meta property="og:image" content="https://universalmarinefl.com/images/hero-garmin-triple.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Universal Marine Electronics Inc.","alternateName":"UME",
+"description":"Marine electronics installation: Garmin and Simrad helms, radar, sonar, audio, lighting, thermal, security and wiring. Family-owned since 2004.",
+"telephone":"+1-786-325-5690","email":"umeinstall@gmail.com","url":"https://universalmarinefl.com",
+"image":"https://universalmarinefl.com/images/hero-garmin-triple.jpg",
+"address":{"@type":"PostalAddress","addressLocality":"Davie","addressRegion":"FL","addressCountry":"US"},
+"geo":{"@type":"GeoCoordinates","latitude":26.06,"longitude":-80.23},
+"areaServed":["Davie, FL","Fort Lauderdale, FL","Miami, FL","West Palm Beach, FL","Jupiter, FL","Stuart, FL","Florida Keys, FL"],
+"openingHours":"Mo-Fr 08:00-17:00","foundingDate":"2004",
+"sameAs":["https://www.instagram.com/universalmarineelectronics"]}
+</script>
+<title>Universal Marine Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=Saira+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: the page is a helm at night. A live, resizable center console opens the site;
+   everything below reads like a nautical chart — buff land, sounding blue, magenta route lines. */
+:root {
+  --bg: #071320;          /* night water */
+  --surface: #0c1c2e;
+  --surface-2: #11263d;
+  --line: rgba(143, 180, 220, 0.16);
+  --line-strong: rgba(143, 180, 220, 0.32);
+  --fg: #e7eef6;
+  --fg-dim: #93a8bf;
+  --brand: #5b9be0;       /* logo blue */
+  --brand-ink: #04121f;
+  --route: #e3529f;       /* chart magenta: routes, waypoints */
+  --sounding: #8fd0ef;    /* depth & data readouts */
+  --land: #2b2c22;
+  --water: #0b2034;
+  --shoal: #123552;
+  --ok: #5fcf9a;
+  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 10px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f3f6f9; --surface: #ffffff; --surface-2: #e8eff6;
+    --line: rgba(20, 52, 88, 0.13); --line-strong: rgba(20, 52, 88, 0.28);
+    --fg: #0b1e33; --fg-dim: #4c627a; --brand: #1d5fad; --brand-ink: #ffffff;
+    --route: #b2237d; --sounding: #1c6f9c; --land: #efe3b8; --water: #f7fbff; --shoal: #cfe4f2; --ok: #1d8a57;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f3f6f9; --surface: #ffffff; --surface-2: #e8eff6;
+  --line: rgba(20, 52, 88, 0.13); --line-strong: rgba(20, 52, 88, 0.28);
+  --fg: #0b1e33; --fg-dim: #4c627a; --brand: #1d5fad; --brand-ink: #ffffff;
+  --route: #b2237d; --sounding: #1c6f9c; --land: #efe3b8; --water: #f7fbff; --shoal: #cfe4f2; --ok: #1d8a57;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: max(16px, 3vw); }
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.section + .section { border-top: 1px solid var(--line); }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 0.98; margin: 0; text-wrap: balance; letter-spacing: 0.005em; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); text-transform: uppercase; }
+h3 { font-size: 1.45rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+p { margin: 0; }
+.lead { font-size: 1.12rem; color: var(--fg-dim); max-width: 60ch; }
+.eyebrow {
+  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sounding); display: inline-flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ""; width: 9px; height: 9px; border: 2px solid var(--route); transform: rotate(45deg); flex: none; }
+.section-head { display: grid; gap: 16px; margin-bottom: clamp(32px, 5vw, 56px); max-width: 760px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 13px 22px; border-radius: 999px; border: 1px solid transparent;
+  font-weight: 600; font-size: 0.98rem; text-decoration: none; cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-primary { background: var(--brand); color: var(--brand-ink); }
+.btn-primary:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.btn-ghost { border-color: var(--line-strong); background: transparent; color: var(--fg); }
+.btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+.btn-sm { padding: 9px 16px; font-size: 0.9rem; }
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; gap: 20px; min-height: 70px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+.brand-badge { width: 52px; height: 52px; border-radius: 12px; background: #000; display: block; flex: none; overflow: hidden; box-shadow: 0 0 0 1px var(--line-strong); }
+.brand-badge img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.22rem; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; }
+.brand-name small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.62rem; letter-spacing: 0.16em; color: var(--fg-dim); margin-top: 5px; }
+.nav-links { display: flex; gap: 20px; white-space: nowrap; list-style: none; margin: 0; padding: 0; }
+.nav-links a { text-decoration: none; color: var(--fg-dim); font-size: 0.94rem; font-weight: 500; }
+.nav-links a:hover { color: var(--fg); }
+.nav-actions { white-space: nowrap; display: flex; gap: 10px; align-items: center; }
+.menu-btn { display: none; background: none; border: 1px solid var(--line-strong); border-radius: 8px; width: 42px; height: 42px; cursor: pointer; }
+.menu-btn svg { width: 20px; height: 20px; }
+@media (max-width: 1180px) { .nav-call span { display: none; } .nav-call { padding: 10px; } .nav-links { gap: 16px; } }
+@media (max-width: 900px) {
+  .nav-links { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; background: var(--surface); border-bottom: 1px solid var(--line); padding: 8px max(16px, 3vw) 16px; }
+  .nav-links.open { display: flex; }
+  .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+  .menu-btn { display: grid; place-items: center; }
+  .nav-pay { display: none; }
+}
+@media (max-width: 520px) { .brand-name small { display: none; } .nav-call span { display: none; } .nav-call { padding: 10px; } }
+
+/* ---------- HERO ---------- */
+.hero { padding-block: clamp(48px, 8vw, 96px) clamp(40px, 6vw, 64px); position: relative; overflow: hidden; isolation: isolate;
+  min-height: calc(100svh - 71px); display: flex; align-items: flex-end; }
+.hero > .wrap { width: 100%; }
+.hero-wrap { position: relative; z-index: 1; }
+/* the 3D chart sea: a live wireframe swell with the route and a sonar ping, behind the headline */
+.sea3d { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%); }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(to top, var(--bg) 0%, color-mix(in srgb, var(--bg) 70%, transparent) 38%, transparent 70%); }
+.js .h-rise .ln { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; margin-bottom: -.06em; }
+.js .h-rise .ln > * { display: inline-block; transform: translateY(105%); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(.15s + var(--i) * .12s); }
+.js .h-fade { opacity: 0; animation: fadein .9s ease .65s forwards; }
+@keyframes rise { to { transform: none; } }
+@keyframes fadein { to { opacity: 1; } }
+.hero-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: end; margin-bottom: clamp(36px, 6vw, 72px); }
+.hero h1 { font-size: clamp(3rem, 7.4vw, 5.8rem); text-transform: uppercase; }
+.hero h1 em { font-style: normal; color: var(--brand); }
+.hero-side { display: grid; gap: 22px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 860px) { .hero-top { grid-template-columns: 1fr; } }
+
+select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--surface-2); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--line-strong); background: transparent; cursor: pointer; font-size: .9rem; font-weight: 500; color: var(--fg-dim);
+  transition: background .15s, color .15s, border-color .15s;
+}
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid currentColor; flex: none; }
+.chip[aria-pressed="true"] { background: color-mix(in srgb, var(--brand) 18%, transparent); border-color: var(--brand); color: var(--fg); }
+.chip[aria-pressed="true"]::before { background: var(--route); border-color: var(--route); }
+.fineprint { font-size: .78rem; color: var(--fg-dim); }
+
+.ribbon { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 20px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .06em; color: var(--fg-dim); text-transform: uppercase; }
+.ribbon span { display: inline-flex; align-items: center; gap: 10px; }
+.ribbon b { color: var(--fg); font-weight: 500; }
+.ribbon span + span::before { content: ""; width: 4px; height: 4px; background: var(--route); transform: rotate(45deg); }
+
+/* ---------- SERVICES ---------- */
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.svc { padding: 26px 24px 28px 0; border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start; }
+.svc:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--line); }
+.svc-code { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .14em; color: var(--route); }
+.svc p { color: var(--fg-dim); font-size: .97rem; }
+@media (max-width: 900px) {
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .svc:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+  .svc:nth-child(2n) { padding-left: 20px; border-left: 1px solid var(--line); }
+}
+@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } .svc:nth-child(2n) { padding-left: 0; border-left: 0; } }
+
+/* ---------- BLACKED OUT ---------- */
+.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+.split-copy { display: grid; gap: 18px; }
+.split-copy p { color: var(--fg-dim); }
+.bp-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.bp-steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.bp-steps b { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; color: var(--route); font-weight: 500; }
+.bp-steps span { color: var(--fg-dim); }
+.bp-steps strong { color: var(--fg); font-weight: 600; }
+.bp-photos { margin-top: clamp(28px, 4vw, 44px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.bp-photos figure { margin: 0; display: grid; gap: 8px; }
+.bp-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; border: 1px solid var(--line-strong); display: block; background: var(--surface-2); cursor: zoom-in; }
+.bp-photos figcaption { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-dim); }
+.bp-photos figcaption b { color: var(--fg); font-weight: 500; }
+@media (max-width: 900px) { .bp-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- PROCESS ---------- */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: step; position: relative; }
+.steps::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; border-top: 2px dashed var(--route); opacity: .6; }
+.step { position: relative; padding-right: 24px; display: grid; gap: 12px; align-content: start; }
+.step-mark { width: 40px; height: 40px; display: grid; place-items: center; background: var(--bg); border: 2px solid var(--route); transform: rotate(45deg); }
+.step-mark span { transform: rotate(-45deg); font-family: var(--font-mono); font-weight: 500; font-size: .85rem; }
+.step h3 { margin-top: 10px; }
+.step p { color: var(--fg-dim); font-size: .97rem; }
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr; gap: 28px; padding-left: 0; }
+  .steps::before { left: 19px; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 2px dashed var(--route); }
+  .step { grid-template-columns: 40px minmax(0, 1fr); column-gap: 20px; }
+  .step-mark { grid-row: span 2; }
+  .step h3 { margin-top: 8px; }
+}
+
+/* ---------- GALLERY ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: clamp(180px, 19vw, 250px); grid-auto-flow: dense; gap: 12px; }
+.g { position: relative; grid-column: span 4; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; background:
+  repeating-linear-gradient(0deg, transparent 0 23px, var(--line) 23px 24px),
+  repeating-linear-gradient(90deg, transparent 0 23px, var(--line) 23px 24px), var(--surface-2); padding: 0; text-align: left; max-width: 100%; }
+.g.w8 { grid-column: span 8; grid-row: span 2; } .g.w6 { grid-column: span 6; }
+.g img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.g:hover img { transform: scale(1.04); }
+.g figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 14px 12px; background: linear-gradient(transparent, rgba(2,8,16,.88)); color: #fff; display: grid; gap: 2px; }
+.g figcaption b { font-family: var(--font-display); font-size: 1.12rem; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+.g figcaption span { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: #ff9fd2; }
+.g.noimg { display: none !important; }  /* photo missing: leave it out rather than show an empty tile */
+@media (max-width: 900px) { .g, .g.w8, .g.w6 { grid-column: span 6; grid-row: span 1; } }
+@media (max-width: 560px) { .g, .g.w8, .g.w6 { grid-column: span 12; } }
+.gallery-foot { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; color: var(--fg-dim); }
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(2,6,12,.94); display: grid; place-items: center; padding: 24px; }
+.lightbox img { max-height: 86vh; border-radius: 8px; }
+.lightbox button { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; }
+
+/* ---------- BOATS ---------- */
+.hulls { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 20px 48px; margin-top: 48px; align-items: start; }
+.hulls p { color: var(--fg-dim); margin-top: 8px; }
+@media (max-width: 860px) { .hulls { grid-template-columns: 1fr; } }
+.boats { display: flex; flex-wrap: wrap; gap: 8px; }
+.boat { background: transparent; color: var(--fg); cursor: pointer; transition: border-color .15s, background .15s; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 8px; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .04em; }
+.boat.spec { border-color: var(--route); position: relative; }
+.boat:hover { border-color: var(--brand); background: color-mix(in srgb, var(--brand) 12%, transparent); }
+.boat.spec small { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; color: var(--route); margin-left: 10px; vertical-align: middle; }
+
+/* ---------- AREA MAP ---------- */
+.area { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 900px) { .area { grid-template-columns: 1fr; } }
+.chart { border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; background: var(--water); }
+.chart svg { display: block; width: 100%; height: auto; }
+.chart .land { fill: var(--land); stroke: var(--line-strong); stroke-width: 1; }
+.chart .shoal { fill: var(--shoal); }
+.chart .contour { fill: none; stroke: var(--sounding); stroke-width: 1; stroke-dasharray: 4 5; opacity: .55; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .label { fill: var(--fg-dim); font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; }
+.chart .town { fill: var(--fg); font-family: var(--font-body); font-size: 12.5px; font-weight: 600; }
+.chart .pin { fill: var(--route); stroke: var(--water); stroke-width: 2; }
+.chart .shop { fill: var(--brand); stroke: var(--water); stroke-width: 2; }
+.chart .route { fill: none; stroke: var(--route); stroke-width: 2; stroke-dasharray: 7 5; }
+.chart .lake { fill: var(--shoal); stroke: var(--line-strong); }
+.areas { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.areas div { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.areas dt { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; text-transform: uppercase; }
+.areas dd { margin: 0; color: var(--fg-dim); }
+.areas .shopline dt { color: var(--brand); }
+@media (max-width: 480px) { .areas div { grid-template-columns: 1fr; gap: 2px; } }
+
+
+/* ---------- CERTS ---------- */
+.certs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.cert { padding: 24px; border: 1px solid var(--line-strong); border-radius: 12px; display: grid; gap: 10px; align-content: start; }
+.cert .seal { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--brand); display: grid; place-items: center; color: var(--brand); font-family: var(--font-mono); font-size: .7rem; font-weight: 500; }
+.cert p { color: var(--fg-dim); font-size: .95rem; }
+@media (max-width: 860px) { .certs { grid-template-columns: 1fr; } }
+
+/* ---------- CONTACT ---------- */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
+.contact-intro { display: grid; gap: 18px; align-content: start; }
+.reach { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 6px; }
+@media (max-width: 520px) { .reach { grid-template-columns: 1fr; } }
+.reach-card { border: 1px solid var(--line-strong); border-radius: 12px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; background: var(--surface); min-width: 0; }
+.reach-card.wide { grid-column: 1 / -1; }
+.reach-card .k { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-dim); }
+.reach-card .v { font-weight: 600; font-size: 1rem; overflow-wrap: anywhere; text-decoration: none; }
+.reach-card a.v:hover { color: var(--brand); }
+.reach-card .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.copy { background: none; border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 14px; font-size: .85rem; font-weight: 600; cursor: pointer; color: var(--fg); }
+.copy:hover { border-color: var(--brand); color: var(--brand); }
+.hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: .95rem; margin: 0; }
+.hours dt { color: var(--fg-dim); } .hours dd { margin: 0; font-weight: 600; }
+form.quote { display: grid; gap: 14px; padding: clamp(20px, 3vw, 30px); border: 1px solid var(--line-strong); border-radius: 16px; background: var(--surface); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 520px) { .row2 { grid-template-columns: 1fr; } }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-dim); }
+.field input, .field textarea, .field select { width: 100%; padding: 12px 13px; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--bg); }
+.field textarea { min-height: 120px; resize: vertical; font-family: var(--font-mono); font-size: .85rem; line-height: 1.55; }
+.form-status { font-size: .92rem; min-height: 1.4em; }
+.form-status.ok { color: var(--ok); }
+.hidden-field { position: absolute; left: -9999px; }
+
+/* ---------- FOOTER ---------- */
+footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); color: var(--fg-dim); font-size: .9rem; }
+.foot { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.foot a { text-decoration: none; }
+.foot a:hover { color: var(--fg); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .h-rise .ln > *, .js .h-fade { animation: none; opacity: 1; transform: none; }
+}
+.bp-hero { margin: 0; display: grid; gap: 10px; }
+.bp-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; border: 1px solid var(--line-strong); cursor: zoom-in; }
+.bp-hero figcaption { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-dim); }
+.bp-hero figcaption b { color: var(--fg); font-weight: 500; }
+.bp-photos { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+@media (max-width: 600px) { .bp-photos { grid-template-columns: 1fr !important; } }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Universal Marine Electronics, home">
+      <span class="brand-badge"><img src="data:image/webp;base64,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" alt="" width="52" height="52"></span>
+      <span class="brand-name">Universal Marine<small>Electronics · Since 2004</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#blacked-out">Blacked out</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#area">Area</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm nav-pay" href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay invoice</a>
+      <a class="btn btn-primary btn-sm nav-call" href="tel:+17863255690" aria-label="Call (786) 325-5690">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        <span>(786) 325-5690</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <canvas class="sea3d" id="sea3d" aria-hidden="true"></canvas>
+  <div class="wrap hero-wrap">
+    <div class="hero-top">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow">Family-owned · Davie, FL · Since 2004</span>
+        <h1 class="h-rise"><span class="ln"><span style="--i:0">Marine</span></span> <span class="ln"><span style="--i:1">electronics,</span></span> <span class="ln"><em style="--i:2">rigged right.</em></span></h1>
+      </div>
+      <div class="hero-side h-fade">
+        <p class="lead">Twenty years of helm builds on South Florida center consoles: Garmin and Simrad displays, radar, audio, lighting, thermal, and the wiring behind all of it.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact">Start a quote</a>
+          <a class="btn btn-ghost" href="#work">See our work</a>
+          <a class="btn btn-ghost" href="tel:+17863255690">(786) 325-5690</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ribbon" aria-label="Credentials">
+      <span><b data-count="20" data-suffix="+ yrs">20+ yrs</b> on South Florida water</span>
+      <span><b data-count="1000" data-suffix="+">1,000+</b> boats rigged</span>
+      <span><b>NMEA</b> certified installer (MEI)</span>
+      <span><b>Garmin</b> authorized installer</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Services · 9 systems</span>
+      <h2>What we install</h2>
+      <p class="lead">From a single chartplotter swap to a ground-up electronics package on a new hull, done to manufacturer spec and the NMEA 0400 installation standard.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><span class="svc-code">NAV</span><h3>Garmin &amp; Simrad helms</h3><p>Single, dual and triple display builds with VHF, autopilot and radar integration on a properly laid-out NMEA 2000 backbone.</p></div>
+      <div class="svc"><span class="svc-code">RAD · SON</span><h3>Radar &amp; sonar</h3><p>Garmin xHD2, Simrad HALO, open array and dome radars. CHIRP, side-scan, forward-facing and live sonar, installed and calibrated.</p></div>
+      <div class="svc"><span class="svc-code">AUD</span><h3>Audio systems</h3><p>JL Audio, Fusion and Wet Sounds. Hardtop and tower speakers, subwoofers and multi-zone amplifiers built for salt air.</p></div>
+      <div class="svc"><span class="svc-code">LGT</span><h3>Underwater &amp; deck lighting</h3><p>Lumishore, Lumitec and OceanLED underwater lights. LED light bars, spreaders, hardtop and courtesy lighting.</p></div>
+      <div class="svc"><span class="svc-code">IR</span><h3>Night vision &amp; thermal</h3><p>SIONYX Nightwave, FLIR M-Series and Raymarine thermal cameras, tuned for offshore and inlet runs after dark.</p></div>
+      <div class="svc"><span class="svc-code">SEC</span><h3>Security &amp; cameras</h3><p>Yamaha and Garmin security systems, 360° docking cameras, GOST alarm packages and Starlink marine installs.</p></div>
+      <div class="svc"><span class="svc-code">WIR</span><h3>Console wiring &amp; rebuilds</h3><p>Clean, labeled, loom-wrapped runs to ABYC and NMEA 0400. Fuse panels, breaker management and electrical troubleshooting.</p></div>
+      <div class="svc"><span class="svc-code">COM</span><h3>Antennas &amp; comms</h3><p>VHF, AIS, cellular Wi-Fi boosters, Starlink, KVH and Intellian. Grounded and tuned properly.</p></div>
+      <div class="svc"><span class="svc-code">TRL</span><h3>Trolling motors &amp; TVs</h3><p>Garmin Force, Minn Kota and Rhodan, plus weatherproof TVs for hardtop lounges and cabins.</p></div>
+    </div>
+    <div class="hulls">
+      <div><h3>Hulls we rig</h3><p>Intrepid is our specialty, and we have rigged nearly every major South Florida build.</p></div>
+      <div class="boats">
+        <span class="boat spec">Intrepid<small>Specialty</small></span>
+        <span class="boat">Invincible</span><span class="boat">SeaVee</span><span class="boat">Contender</span>
+        <span class="boat">Yellowfin</span><span class="boat">Freeman</span><span class="boat">Midnight Express</span>
+        <span class="boat">Pursuit</span><span class="boat">Scout</span><span class="boat">Boston Whaler</span>
+        <span class="boat">Grady-White</span><span class="boat">Concept</span><span class="boat">Cobia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLACKED OUT ============ -->
+<section class="section" id="blacked-out">
+  <div class="wrap">
+  <div class="split">
+    <div class="split-copy">
+      <span class="eyebrow">Signature build</span>
+      <h2>The blacked-out helm</h2>
+      <p>We replace the screen area of your console with one black Starboard panel, cut to fit your dash exactly. The displays sit flush in a single clean black face, and the rest of the console stays factory.</p>
+      <ol class="bp-steps">
+        <li><b>01</b><span><strong>Measure.</strong> We template the console's screen area and lay out every display opening.</span></li>
+        <li><b>02</b><span><strong>Cut.</strong> The black Starboard panel is cut to the exact shape of your dash.</span></li>
+        <li><b>03</b><span><strong>Sand &amp; polish.</strong> Edges and face are finished by hand.</span></li>
+        <li><b>04</b><span><strong>Install.</strong> Bonded with marine adhesive and bolted in, then the displays go in flush.</span></li>
+      </ol>
+      <div><a class="btn btn-primary" href="#contact">Ask about a black panel</a></div>
+    </div>
+    <figure class="bp-hero"><img src="images/blackpanel-intrepid.jpg" alt="Finished Intrepid helm with two Garmin displays flush in a black Starboard panel" loading="lazy"><figcaption><b>Intrepid</b> · dual Garmin, flush in black Starboard</figcaption></figure>
+  </div>
+  <div class="bp-photos">
+    <figure><img src="images/blackpanel-cut.jpg" alt="Black Starboard panel installed on an Intrepid console with display openings cut and wiring ready" loading="lazy"><figcaption><b>In progress</b> · openings cut, wiring ready</figcaption></figure>
+    <figure><img src="images/blackpanel-intrepid-angle.jpg" alt="Side angle of the finished black panel on an Intrepid" loading="lazy"><figcaption><b>Intrepid</b> · flush from every angle</figcaption></figure>
+    <figure><img src="images/blackpanel-cobia.jpg" alt="Cobia console with Garmin displays, switch panel and Yamaha gauge set in a black panel" loading="lazy"><figcaption><b>Cobia</b> · switches in the black too</figcaption></figure>
+  </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How a build goes</span>
+      <h2>From bare console to sea trial</h2>
+    </div>
+    <ol class="steps" style="list-style:none;margin:0;padding:0">
+      <li class="step"><div class="step-mark"><span>1</span></div><h3>Walk the boat</h3><p>Call or text us a photo. We look at the hull, the console and how you fish or cruise, then spec the electronics around it.</p></li>
+      <li class="step"><div class="step-mark"><span>2</span></div><h3>Lay out the helm</h3><p>Display sizes, flush or pod mount, switch panel and where every piece sits. You approve the layout before anything gets cut.</p></li>
+      <li class="step"><div class="step-mark"><span>3</span></div><h3>Install &amp; wire</h3><p>In our indoor Davie shop or at your marina. Labeled, loom-wrapped runs on a clean NMEA 2000 backbone, tested on a scope.</p></li>
+      <li class="step"><div class="step-mark"><span>4</span></div><h3>Sea trial &amp; handoff</h3><p>We calibrate autopilot, compass and radar underway, then walk you through every screen before you run it on your own.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Recent work</h2>
+      <p class="lead">Finished helms, hardtop audio, and the wiring behind the glass you never see but always feel.</p>
+    </div>
+    <div class="filters" id="gFilters" role="toolbar" aria-label="Filter work">
+      <button class="chip" data-f="all" aria-pressed="true">All work</button>
+      <button class="chip" data-f="helm" aria-pressed="false">Helm builds</button>
+      <button class="chip" data-f="blacked" aria-pressed="false">Blacked out</button>
+      <button class="chip" data-f="audio" aria-pressed="false">Audio</button>
+      <button class="chip" data-f="wiring" aria-pressed="false">Wiring</button>
+      <button class="chip" data-f="boat" aria-pressed="false">Boats &amp; shop</button>
+    </div>
+    <div class="gallery" id="gallery"></div>
+    <div class="gallery-foot">
+      <span>New installs go up on Instagram most weeks.</span>
+      <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">@universalmarineelectronics</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SERVICE AREA ============ -->
+<section class="section" id="area">
+  <div class="wrap area">
+    <div style="display:grid;gap:22px">
+      <div class="section-head" style="margin:0">
+        <span class="eyebrow">Service area</span>
+        <h2>Come to us, or we come to you</h2>
+        <p class="lead">Trailer it to our indoor shop in Davie (address shared after your first call), or we work at your marina or dock anywhere from Stuart to Key West.</p>
+      </div>
+      <dl class="areas" style="margin:0">
+        <div class="shopline"><dt>Davie</dt><dd>Indoor shop bay. Bring the boat and trailer.</dd></div>
+        <div><dt>Fort Lauderdale</dt><dd>Las Olas, Pompano, Hillsboro</dd></div>
+        <div><dt>Miami</dt><dd>Miami Beach, Key Biscayne, Coconut Grove</dd></div>
+        <div><dt>Palm Beach</dt><dd>West Palm, Jupiter, Stuart</dd></div>
+        <div><dt>Florida Keys</dt><dd>Key Largo, Islamorada, Marathon, Key West</dd></div>
+      </dl>
+      <p class="fineprint">Service calls are a flat fee by location, quoted before we drive. Keys and Palm Beach runs include travel time.</p>
+    </div>
+    <figure class="chart" style="margin:0" id="chart" aria-label="Chart of South Florida service area"></figure>
+  </div>
+</section>
+
+<!-- ============ CERTS ============ -->
+<section class="section" id="certified">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Certified</span>
+      <h2>Trained to the standard</h2>
+    </div>
+    <div class="certs">
+      <div class="cert"><span class="seal">GRMN</span><h3>Garmin authorized installer</h3><p>Certificate of completion, trained directly by Garmin on current marine product lines.</p></div>
+      <div class="cert"><span class="seal">MEI</span><h3>NMEA certified installer</h3><p>Marine Electronics Installer certification and the NMEA 0400 installation standard.</p></div>
+      <div class="cert"><span class="seal">2004</span><h3>20+ years in South Florida</h3><p>Salt, sun, sand and humidity. We know which installs hold up down here and which ones don't.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="wrap contact">
+    <div class="contact-intro">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Talk to the shop</h2>
+      <p class="lead">You'll get a real person, usually the same day. Tell us the boat and what you want done, and we'll quote it straight with a realistic timeline.</p>
+      <div class="reach">
+        <div class="reach-card">
+          <span class="k">Call or text</span>
+          <a class="v" href="tel:+17863255690">(786) 325-5690</a>
+          <div class="acts"><a class="btn btn-primary btn-sm" href="tel:+17863255690">Call</a><a class="btn btn-ghost btn-sm" href="sms:+17863255690">Text</a></div>
+        </div>
+        <div class="reach-card">
+          <span class="k">Email</span>
+          <a class="v" href="mailto:umeinstall@gmail.com">umeinstall@gmail.com</a>
+          <div class="acts"><button class="copy" data-copy="umeinstall@gmail.com">Copy email</button></div>
+        </div>
+        <div class="reach-card">
+          <span class="k">Hours</span>
+          <dl class="hours"><dt>Mon–Fri</dt><dd>8 am – 5 pm</dd><dt>Sat</dt><dd>By appointment</dd></dl>
+        </div>
+        <div class="reach-card">
+          <span class="k">Instagram</span>
+          <a class="v" style="font-size:.9rem" href="https://www.instagram.com/universalmarineelectronics" target="_blank" rel="noopener">@universalmarineelectronics</a>
+        </div>
+        <div class="reach-card wide">
+          <span class="k">Already have an invoice?</span>
+          <div class="acts" style="margin-top:2px"><a class="btn btn-ghost btn-sm" href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay an invoice online</a></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="quote" id="quote" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="quote">
+      <p class="hidden-field"><label>Leave empty <input name="bot-field"></label></p>
+      <h3>Request a quote</h3>
+      <div class="row2">
+        <div class="field"><label for="qName">Name</label><input id="qName" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="qPhone">Phone</label><input id="qPhone" name="phone" type="tel" autocomplete="tel" required></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="qWhere">Where is the boat?</label>
+          <select id="qWhere" name="location"><option>Bringing it to Davie</option><option>Fort Lauderdale area</option><option>Miami area</option><option>Palm Beach area</option><option>Florida Keys</option><option>Other</option></select>
+        </div>
+      </div>
+      <div class="field"><label for="qBuild">Your boat &amp; what you want</label>
+        <textarea id="qBuild" name="details" placeholder="Boat make, length, year, and what you're looking to install or fix."></textarea>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <button class="btn btn-primary" type="submit">Send request</button>
+      </div>
+      <p class="form-status" id="formStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> Universal Marine Electronics Inc. · Davie, FL · NMEA MEI certified · Garmin authorized installer</span>
+    <nav aria-label="Footer">
+      <a href="#blacked-out">Blacked out</a><a href="#services">Services</a><a href="https://umepayments.netlify.app/" target="_blank" rel="noopener">Pay invoice</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="btn btn-ghost btn-sm" id="lbClose">Close</button></div>
+
+<script>
+(function () {
+'use strict';
+var $ = function (s, r) { return (r || document).querySelector(s); };
+var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+var MONO = "IBM Plex Mono, ui-monospace, monospace";
+
+function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function f(n) { return Math.round(n * 10) / 10; }
+
+/* ---------------- copy helpers ---------------- */
+function copyText(text, btn) {
+  var done = function () { var t = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = t; }, 1600); };
+  var fallback = function () {
+    var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Select & copy'; }
+    document.body.removeChild(ta);
+  };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+}
+$$('.copy').forEach(function (b) { b.addEventListener('click', function () { copyText(b.getAttribute('data-copy'), b); }); });
+
+/* ---------------- quote form ---------------- */
+$('#quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var form = e.target, status = $('#formStatus');
+  var live = /universalmarinefl\.com$|netlify\.app$/.test(location.hostname);
+  if (!live) { status.className = 'form-status'; status.textContent = 'This preview can’t send messages. On the live site this goes straight to UME. For now, call or text (786) 325-5690.'; return; }
+  var body = new URLSearchParams(new FormData(form)).toString();
+  status.className = 'form-status'; status.textContent = 'Sending…';
+  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+    .then(function (r) { if (!r.ok) throw 0; status.className = 'form-status ok'; status.textContent = 'Got it. We’ll call you back, usually the same day.'; form.reset(); })
+    .catch(function () { status.className = 'form-status'; status.textContent = 'That didn’t go through. Call or text (786) 325-5690 and we’ll take it from there.'; });
+});
+
+/* ---------------- gallery ---------------- */
+var IMGBASE = 'images/';
+var G = [
+  ['hero-garmin-triple.jpg', 'Invincible · triple Garmin', 'Helm build', 'helm', 'w8'],
+  ['invincible-triple-mercury.jpg', 'Invincible on the trailer', 'Pickup', 'boat', ''],
+  ['blacked-01.jpg', 'Running the inlet', 'Blacked out', 'blacked', ''],
+  ['images/blackpanel-intrepid.jpg', 'Intrepid · black panel, dual Garmin', 'Blacked out', 'blacked helm', 'w6'],
+  ['images/blackpanel-cobia.jpg', 'Cobia · switches in the black', 'Blacked out', 'blacked helm', 'w6'],
+  ['images/blackpanel-cut.jpg', 'Panel cut, wiring ready', 'In progress', 'blacked wiring', 'w6'],
+  ['images/blackpanel-intrepid-angle.jpg', 'Intrepid · flush panel', 'Blacked out', 'blacked', 'w6'],
+  ['blacked-02.jpg', 'Cobia · dual Garmin', 'Blacked out', 'blacked helm', ''],
+  ['blacked-03.jpg', 'Intrepid · Fusion dash', 'Audio', 'blacked audio', ''],
+  ['blacked-05.jpg', 'Dual plotters + Fusion', 'Blacked out', 'blacked', ''],
+  ['blacked-04.jpg', 'Intrepid · clean pod', 'Blacked out', 'blacked helm', 'w6'],
+  ['hero-intrepid-helm.jpg', 'Intrepid · full Garmin', 'Helm build', 'blacked helm', 'w6'],
+  ['blacked-06.jpg', 'Garmin + FLIR build', 'Night vision', 'blacked', ''],
+  ['blacked-07.jpg', 'Helm + radar overlay', 'Blacked out', 'blacked helm', ''],
+  ['install-console-wiring.jpg', 'Clean rewire', 'Wiring', 'wiring', ''],
+  ['jl-audio-hardtop.jpg', 'JL Audio · hardtop', 'Audio', 'audio', 'w6'],
+  ['dashboard-fusion-garmin.jpg', 'Fusion + Garmin dash', 'Audio', 'audio helm', 'w6'],
+  ['install-garmin-progress.jpg', 'Triple screen install', 'Install', 'wiring helm', 'w6'],
+  ['finished-dual-garmin.jpg', 'Dual Garmin + Fusion', 'Finished', 'helm', 'w6'],
+  ['radar-lightbar.jpg', 'Radar + light bar', 'Radar', 'helm', 'w6'],
+  ['shop-garmin-radar.jpg', 'Our Davie shop', 'Shop', 'boat', 'w6']
+];
+$('#gallery').innerHTML = G.map(function (g) {
+  return '<figure class="g ' + g[4] + '" data-cats="' + g[3] + '" tabindex="0" style="margin:0">' +
+    '<img src="' + (/[/:]/.test(g[0]) ? g[0] : IMGBASE + g[0]) + '" alt="' + g[1] + '" loading="lazy">' +
+    '<figcaption><span>' + g[2] + '</span><b>' + g[1] + '</b></figcaption></figure>';
+}).join('');
+$$('#gallery img').forEach(function (img) {
+  var mark = function () { img.closest('.g').classList.add('noimg'); };
+  if (img.complete && img.naturalWidth === 0) mark(); else img.addEventListener('error', mark);
+});
+$$('#gFilters .chip').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var v = b.getAttribute('data-f');
+    $$('#gFilters .chip').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+    $$('#gallery .g').forEach(function (g) { g.hidden = !(v === 'all' || g.getAttribute('data-cats').split(' ').indexOf(v) > -1); });
+  });
+});
+var lb = $('#lightbox');
+function openLb(fig) { if (fig.classList.contains('noimg')) return; var img = fig.querySelector('img'); lb.querySelector('img').src = img.src; lb.querySelector('img').alt = img.alt; lb.hidden = false; }
+function closeLb() { lb.hidden = true; }
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+$('#gallery').addEventListener('click', function (e) { var fig = e.target.closest('.g'); if (fig) openLb(fig); });
+$$('.bp-photos figure, .bp-hero').forEach(function (fig) { fig.addEventListener('click', function () { openLb(fig); }); });
+$('#gallery').addEventListener('keydown', function (e) { if (e.key === 'Enter') { var fig = e.target.closest('.g'); if (fig) openLb(fig); } });
+lb.addEventListener('click', closeLb);
+
+/* ---------------- service-area chart ---------------- */
+(function () {
+  var K = 240, LON0 = -82.1, LAT0 = 27.3;
+  function X(lon) { return (lon - LON0) * K * 0.9; }
+  function Y(lat) { return (LAT0 - lat) * K; }
+  function pts(a) { return a.map(function (p) { return f(X(p[1])) + ',' + f(Y(p[0])); }).join(' '); }
+  var main = [[27.35, -82.5], [27.35, -80.21], [27.2, -80.17], [26.95, -80.07], [26.7, -80.03], [26.45, -80.06], [26.25, -80.08], [26.1, -80.1], [25.95, -80.12], [25.77, -80.13], [25.73, -80.21], [25.6, -80.3], [25.45, -80.33], [25.3, -80.4], [25.2, -80.52], [25.15, -80.75], [25.13, -80.95], [25.17, -81.12], [25.35, -81.15], [25.55, -81.25], [25.85, -81.68], [26.1, -81.8], [26.45, -81.95], [26.7, -82.1], [27.0, -82.25], [27.35, -82.5]];
+  var keys = [[25.29, -80.3], [25.1, -80.44], [24.95, -80.6], [24.85, -80.8], [24.73, -81.02], [24.66, -81.25], [24.62, -81.45], [24.56, -81.78]];
+  var shoal = [[25.16, -80.7], [25.27, -80.38], [25.1, -80.44], [24.85, -80.8], [24.7, -81.12], [24.9, -81.2], [25.16, -81.1]];
+  var c1 = [[27.35, -79.99], [26.7, -79.97], [26.2, -80.03], [25.8, -80.06], [25.4, -80.12], [25.05, -80.3], [24.8, -80.6], [24.55, -81.05], [24.45, -81.8]];
+  var c2 = c1.map(function (p) { return [p[0] - 0.08, p[1] + 0.13]; });
+  var route = [[27.18, -80.08], [26.7, -79.95], [26.1, -80.03], [25.75, -80.06], [25.3, -80.2], [25.0, -80.42], [24.75, -80.85], [24.6, -81.3], [24.52, -81.78]];
+  var o = '';
+  for (var la = 24.5; la <= 27; la += 0.5) o += '<line class="grid" x1="0" x2="540" y1="' + f(Y(la)) + '" y2="' + f(Y(la)) + '"/><text class="label" x="6" y="' + f(Y(la) - 4) + '">' + Math.floor(la) + '°' + (la % 1 ? '30′' : '00′') + 'N</text>';
+  for (var lo = -81.5; lo <= -80; lo += 0.5) o += '<line class="grid" y1="0" y2="710" x1="' + f(X(lo)) + '" x2="' + f(X(lo)) + '"/><text class="label" x="' + f(X(lo) + 4) + '" y="702">' + Math.abs(Math.ceil(lo)) + '°' + (lo % 1 ? '30′' : '00′') + 'W</text>';
+  o += '<polygon class="shoal" points="' + pts(shoal) + '"/>';
+  o += '<polyline class="contour" points="' + pts(c1) + '"/><polyline class="contour" points="' + pts(c2) + '"/>';
+  o += '<polygon class="land" points="' + pts(main) + '"/>';
+  o += '<polyline points="' + pts(keys) + '" fill="none" style="stroke:var(--land)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>';
+  o += '<ellipse class="lake" cx="' + f(X(-80.83)) + '" cy="' + f(Y(26.95)) + '" rx="' + f(0.24 * K * 0.9) + '" ry="' + f(0.2 * K) + '"/>';
+  o += '<text class="label" x="' + f(X(-80.83)) + '" y="' + f(Y(26.95) + 3) + '" text-anchor="middle">L. OKEECHOBEE</text>';
+  o += '<text class="label" transform="translate(' + f(X(-79.8)) + ',' + f(Y(26.4)) + ') rotate(-84)" text-anchor="middle">GULF STREAM</text>';
+  o += '<text class="label" x="' + f(X(-81.1)) + '" y="' + f(Y(25.0)) + '" text-anchor="middle">FLORIDA BAY</text>';
+  o += '<polyline class="route" points="' + pts(route) + '"/>';
+  var towns = [
+    ['Stuart', 27.2, -80.25, 'w'], ['Jupiter', 26.93, -80.09, 'w'], ['West Palm', 26.71, -80.05, 'w'],
+    ['Fort Lauderdale', 26.12, -80.14, 'n'], ['Miami', 25.77, -80.19, 'w'],
+    ['Key Largo', 25.09, -80.44, 'e'], ['Islamorada', 24.92, -80.63, 's'], ['Marathon', 24.71, -81.09, 's'], ['Key West', 24.56, -81.78, 'n2']
+  ];
+  towns.forEach(function (t) {
+    var x = X(t[2]), y = Y(t[1]), tx = x - 9, ty = y + 4, an = 'end';
+    if (t[3] === 'e') { tx = x + 9; an = 'start'; }
+    if (t[3] === 's') { tx = x; ty = y + 18; an = 'middle'; }
+    if (t[3] === 'n') { ty = y - 4; }
+    if (t[3] === 'n2') { tx = x; ty = y - 10; an = 'middle'; }
+    o += '<circle class="pin" cx="' + f(x) + '" cy="' + f(y) + '" r="5"/><text class="town" x="' + f(tx) + '" y="' + f(ty) + '" text-anchor="' + an + '">' + t[0] + '</text>';
+  });
+  var dx = X(-80.23), dy = Y(26.06);
+  o += '<path class="shop" d="M' + f(dx) + ',' + f(dy - 10) + ' l9,10 l-9,10 l-9,-10z"/><text class="town" x="' + f(dx - 14) + '" y="' + f(dy + 16) + '" text-anchor="end" style="fill:var(--brand)">Davie shop</text>';
+  // compass rose + scale
+  var rx = 470, ry = 600;
+  o += '<circle cx="' + rx + '" cy="' + ry + '" r="30" fill="none" style="stroke:var(--line-strong)"/><circle cx="' + rx + '" cy="' + ry + '" r="22" fill="none" style="stroke:var(--line)"/>';
+  o += '<path d="M' + rx + ',' + (ry - 30) + ' l6,30 l-6,30 l-6,-30z" style="fill:var(--route)"/><text class="label" x="' + rx + '" y="' + (ry - 36) + '" text-anchor="middle">N</text>';
+  var nm = K / 60 * 20;
+  o += '<path d="M360,672 h' + f(nm) + ' M360,667 v10 M' + f(360 + nm) + ',667 v10" style="stroke:var(--fg-dim)"/><text class="label" x="' + f(360 + nm / 2) + '" y="664" text-anchor="middle">20 NM</text>';
+  $('#chart').innerHTML = '<svg viewBox="0 0 540 710" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chart of South Florida from Stuart to Key West, showing the Davie shop and mobile service area">' + o + '</svg>';
+})();
+
+
+/* ---------------- hero: 3D chart sea ---------------- */
+(function () {
+  var cv = $('#sea3d'); if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = 1, t0 = performance.now(), running = false, visible = true, raf = 0;
+  var still = matchMedia('(prefers-reduced-motion: reduce)');
+  var mx = 0, my = 0, cx = 0, cy = 0;          // pointer target / eased camera offset
+  var COLS = 64, ROWS = 34, X0 = -70, X1 = 70, Z0 = 6, Z1 = 120;
+  var col = {};
+  function readColors() {
+    var cs = getComputedStyle(document.documentElement);
+    col.line = cs.getPropertyValue('--sounding').trim() || '#8fd0ef';
+    col.route = cs.getPropertyValue('--route').trim() || '#e3529f';
+    col.light = cs.getPropertyValue('color-scheme').trim() === 'light';
+  }
+  function size() {
+    var r = cv.getBoundingClientRect(); dpr = Math.min(1.6, window.devicePixelRatio || 1);
+    W = Math.max(1, r.width); H = Math.max(1, r.height);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function wave(x, z, t) {
+    return 1.6 * Math.sin(x * 0.11 + t * 0.7) + 0.9 * Math.sin(z * 0.16 - t * 1.05) + 0.6 * Math.sin((x + z) * 0.06 + t * 0.45) + 0.35 * Math.sin(x * 0.31 - z * 0.12 + t * 1.6);
+  }
+  function proj(x, y, z) {
+    var f = W * 0.6, camY = 12.5 + cy * 1.6, horizon = H * 0.2 + cy * 10;
+    var xx = x - cx * 6;
+    return [W * 0.56 + xx * f / z, horizon + (camY - y) * f / z];
+  }
+  function frame(now) {
+    var t = (now - t0) / 1000;
+    cx += (mx - cx) * 0.04; cy += (my - cy) * 0.04;
+    ctx.clearRect(0, 0, W, H);
+    var i, j, x, z, p, a, narrow = W < 700, base = (col.light ? 0.42 : 0.6) * (narrow ? 0.55 : 1);
+    ctx.lineWidth = 1;
+    // rows (constant depth), far to near
+    for (j = ROWS - 1; j >= 0; j--) {
+      z = Z0 + (Z1 - Z0) * Math.pow(j / (ROWS - 1), 1.6);
+      a = base * Math.pow(1 - z / Z1, 1.3) + 0.03;
+      ctx.strokeStyle = col.line; ctx.globalAlpha = a; ctx.beginPath();
+      for (i = 0; i <= COLS; i++) { x = X0 + (X1 - X0) * i / COLS; p = proj(x, wave(x, z, t), z); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
+      ctx.stroke();
+    }
+    // columns, fainter
+    for (i = 0; i <= COLS; i += 2) {
+      x = X0 + (X1 - X0) * i / COLS; ctx.globalAlpha = base * 0.32; ctx.beginPath();
+      for (j = 0; j < ROWS; j++) { z = Z0 + (Z1 - Z0) * Math.pow(j / (ROWS - 1), 1.6); p = proj(x, wave(x, z, t), z); j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
+      ctx.stroke();
+    }
+    if (narrow) { ctx.globalAlpha = 1; if (running) raf = requestAnimationFrame(frame); return; }
+    // the route: a dashed magenta course line riding the swell toward the horizon, with waypoints
+    ctx.globalAlpha = col.light ? 0.75 : 0.9; ctx.strokeStyle = col.route; ctx.lineWidth = 2;
+    ctx.setLineDash([8, 7]); ctx.lineDashOffset = -t * 22; ctx.beginPath();
+    var wps = [];
+    for (j = 0; j <= 60; j++) {
+      z = 8 + j * 1.8; x = -3.2 + 3 * Math.sin(z * 0.05 + 0.4) + z * 0.05;
+      p = proj(x, wave(x, z, t) + 0.25, z); j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]);
+      if (j % 15 === 7) wps.push([p, z]);
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+    wps.forEach(function (w) {
+      var r = Math.max(2.5, 70 / w[1]);
+      ctx.globalAlpha = col.light ? 0.85 : 1; ctx.beginPath();
+      ctx.moveTo(w[0][0], w[0][1] - r); ctx.lineTo(w[0][0] + r, w[0][1]); ctx.lineTo(w[0][0], w[0][1] + r); ctx.lineTo(w[0][0] - r, w[0][1]); ctx.closePath(); ctx.stroke();
+    });
+    // sonar ping: rings spreading across the surface
+    var px = 9, pz = 16;
+    for (var k = 0; k < 3; k++) {
+      var ph = ((t * 0.32) + k / 3) % 1, rr = 2 + ph * 26, seg = 48;
+      ctx.globalAlpha = (1 - ph) * (col.light ? 0.5 : 0.7); ctx.strokeStyle = col.line; ctx.lineWidth = 1.4; ctx.beginPath();
+      for (i = 0; i <= seg; i++) {
+        var ang = i / seg * Math.PI * 2, rx = px + Math.cos(ang) * rr, rz = pz + Math.sin(ang) * rr * 0.9;
+        if (rz < Z0 + 1) rz = Z0 + 1;
+        p = proj(rx, wave(rx, rz, t) + 0.15, rz); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]);
+      }
+      ctx.stroke();
+    }
+    p = proj(px, wave(px, pz, t) + 0.15, pz);
+    ctx.globalAlpha = 1; ctx.fillStyle = col.line; ctx.beginPath(); ctx.arc(p[0], p[1], 2.6, 0, Math.PI * 2); ctx.fill();
+    ctx.globalAlpha = 1;
+    if (running) raf = requestAnimationFrame(frame);
+  }
+  function start() { if (running || still.matches || !visible || document.hidden) return; running = true; raf = requestAnimationFrame(frame); }
+  function stop() { running = false; cancelAnimationFrame(raf); }
+  readColors(); size(); frame(performance.now());
+  start();
+  addEventListener('resize', function () { size(); if (!running) frame(performance.now()); });
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () { readColors(); if (!running) frame(performance.now()); });
+  still.addEventListener('change', function () { still.matches ? stop() : start(); });
+  document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible ? start() : stop(); }).observe(cv);
+  $('.hero').addEventListener('pointermove', function (e) {
+    var r = cv.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width * 2 - 1; my = (e.clientY - r.top) / r.height * 2 - 1;
+  });
+})();
+
+/* ---------------- hero: counting stats ---------------- */
+(function () {
+  var els = $$('[data-count]'); if (!els.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  els.forEach(function (el) {
+    var end = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '', t0 = null;
+    el.textContent = '0' + suf;
+    setTimeout(function () {
+      requestAnimationFrame(function step(now) {
+        if (!t0) t0 = now; var k = Math.min(1, (now - t0) / 1400), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
+        el.textContent = v.toLocaleString() + suf; if (k < 1) requestAnimationFrame(step);
+      });
+    }, 1300);
+  });
+})();
+
+/* ---------------- nav ---------------- */
+var menuBtn = $('#menuBtn'), links = $('#navLinks');
+menuBtn.addEventListener('click', function () { var o = links.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
+links.addEventListener('click', function (e) { if (e.target.tagName === 'A') { links.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); } });
+$('#yr').textContent = new Date().getFullYear();
+
+})();
+
+</script>
+
+</body>
+</html>

@@ -47,6 +47,12 @@ def item(m):
         if m.get(k): d[k] = m[k]
     return d
 items = [item(m) for m in seq]
+# ---- videos (source/gallery/videos.json, files in site/media/v): a few mixed into "All work", all under the Videos filter
+VID = ROOT / 'source/gallery/videos.json'
+VCAP = {'helm': 'Video · Helm walkaround', 'fab': 'Video · Panel in progress', 'radar': 'Video · Radar and helm'}
+vids = [dict(i=v['id'], c='video', v=1, w=v['w'], h=v['h'], k='#0e2033', cap=v.get('cap') or VCAP.get(v['c'], 'Video')) for v in json.loads(VID.read_text())] if VID.exists() else []
+for n, v in enumerate(vids):
+    items.insert(min(len(items), 8 + n * 7), v)
 reviews = json.loads(REV.read_text()) if REV.exists() else []
 
 css = (SRC / 'site.css').read_text()
@@ -56,9 +62,9 @@ h = lambda s: hashlib.sha1(s.encode()).hexdigest()[:8]
 SITE_URL = 'https://universalmarinefl.com'
 schema = {
     "@context": "https://schema.org", "@type": "LocalBusiness", "name": "Universal Marine Electronics Inc.", "alternateName": "UME",
-    "description": "Marine electronics installation: Garmin and Simrad helms, blacked-out helm panels, radar, sonar, thermal, audio, lighting, security and wiring. Family-owned since 2004.",
+    "description": "Marine electronics installation: custom helms with Garmin, Simrad, Raymarine and Icom, blacked-out helm panels, radar, sonar, thermal, audio, lighting, security and wiring. Family-owned since 2004.",
     "telephone": "+1-786-325-5690", "email": "umeinstall@gmail.com", "url": SITE_URL,
-    "image": SITE_URL + "/images/og.jpg", "logo": SITE_URL + "/images/ume-seal.webp",
+    "image": SITE_URL + "/images/og.jpg", "logo": SITE_URL + "/images/ume-logo.png",
     "address": {"@type": "PostalAddress", "addressLocality": "Davie", "addressRegion": "FL", "addressCountry": "US"},
     "areaServed": ["Davie, FL", "Fort Lauderdale, FL", "Miami, FL", "West Palm Beach, FL", "Jupiter, FL", "Stuart, FL", "Florida Keys, FL"],
     "openingHours": "Mo-Fr 08:00-17:00", "foundingDate": "2004",
@@ -83,7 +89,7 @@ def page(preview=False):
 
 # ---- sitemap (with every gallery photo, so Google Images can index the work) + robots
 today = datetime.date.today().isoformat()
-imgs = ''.join('<image:image><image:loc>%s/images/g/%s.webp</image:loc></image:image>' % (SITE_URL, d['i']) for d in items)
+imgs = ''.join('<image:image><image:loc>%s/images/g/%s.webp</image:loc></image:image>' % (SITE_URL, d['i']) for d in items if not d.get('v'))
 (SITE / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
                                   '<url><loc>%s/</loc><lastmod>%s</lastmod>%s</url></urlset>\n' % (SITE_URL, today, imgs))
 (SITE / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % SITE_URL)
@@ -91,4 +97,4 @@ imgs = ''.join('<image:image><image:loc>%s/images/g/%s.webp</image:loc></image:i
 if '--preview' in sys.argv:
     (ROOT / 'source/preview').mkdir(exist_ok=True)
     (ROOT / 'source/preview/index.html').write_text(page(preview=True))
-print('built', len(items), 'photos ·', len(reviews), 'reviews')
+print('built', len(items) - len(vids), 'photos ·', len(vids), 'videos ·', len(reviews), 'reviews')

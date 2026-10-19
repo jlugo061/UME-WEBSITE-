@@ -11,11 +11,12 @@ function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 /* ---------------- data ---------------- */
 var GD = JSON.parse($('#gdata').textContent);
 var DATA = GD.items, PREVIEW = !!GD.preview;
-var CATS = { helm: 'Helms & displays', blackout: 'Black panels', fab: 'Fabrication', wiring: 'Wiring', radar: 'Radar, cameras & comms', av: 'Audio & TV', boats: 'Boats', shop: 'In the shop' };
+var CATS = { video: 'Videos', helm: 'Helms & displays', blackout: 'Black panels', fab: 'Fabrication', wiring: 'Wiring', radar: 'Radar, cameras & comms', av: 'Audio & TV', boats: 'Boats', shop: 'In the shop' };
 var ALT = { helm: 'Finished boat helm with flush-mounted displays', blackout: 'Black Starboard helm panel', fab: 'Helm panel fabrication in progress', wiring: 'Clean, labeled console wiring', radar: 'Radar, camera or antenna install on a hardtop', av: 'Onboard TV or audio install', boats: 'Customer boat', shop: 'UME crew at work' };
-function P(d, size) { if (PREVIEW) size = 't'; return 'images/g/' + (size ? size + '/' : '') + d.i + '.webp'; }
+function P(d, size) { if (d.v) return size ? 'media/v/' + d.i + '.webp' : 'media/v/' + d.i + '.mp4'; if (PREVIEW) size = 't'; return 'images/g/' + (size ? size + '/' : '') + d.i + '.webp'; }
 function capOf(d) { return d.cap || CATS[d.c] || ''; }
-$$('[data-total]').forEach(function (el) { el.textContent = DATA.length; });
+$$('[data-total]').forEach(function (el) { el.textContent = DATA.filter(function (d) { return !d.v; }).length; });
+$$('[data-vids]').forEach(function (el) { el.textContent = DATA.filter(function (d) { return d.v; }).length; });
 
 /* ---------------- one scroll loop for every scroll-driven effect ---------------- */
 var scrubbers = [], ticking = false;
@@ -24,20 +25,9 @@ addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 function progress(el) { var r = el.getBoundingClientRect(), span = r.height - innerHeight; return span > 0 ? clamp(-r.top / span, 0, 1) : (r.top < 0 ? 1 : 0); }
 
-/* ---------------- hero: slideshow (desktop) or helm video (phones) ---------------- */
+/* ---------------- hero: changing background photos ---------------- */
 (function () {
   var media = $('#heroMedia'), slides = $$('.slide', media), dots = $('#heroDots'), cap = $('#heroCap'), i = 0, timer = null;
-  if (phone.matches && !still) {
-    var v = document.createElement('video');
-    v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', '');
-    v.poster = 'images/hero-phone.webp'; v.preload = 'auto';
-    v.innerHTML = '<source src="media/hero-phone.mp4" type="video/mp4">';
-    media.appendChild(v); slides.forEach(function (s) { s.style.display = 'none'; });
-    var p = v.play(); if (p && p.catch) p.catch(function () {});
-    cap.textContent = 'Our work · Glass helm walkaround';
-    return;
-  }
-  if (phone.matches) { slides[0].querySelector('img').src = 'images/hero-phone.webp'; }
   function load(s) { var im = s.querySelector('img'); if (im.dataset.src) { im.src = im.dataset.src; im.removeAttribute('data-src'); } }
   dots.innerHTML = slides.map(function (s, k) { return '<button type="button" aria-label="Show photo ' + (k + 1) + '"' + (k ? '' : ' aria-current="true"') + '></button>'; }).join('');
   function go(k) {
@@ -56,8 +46,8 @@ function progress(el) { var r = el.getBoundingClientRect(), span = r.height - in
 
 /* ---------------- statement: words light up as you scroll ---------------- */
 (function () {
-  var el = $('#bigWords'); var HL = { thousand: 1, labeled: 1, flush: 1, family: 1 };
-  el.innerHTML = el.textContent.split(' ').map(function (w) { return '<span class="w' + (HL[w.replace(/[^a-z]/gi, '').toLowerCase()] ? ' hl' : '') + '">' + w + '</span>'; }).join(' ');
+  var el = $('#bigWords'); var HL = { '1500': 1, labeled: 1, tested: 1, family: 1 };
+  el.innerHTML = el.textContent.split(' ').map(function (w) { return '<span class="w' + (HL[w.replace(/[^a-z0-9]/gi, '').toLowerCase()] ? ' hl' : '') + '">' + w + '</span>'; }).join(' ');
   var ws = $$('.w', el);
   if (still) { ws.forEach(function (w) { w.classList.add('lit'); }); return; }
   scrubbers.push(function () {
@@ -78,16 +68,19 @@ function progress(el) { var r = el.getBoundingClientRect(), span = r.height - in
 })();
 
 /* ---------------- lightbox ---------------- */
-var lb = $('#lightbox'), lbImg = $('#lbImg'), lbList = [], lbI = 0, lastFocus = null;
+var lb = $('#lightbox'), lbImg = $('#lbImg'), lbVid = $('#lbVid'), lbList = [], lbI = 0, lastFocus = null;
 function lbShow(first) {
   var it = lbList[lbI];
-  var set = function () { lbImg.src = it.f; lbImg.alt = it.cap || ''; };
+  var set = function () {
+    if (it.v) { lbImg.hidden = true; lbVid.hidden = false; lbVid.poster = it.p || ''; lbVid.src = it.f; var pp = lbVid.play(); if (pp && pp.catch) pp.catch(function () {}); lbImg.classList.remove('swap'); }
+    else { lbVid.pause(); lbVid.removeAttribute('src'); lbVid.hidden = true; lbImg.hidden = false; lbImg.src = it.f; lbImg.alt = it.cap || ''; }
+  };
   if (first) set(); else { lbImg.classList.add('swap'); setTimeout(set, 120); }
   lbImg.onload = function () { lbImg.classList.remove('swap'); };
   $('#lbCap').textContent = it.cap || '';
   $('#lbCount').textContent = lbList.length > 1 ? (lbI + 1) + ' / ' + lbList.length : '';
   $('#lbPrev').hidden = $('#lbNext').hidden = lbList.length < 2;
-  [lbI - 1, lbI + 1].forEach(function (k) { var n = lbList[(k + lbList.length) % lbList.length]; if (n) (new Image()).src = n.f; });
+  [lbI - 1, lbI + 1].forEach(function (k) { var n = lbList[(k + lbList.length) % lbList.length]; if (n && !n.v) (new Image()).src = n.f; });
 }
 function openLb(list, i) {
   lbList = list; lbI = i || 0; lastFocus = document.activeElement;
@@ -95,7 +88,7 @@ function openLb(list, i) {
   requestAnimationFrame(function () { lb.classList.add('open'); });
   $('#lbClose').focus();
 }
-function closeLb() { lb.classList.remove('open'); document.documentElement.style.overflow = ''; setTimeout(function () { lb.hidden = true; }, still ? 0 : 260); if (lastFocus) lastFocus.focus(); }
+function closeLb() { lbVid.pause(); lbVid.removeAttribute('src'); lb.classList.remove('open'); document.documentElement.style.overflow = ''; setTimeout(function () { lb.hidden = true; }, still ? 0 : 260); if (lastFocus) lastFocus.focus(); }
 function step(d) { lbI = (lbI + d + lbList.length) % lbList.length; lbShow(false); }
 $('#lbClose').addEventListener('click', closeLb);
 $('#lbPrev').addEventListener('click', function () { step(-1); });
@@ -211,6 +204,7 @@ var gFilter = 'all', gShown = 0, gList = [], gCols = [], gH = [], gN = 0;
 function page() { return innerWidth < 760 ? 14 : 30; }
 function nCols() { var w = innerWidth; return w < 560 ? 2 : w < 900 ? 3 : w < 1400 ? 4 : 5; }
 function tileHtml(d, i) {
+  if (d.v) return '<button type="button" class="tile vtile" data-i="' + i + '" style="background:' + d.k + '"><img src="' + P(d, 'p') + '" width="' + d.w + '" height="' + d.h + '" alt="' + capOf(d) + '" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="cat">' + capOf(d) + '</span></button>';
   return '<button type="button" class="tile" data-i="' + i + '" style="background:' + d.k + '"><img src="' + P(d, 't') + '" srcset="' + P(d, 's') + ' 480w, ' + P(d, 't') + ' 720w" sizes="(max-width: 560px) 50vw, (max-width: 900px) 33vw, (max-width: 1400px) 25vw, 20vw" width="' + d.w + '" height="' + d.h + '" alt="' + (d.alt || ALT[d.c]) + '" loading="lazy" decoding="async"><span class="cat">' + capOf(d) + '</span></button>';
 }
 function gPlace(from, to) {
@@ -253,7 +247,7 @@ $('#gFilters').addEventListener('click', function (e) { var b = e.target.closest
 $('#gMore').addEventListener('click', function () { gRender(true); });
 $('#gallery').addEventListener('click', function (e) {
   var t = e.target.closest('.tile'); if (!t) return;
-  openLb(gList.map(function (d) { return { f: P(d), cap: capOf(d) }; }), +t.getAttribute('data-i'));
+  openLb(gList.map(function (d) { return { f: P(d), cap: capOf(d), v: d.v, p: d.v ? P(d, 'p') : '' }; }), +t.getAttribute('data-i'));
 });
 $$('.row-go').forEach(function (b) { b.addEventListener('click', function () { setFilter(b.getAttribute('data-go')); $('#work').scrollIntoView({ behavior: smooth }); }); });
 gRender(false);

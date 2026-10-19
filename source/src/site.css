@@ -97,7 +97,7 @@ p { margin: 0; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; min-width: 0; }
 /* the logo's navy lettering needs a light backing to read crisply on dark backgrounds */
 .logo-plate { position: relative; display: inline-grid; place-items: center; flex: none; isolation: isolate; }
-.logo-plate::before { content: ""; position: absolute; inset: -6%; z-index: -1; border-radius: 50%; background: radial-gradient(circle at 50% 50%, #eef4fa 0 63%, rgba(238, 244, 250, .6) 66%, rgba(238, 244, 250, 0) 69%); }
+.logo-plate::before { content: none; }
 .logo-plate img { width: 100%; height: 100%; object-fit: contain; image-rendering: auto; }
 .brand-logo { width: 60px; height: 60px; transition: width .35s var(--ease), height .35s var(--ease); }
 .logo-plate.sm { width: 60px; height: 60px; transition: width .35s var(--ease), height .35s var(--ease); }
@@ -134,7 +134,7 @@ p { margin: 0; }
   linear-gradient(to bottom, rgba(2, 6, 11, .55) 0%, rgba(2, 6, 11, .05) 30%, rgba(2, 6, 11, .1) 60%, rgba(2, 6, 11, .92) 100%); }
 .hero-content { position: relative; z-index: 2; display: grid; justify-items: center; gap: clamp(14px, 2vw, 22px); padding: 96px var(--gutter) 120px; width: 100%; }
 .hero-logo { width: clamp(170px, 18vw, 260px); height: clamp(170px, 18vw, 260px); }
-.hero-logo::after { content: ""; position: absolute; inset: 4%; z-index: -2; border-radius: 50%; box-shadow: 0 20px 70px rgba(0, 0, 0, .7); }
+.hero-logo::after { content: ""; position: absolute; inset: 3% 3% 6%; z-index: -2; border-radius: 50%; box-shadow: 0 20px 70px rgba(0, 0, 0, .7); }
 .hero-title { display: grid; justify-items: center; line-height: .86; }
 .hero-title .ln { display: block; overflow: hidden; padding-bottom: .04em; }
 .hero-title .ln > span { display: block; font-size: clamp(3.2rem, 10.5vw, 10rem); letter-spacing: .01em; text-shadow: 0 6px 60px rgba(0, 0, 0, .55); }
@@ -473,3 +473,20 @@ footer li a:hover { color: var(--fg); }
   .scroll-cue span::after { animation: none; }
   .big-words .w { color: var(--fg); }
 }
+
+/* ---------- videos in the gallery ---------- */
+.vtile .play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: rgba(2, 6, 11, .55); border: 1.5px solid rgba(255, 255, 255, .7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .3s var(--ease), background .3s; }
+.vtile .play svg { width: 24px; height: 24px; margin-left: 3px; }
+.vtile:hover .play { transform: scale(1.1); background: var(--brand); border-color: var(--brand); }
+.vtile .cat { opacity: 1; transform: none; }
+.lb-stage video { max-width: 100%; max-height: 100%; border-radius: 6px; background: #000; }
+@media (max-width: 560px) { .vtile .play { width: 46px; height: 46px; margin: -23px 0 0 -23px; } .vtile .cat { display: block; font-size: .66rem; left: 6px; bottom: 6px; padding: 3px 8px; } }
+
+/* ---------- brand names ---------- */
+.brands { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; padding-top: 14px; border-top: 1px solid var(--line); font-family: var(--font-display); text-transform: uppercase; letter-spacing: .06em; font-size: 1.2rem; color: var(--fg-faint); }
+.brands b { color: var(--fg); font-size: 1.45rem; font-weight: 700; }
+.elec { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 10px clamp(22px, 4vw, 54px); margin-bottom: clamp(40px, 5vw, 64px); text-align: center; }
+.elec span { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1; color: var(--fg-dim); }
+.elec .elec-k { flex-basis: 100%; font-family: var(--font-mono); font-weight: 400; font-size: .76rem; letter-spacing: .18em; color: var(--fg-dim); margin-bottom: 6px; }
+.elec .elec-garmin { color: var(--fg); font-size: clamp(2.4rem, 5vw, 4.2rem); display: inline-flex; flex-direction: column; align-items: center; }
+.elec .elec-garmin small { font-family: var(--font-mono); font-weight: 500; font-size: .66rem; letter-spacing: .16em; color: var(--route); margin-top: 6px; }
